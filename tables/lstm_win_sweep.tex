@@ -1,0 +1,18 @@
+% intended caption: LSTM performance across window sizes on the ESP32-S3.
+% intended label: tab:lstm_win
+\begin{tabular}{lllccccc}
+\toprule
+\textbf{Model Input Shape} & Architecture & Quant & Size (KB) & Arena (KB) & Model Init Time In Micro & Inf ($\mu$s) & MSE \\
+\midrule
+\textbf{(1, 1, 25)} & LSTM(25, 25, 1) & float32 & 25.3 & 3.2 & 2137 & 1412 & 0 \\
+\textbf{(1, 1, 25)} & LSTM(25, 25, 1) & int8 & 15.5 & 5.5 & 3428 & 1531 & 0 \\
+\textbf{(5, 1, 25)} & LSTM(25, 25, 1) & float32 & 39.4 & 9.2 & 4828 & 3826 & 0 \\
+\textbf{(5, 1, 25)} & LSTM(25, 25, 1) & int8 & 41.3 & 21.1 & 12788 & 5812 & 0 \\
+\textbf{(25, 1, 25)} & LSTM(25, 25, 1) & float32 & 110.9 & 39.0 & 37316 & 15341 & 0 \\
+\textbf{(25, 1, 25)} & LSTM(25, 25, 1) & int8 & 170.7 & 110.1 & 104367 & 31326 & 0.0007 \\
+\textbf{(100, 1, 25)} & LSTM(25, 25, 1) & float32 & 377.3 & 148.5 & 849227 & 57349 & 0 \\
+\textbf{(100, 1, 25)} & LSTM(25, 25, 1) & int8 & 653.8 & 617.1 & 4469281 & 184434 & 0.0014 \\
+\textbf{(300, 1, 25)} & LSTM(25, 25, 1) & float32 & 1090.8 & 446.7 & 22476545 & 181748 & 0 \\
+\textbf{(300, 1, 25)} & LSTM(25, 25, 1) & int8 & 1946.2 & 3312.4 & 78304694 & 1070880 & 0.0010 \\
+\bottomrule
+\end{tabular}

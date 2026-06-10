@@ -1,0 +1,27 @@
+% intended caption: Conv performance on the ESP32-S3.
+% intended label: tab:conv
+\begin{tabular}{llccccll}
+\toprule
+\textbf{Architecture} & Quant & Size (KB) & Arena (KB) & Inf ($\mu$s) & MSE & Model Input Shape & Model Activation \\
+\midrule
+\textbf{Conv(in=1, out=10, L=1, k=(1, 5))} & float32 & 2.2 & 7.9 & 1813 & 0 & (1, 2, 50) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(1, 5))} & int8 & 2.5 & 2.6 & 1192 & 0.0003 & (1, 2, 50) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(1, 5))} & float32 & 2.2 & 1.7 & 461 & 0 & (1, 2, 10) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(1, 5))} & int8 & 2.5 & 1.0 & 540 & 0.0001 & (1, 2, 10) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(1, 10))} & float32 & 2.4 & 26.4 & 8546 & 0 & (1, 8, 50) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(1, 10))} & int8 & 2.6 & 7.2 & 3914 & 0.0003 & (1, 8, 50) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(1, 10))} & float32 & 2.4 & 120.1 & 61808 & 0 & (1, 8, 200) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(1, 10))} & int8 & 2.6 & 30.6 & 17456 & 0.0003 & (1, 8, 200) & ReLU \\
+\textbf{Conv(in=1, out=40, L=4, k=(1, 10))} & float32 & 35.0 & 38.0 & 138636 & 0 & (1, 8, 100) & ReLU \\
+\textbf{Conv(in=1, out=40, L=4, k=(1, 10))} & int8 & 15.0 & 22.5 & 56215 & 0.0010 & (1, 8, 100) & ReLU \\
+\textbf{Conv(in=1, out=40, L=4, k=(1, 10))} & float32 & 35.0 & 65.0 & 265715 & 0 & (1, 8, 200) & ReLU \\
+\textbf{Conv(in=1, out=40, L=4, k=(1, 10))} & int8 & 15.0 & 27.8 & 106052 & 0.0014 & (1, 8, 200) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(10, 10))} & float32 & 5.9 & 132.1 & 332771 & 0 & (1, 50, 50) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(10, 10))} & int8 & 3.4 & 33.6 & 67209 & 0.0004 & (1, 50, 50) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(10, 10))} & float32 & 5.9 & 3612.1 & 9149353 & 0 & (1, 224, 224) & ReLU \\
+\textbf{Conv(in=1, out=10, L=1, k=(10, 10))} & int8 & 3.4 & 903.6 & 2002723 & 0.0004 & (1, 224, 224) & ReLU \\
+\textbf{Conv(in=1, out=40, L=4, k=(10, 10))} & float32 & 301.1 & 47.1 & 1637829 & 0 & (1, 50, 50) & ReLU \\
+\textbf{Conv(in=1, out=40, L=4, k=(10, 10))} & int8 & 81.5 & 134.8 & 475574 & 0.0010 & (1, 50, 50) & ReLU \\
+\textbf{Conv(in=1, out=40, L=4, k=(10, 10))} & float32 & 301.1 & 809.7 & 25207949 & 0 & (1, 224, 224) & ReLU \\
+\bottomrule
+\end{tabular}

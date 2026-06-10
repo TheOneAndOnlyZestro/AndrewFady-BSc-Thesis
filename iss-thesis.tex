@@ -57,6 +57,16 @@
 
 \documentclass[12pt,DIV14,BCOR12mm,a4paper,footinclude=false,headinclude,parskip=half-,twoside,openright,cleardoublepage=empty,toc=index,bibliography=totoc,listof=totoc]{scrreprt}
 % encoding needs to be defined here, otherwise umlauts on the titelpage won't work.
+\newcommand{\fittable}[1]{%
+  \begingroup
+  \sbox0{\input{#1}}%
+  \ifdim\wd0>\textwidth
+    \resizebox{\textwidth}{!}{\usebox0}%
+  \else
+    \usebox0%
+  \fi
+  \endgroup
+} 
 \usepackage[utf8]{inputenc}
 %
 %
@@ -70,8 +80,8 @@
 % Language: 
 % affects generic titles, Figure term, titlepage and bibliography
 % (Note:if you switch the language, compile tex and bib >2 times)
-%\def \doclang{english} 	% For theses/reports in English
-\def \doclang{german} 		% For theses/reports in German
+\def \doclang{english} 	% For theses/reports in English
+%\def \doclang{german} 		% For theses/reports in German
 
 % Hyperref links in the document:
 \def \colortype{color} % links with colored text
@@ -86,19 +96,22 @@
 % *****************************************************************
 % Please fill in all items denoted by "to be defined (TBD)"
 \def \deworktitle{Arbeitstitel, to be defined (TBD)}        % German title/translation
-\def \enworktitle{Thesis title TBD}        % English title/translation
-\def \tutor{Supervisor's name TBD}
-\def \student{Student's name TBD}
-\def \worksubject{Masterarbeit Dxxxx TBD}  % type and number (S/Dxxxx) of your thesis
-\def \startdate{Date of work begin TBD}
-\def \submission{Date of submission TBD}
+\def \enworktitle{Implementation of an Electromyography Processing Pipeline from Torch model to TinyML on resource-constrained microcontroller platforms}        % English title/translation
+\def \tutor{Jonas Koellner, Prof. Dr Turker Ince}  % name of your supervisor
+\def \student{Andrew Fady Fahmy}  % your name
+\def \worksubject{Bachelorarbeit S1509}  % type and number (S/Dxxxx) of your thesis
+\def \startdate{01/03/2026}
+\def \submission{30/06/2026}
 \def \signagedate{TBD Date of sign.}   % Date of signature of declaration on last page
-\def \keywords{Keyword1, Keyword2 TBD}
+\def \keywords{sEMG, TinyML, Digital Signal Processing, Deep Learning, regression,
+ Limited-Resource Microcontroller Platforms} % keywords for your thesis
 \def \abstract{Abstract TBD}
 
 % *****************************************************************
 %
-
+\usepackage{tabularx}      % auto-width X column for the NN/SIMD text
+\usepackage{makecell}      % \makecell and \shortstack for stacked cells
+\usepackage{graphicx}      % \rotatebox for vertical headers
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -278,47 +291,201 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
 % *****************************************************************
 % -------------------> start writing here <------------------------
 
-\chapter{Introduction}
-\section{Explanations}
-As shown in \cite{C2}, we present an equation
-\begin{align}
-	H(\omega) = \int h(t) \e{\im\omega t} \delta t \in \N
-\end{align}
+\chapter{Basics and Foundations}
+  \section{EMG and Deep Learning Pipelines for Bioelectric Signal Processing}
+    \subsection{Bioelectric Signals and Human Machine Interaction (HMI)}
 
-Then we include a graphic in figure \ref{mind} and information about captions in table \ref{captions}.\\
-\begin{figure}
-	\centering
-	\includegraphics[scale=.3]{isslogocolor}
-	\caption{A beautiful mind}
-	\label{mind}
-\end{figure}
+    Bioelectric signals are simply defined as a biological signal that originates
+    from a human body, they are the sum of action potentials of cells at an anatomical site
+    such as the heart, brain, or skeletal muscle  \cite{martinek_advanced_2021}. These signals have been used extensively
+    in Human Machine Interaction as they provide key insights about human's physiological activity as well as 
+    presenting a more natural interaction medium between humans and computers. Although our primary focus in this
+    work is about Electromyography (EMG) signals, we will frequently discuss other commonly researched bioelectric signals
+    such as EEG (Electroencephalogram) and ECG (Electrocardiogram) signals given the abundance of useful HMI research 
+    conducted using these 2 domains.
 
-\begin{table}
+    \subsection{Electromyography (EMG) Basics}
+
+    Electromyography is the recording of electrical activity in muscle. These electrical impulses originate
+    from the spinal cord and propagate all the way to the peripheral nerves activating muscular contraction \cite{zheng_surface_2022}. 
+    The motor neurons and the muscle fibers they innervate are defined as Motor Units which are recruited by these electrical impulses
+    producing electrical signals. Professional electromyographers analyze characteristics features of these signals (i.e waveforms, firing rates, frequency of abrupt discharges, etc)
+    deriving useful diagnostic information to identify abnormalities and different neural and muscle diseases
+
+    The recording of EMG signals is mainly classified into two main categories. The first is intramuscular electromyography (iEMG) which is an invasive technique that
+    includes inserting concentric needle electrodes inserted directly into muscle. The other is surface electromyography (sEMG) which is a non-invasive technique involving the placement of
+    adhesive surface electrodes on skin surface. While iEMG has proven to be more effective in diagnosing medical conditions and abnormalities, sEMG dominate the HMI and gesture recognition
+    sector due to its non-invasive nature, wider accessibility without the need of trained experts and user comfort \cite{valcheva_surface_2026}. 
+
+    In this study, we exclusively focus on sEMG data for the reasons mentioned above
+    \subsection{EMG Signal Preprocessing and Feature Extraction}
+    Raw EMG signals suffer from many issues that obscure its insightful value.
+    \subsection{Deep Learning (DL) Pipelines for Bioelectric Signal Processing}
+    \subsection{Deep Learning (DL) for EMG Signal Processing}
+
+  \section{TinyML and Resource-Constrained Microcontroller Platforms} 
+    \subsection{Microcontrollers}
+    A Microcontroller unit (MCU) is a self-contained computer implemented on a single integrated circuit. It includes necessary units for regular computation like
+    a fully functioning CPU, integrated memory (RAM), Permanent FLASH memory, IO pins, etc. The adoption of MCUs have seen rapid growth in recent years due to the development of
+    IoT systems (Internet of Things) that needs multiple MCU devices to control, process and compute useful insights from on-ground sensors and communicate it effectively through dedicated
+    channels and networks for further processing and decision-making.
+
+    Many key vendors include Arduino (well known for their UNO and Nano modules), Espressif Systems who produce ESP32 MCUs, STMicroelectornics with STM32s, etc.
+    The MCU landscape is constantly shif ting every day with new innovations.
+
+    \subsection{Limitations and Constraints of Microcontroller Platforms}
+    Given their cheap cost, small footprint and low-power consumption, MCUs come with many constraints and downgrades relative to personal and heavy computing devices.
+
+    For starters, on-chip memory is 3 orders of magnitude smaller than mobile devices and 5-6 orders of magnitude smaller than cloud GPUs \cite{lin_mcunet_2020}. In addition, their
+    CPU clock rate are in MHz range compared to modern personal-use processors which are in the GHz range. Another important aspect is the lack of GPUs or Parallel Processing Units which severely
+    limits the MCU at processing SIMD instructions and vector functions which traditionally limited their use in Graphics and ML fields. Furthermore, Software development for MCUs is notoriously convoluted due to 
+    fragmented vendor-specific sdks and frameworks, the wide use of deprecated software in order to accommodate MCU needs and lack of continuous support and maintenance for development frameworks.
+
+    
+    \begin{table}[htbp]
     \centering
-    \caption{Where to put the caption}
-    \label{captions}
-    \begin{tabular}{lcc}
-        \toprule
-         & above & below\\
-        \midrule
-        for figures & no & yes\\
-        for tables & yes & no\\
-        \bottomrule
+    \caption{Comparison of Commercially Available MCUs for Edge ML Applications}
+    \label{tab:mcu_comparison}
+    \renewcommand{\arraystretch}{1.3}
+    \scriptsize
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabular}{|l|p{2.6cm}|c|p{2.0cm}|p{2.7cm}|c|}
+    \hline
+    \textbf{MCU} & \textbf{Processor (CPU / cores / clock)} & \textbf{WiFi /BT} & \textbf{Memory \& FPU} & \textbf{NN / SIMD} & \textbf{Cost (USD)} \\ \hline
+
+    ESP32 & Xtensa 32-bit LX6, 2 cores, 240\,MHz & Yes & SRAM 520\,KB PSRAM 8\,MB Flash 16\,MB ext. FPU SP & ESP-DL / ESP-NN & \$3--8 \\ \hline
+
+    ESP32-S3 & Xtensa 32-bit LX7, 2 cores, 240\,MHz & Yes & SRAM 520\,KB PSRAM 8\,MB Flash 16\,MB ext. FPU SP  & ESP-DL / ESP-NN & \$4--10 \\ \hline
+
+    Pi Pico (RP2040) & Arm Cortex-M0+, 2 cores, 133\,MHz & W only & SRAM 264\,KB PSRAM ext. Flash 2\,MB (16 ext.). & CMSIS-NN (no SIMD) & \$4--6 \\ \hline
+
+    Arduino Nano & ATmega328P (AVR 8-bit), 1 core, 16\,MHz & No & SRAM 2\,KB; PSRAM no; Flash 32\,KB; FPU no & None & \$10--25 \\ \hline
+
+    STM32 (H7 ex.) & Arm Cortex-M7, 1--2 cores, 480\,MHz & No & SRAM 1\,MB; PSRAM ext.; Flash 2\,MB; FPU DP  & CMSIS-NN/DSP (no MVE) & \$8--20 \\ \hline
+
+    STM32N6 & Arm Cortex-M55 + Neural-ART NPU, 1 core, 800\,MHz & No & SRAM 4.2\,MB; PSRAM ext.; Flash flashless; FPU H/SP/DP  & Helium SIMD + NPU 600\,GOPS; ST Edge AI & \$5--12 \\ \hline
+
     \end{tabular}
-\end{table}
+    \end{table}
+
+    \subsection{TinyML Overview}
+    In the past, the only solution for IoT ML and DL processing was CloudML. This process involved using the communication capabilities of MCUs, e.g WIFI, in order
+    to send raw sensor data to cloud servers, with much powerful computing capabilities, for processing and then retrieving commands from those servers in order to take physical actions.
+    While this utilized the full capabilities of Cloud-Cluster and reduced the required specs for IoT devices, this approach suffers form critical issues:
+    \\\\
+    1) Reduced output latency due to data + command Round Trips to and from the servers. \\
+    \\
+    2) The need for good wifi connections which was not applicable in many cases. \\
+    \\
+    3) Exposing security vulnerabilities and privacy concerns.\\
+    \\
+    4) The need for developing possibly expensive server infrastructures.\\
+
+    These reasons were the main catalysts for EdgeML research which focussed on optimizing ML frameworks in order to run on mobile edge devices and MCUs. 
+    TinyML is a subclass of EdgeML which focusses on squeezing deep learning model on cheap, tiny MCUs through optimizing ML kernels and hardware to fit the constraints at hand.
+
+    Since then, TinyML has gained wide traction and adoption in many sectors that previously relied on CloudML. This includes Smart Home devices which benefits form object detection and face recognition DL models,
+    smart watches and wearable devices for instantaneous detection of medical abnormalities and handling emergency situations faster, Human machine interaction specifically developing Gesture recognition software for more immersive 
+    experiences, etc. 
+
+    \subsection{TinyML Frameworks and tools}
+
+    Different paradigms have been suggested and developed for TinyML development. The most popular approach for TinyML is through 
+    \subsection{Applications of TinyML in Bioelectric Signal Processing}
+
+  \chapter{State of The Art (SoTA)}
+    \subsection{EMG Signal Processing Pipelines on Microcontroller Platforms}
+    \subsection{EMG Signal Processing Pipelines with TinyML Frameworks}
+
+\chapter{Materials and Methods}
+
+  \section{Dataset Description and Preprocessing}
+    \subsection{NinaPro DB2 Dataset}
+    \subsection{Preprocessing and Feature Extraction}
+
+  \section{Deep Learning Model Architecture}
+
+  \section{Hardware}
+    \subsection{ESP32-S3 Specifications}
+
+  \section{Software and Tools}
+      \subsection{ESP-NN Library}
+      \subsection{LiteRT (Tensorflow Lite) Framework}
+      \subsection{LabStreaming Layer (LSL) for Data Acquisition and Real-Time Processing}
+  
+  \section{Quantization}
+  Normally, Deep learning pipelines rely on floating point operations and embed their parameters (i.e weights and biases) as float64s and float32s.
+  Unfortunately, not all MCU architectures have embedded FPU (floating point units) to handle calculations in floating point notations.
+  In addition, chips that have dedicated FPUs in their architecture, for handling float32 data, suffer from longer processing times and resource intensive operation.
+  Furthermore, floating point numbers necessitate larger spaces in memory for tensor allocations (i.e inputs, outputs, model parameters and activations).
+  \\
+  For these reasons, different quantization schemes are unanimously adopted across TinyML literature It is also the case on many MCU platforms (like the ESP32 and ESP32s3),
+  that optimized low-level kernels for ML ops (like Convolutions and MatMuls) are exclusively written with quantization schemes, like INT8, in mind.
+  \subsection{Quantization Types and Schemes}
+  Quantization schemes have been categorized into many section. In this work, we are going to outline schemes that are only relevant to TinyML research.
+  \subsubsection{Categorization according to Data Types}
+  By default, popular frameworks like PyTorch, Tensorflow and JAX utilize single-precision floating point numbers (float32s).
+  Quantization schemes can then be categorized into the output data types that these float32s are converted to. 
+  \\\\
+  \textbf{Float16} quantization uses half the space used by float32s while maintaining the floating point interface as float32s.
+  However, float16 adoption in MCU architectures still remain rare. Most MCUs don't have dedicated kernels for handling float16s and just
+  use float32 interfaces rendering float16 optimizations completely useless. Others are unable to handle float16 data and immediately throw exceptions.
+  \\\\
+  \textbf{Int8, Int16, Int32, Int64} quantization are by the most used. Most MCU architectures are optimized for handling integer operations which 
+  makes int quantization adoption easier and more natural. Low-Level kernels usually use a mix of various integer sizes in their internal Implementation,
+  usually inputs, outputs and weights are int8 while biases use larger formats like int32s.
+
+  \subsubsection{Categorization according to Data Types}
 
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-\newpage
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  
+  \subsection{Quantization Scheme Used}
+\chapter{Results}
+  \section{Comparison of ML Ops Performance on the ESP32-S3 using Random Weights under different Quantization Schemes}
+      \begin{table}[htbp]
+      \centering
+      \caption{LSTM performance across hidden size and layer depth on the ESP32-S3.}
+      \label{tab:lstm_hl}
+      \small
+      \fittable{tables/lstm_hl_sweep.tex}
+    \end{table}
 
+    \begin{table}[htbp]
+      \centering
+      \caption{LSTM performance across window sizes on the ESP32-S3.}
+      \label{tab:lstm_win}
+      \small
+      \fittable{tables/lstm_win_sweep.tex}
+    \end{table}
+
+    \begin{table}[htbp]
+      \centering
+      \caption{CNN performance on the ESP32-S3.}
+      \label{tab:conv}
+      \small
+      \fittable{tables/conv_sweep.tex}
+    \end{table}
+
+    \begin{table}[htbp]
+      \centering
+      \caption{Dense layers performance on the ESP32-S3.}
+      \label{tab:dense}
+      \small
+      \fittable{tables/dense_sweep.tex}
+    \end{table}
+  \section{Comparison of different Model Configurations}  
+
+\chapter{Discussion}
+  \section{Software Challenges}
+  \section{LSTM Compatibility and Overhead}
+
+\chapter{Conclusion}
+  \section{Conclusion}
+  \section{Limitations}
+  \section{Future Work}
 
 \appendix
 \chapter{Additionally}
-You may do an appendix
-
-
-
 % -------------------> end writing here <------------------------
 % *****************************************************************
 \listoffigures

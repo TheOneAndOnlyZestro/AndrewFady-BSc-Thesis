@@ -1,0 +1,15 @@
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces Comparison of Commercially Available MCUs for Edge ML Applications}}{3}{table.caption.2}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces LSTM performance across hidden size and layer depth on the ESP32-S3.}}{9}{table.caption.5}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces LSTM performance across window sizes on the ESP32-S3.}}{9}{table.caption.6}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces CNN performance on the ESP32-S3.}}{10}{table.caption.7}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Dense layers performance on the ESP32-S3.}}{10}{table.caption.8}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\def \@chapapp {\appendixname }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

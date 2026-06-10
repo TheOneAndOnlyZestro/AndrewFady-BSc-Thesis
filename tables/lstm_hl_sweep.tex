@@ -1,0 +1,23 @@
+% intended caption: LSTM performance across hidden size and layer depth on the ESP32-S3.
+% intended label: tab:lstm_hl
+\begin{tabular}{llccccl}
+\toprule
+\textbf{Architecture} & Quant & Size (KB) & Arena (KB) & Inf ($\mu$s) & MSE & Model Input Shape \\
+\midrule
+\textbf{LSTM(10, 10, 1)} & float32 & 8.9 & 2.5 & 706 & 0 & (1, 1, 10) \\
+\textbf{LSTM(10, 10, 1)} & int8 & 10.0 & 3.9 & 950 & 0 & (1, 1, 10) \\
+\textbf{LSTM(60, 60, 1)} & float32 & 118.2 & 5.0 & 5222 & 0 & (1, 1, 60) \\
+\textbf{LSTM(60, 60, 1)} & int8 & 42.0 & 9.4 & 3716 & 0 & (1, 1, 60) \\
+\textbf{LSTM(200, 200, 1)} & float32 & 1255.7 & 12.1 & 42908 & 0 & (1, 1, 200) \\
+\textbf{LSTM(200, 200, 1)} & int8 & 339.5 & 24.8 & 27738 & 0 & (1, 1, 200) \\
+\textbf{LSTM(400, 400, 1)} & float32 & 5005.7 & 0.0 & 0 & -- & (1, 1, 400) \\
+\textbf{LSTM(400, 400, 1)} & int8 & 1295.8 & 46.9 & 95646 & 0 & (1, 1, 400) \\
+\textbf{LSTM(25, 25, 1)} & float32 & 25.3 & 3.2 & 1350 & 0 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 1)} & int8 & 15.5 & 5.5 & 1520 & 0 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 2)} & float32 & 52.9 & 6.3 & 3229 & 0 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 2)} & int8 & 34.3 & 10.7 & 3510 & 0.0104 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 3)} & float32 & 78.5 & 8.8 & 4276 & 0 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 3)} & int8 & 50.8 & 15.5 & 5082 & 0.0018 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 4)} & float32 & 104.0 & 11.1 & 5469 & 0 & (1, 1, 25) \\
+\bottomrule
+\end{tabular}
