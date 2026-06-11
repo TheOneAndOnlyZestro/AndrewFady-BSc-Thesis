@@ -1,0 +1,18 @@
+% intended caption: Dense layer performance across different input sizes on the ESP32-S3.
+% intended label: tab:dense
+\begin{tabular}{lllccccl}
+\toprule
+\textbf{Model Input Shape} & Architecture & Quant & Size (KB) & Arena (KB) & Inference ($\mu$s) & MSE & Model Activation \\
+\midrule
+\textbf{(1, 1, 25)} & Dense(25$\to$2, L=1) & float32 & 1.1 & 0.5 & 138 & 0 & -- \\
+\textbf{(1, 1, 25)} & Dense(25$\to$2, L=1) & int8 & 1.1 & 0.5 & 193 & 0 & -- \\
+\textbf{(1, 1, 50)} & Dense(50$\to$2, L=1) & float32 & 1.3 & 0.6 & 141 & 0 & -- \\
+\textbf{(1, 1, 50)} & Dense(50$\to$2, L=1) & int8 & 1.1 & 0.5 & 209 & 0 & -- \\
+\textbf{(1, 1, 100)} & Dense(100$\to$2, L=1) & float32 & 1.7 & 0.8 & 152 & 0 & -- \\
+\textbf{(1, 1, 100)} & Dense(100$\to$2, L=1) & int8 & 1.2 & 0.6 & 239 & 0.0002 & -- \\
+\textbf{(1, 1, 150)} & Dense(150$\to$2, L=1) & float32 & 2.1 & 1.0 & 173 & 0 & -- \\
+\textbf{(1, 1, 150)} & Dense(150$\to$2, L=1) & int8 & 1.3 & 0.6 & 271 & 0 & -- \\
+\textbf{(1, 1, 200)} & Dense(200$\to$2, L=1) & float32 & 2.5 & 1.2 & 168 & 0 & -- \\
+\textbf{(1, 1, 200)} & Dense(200$\to$2, L=1) & int8 & 1.4 & 0.7 & 301 & 0.0002 & -- \\
+\bottomrule
+\end{tabular}

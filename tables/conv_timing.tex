@@ -1,0 +1,21 @@
+% intended caption: Conv2D layer timing and accuracy across quantization and PSRAM on the ESP32-S3.
+% intended label: tab:conv_timing
+\begin{tabular}{lcccccccc}
+\toprule
+ & \multicolumn{4}{c}{PSRAM} & \multicolumn{4}{c}{No PSRAM} \\
+ & \multicolumn{2}{c}{Float32} & \multicolumn{2}{c}{Int8} & \multicolumn{2}{c}{Float32} & \multicolumn{2}{c}{Int8} \\
+ & Inf ($\mu$s) & MSE & Inf ($\mu$s) & MSE & Inf ($\mu$s) & MSE & Inf ($\mu$s) & MSE \\
+\midrule
+Conv(in=1, out=10, L=1, k=(1, 5)) & 1813 & 0 & 1198 & 0.0003 & 1574 & 0 & 1191 & 0.0003 \\
+Conv(in=1, out=10, L=2, k=(1, 5)) & 2933 & 0 & 1768 & 0.0005 & 2908 & 0 & 1755 & 0.0005 \\
+Conv(in=1, out=10, L=3, k=(1, 5)) & 2807 & 0 & 1701 & 0.0036 & 2785 & 0 & 1680 & 0.0036 \\
+Conv(in=1, out=10, L=4, k=(1, 5)) & 2464 & 0 & 1556 & 0.0022 & 2453 & 0 & 1548 & 0.0022 \\
+Conv(in=1, out=10, L=1, k=(2, 2)) & 1636 & 0 & 1133 & 0.0002 & 1472 & 0 & 1125 & 0.0002 \\
+Conv(in=1, out=10, L=1, k=(1, 10)) & 2338 & 0 & 1308 & 0.0002 & 2260 & 0 & 1305 & 0.0002 \\
+Conv(in=1, out=10, L=1, k=(1, 20)) & 3386 & 0 & 1458 & 0.0002 & 3297 & 0 & 1436 & 0.0002 \\
+Conv(in=1, out=10, L=1, k=(1, 30)) & 4118 & 0 & 1526 & 0.0002 & 4014 & 0 & 1514 & 0.0002 \\
+Conv(in=1, out=1, L=1, k=(1, 5)) & 389 & 0 & 448 & 0.0002 & 386 & 0 & 445 & 0.0002 \\
+Conv(in=1, out=20, L=1, k=(1, 5)) & 3439 & 0 & 1433 & 0.0003 & 2943 & 0 & 1353 & 0.0003 \\
+Conv(in=1, out=30, L=1, k=(1, 5)) & 5077 & 0 & 2694 & 0.0003 & 4253 & 0 & 2469 & 0.0003 \\
+\bottomrule
+\end{tabular}

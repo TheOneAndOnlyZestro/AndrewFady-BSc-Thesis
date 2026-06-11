@@ -1,0 +1,13 @@
+\begin{tabular}{llccccl}
+\toprule
+\textbf{Architecture} & Quant & Size (KB) & Arena (KB) & Inf ($\mu$s) & MSE & Model Input Shape \\
+\midrule
+\textbf{LSTM(25, 25, 1)} & float32 & 25.3 & 3.2 & 1350 & 0 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 1)} & int8 & 15.5 & 5.5 & 1520 & 0 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 2)} & float32 & 52.9 & 6.3 & 3229 & 0 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 2)} & int8 & 34.3 & 10.7 & 3510 & 0.0104 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 3)} & float32 & 78.5 & 8.8 & 4276 & 0 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 3)} & int8 & 50.8 & 15.5 & 5082 & 0.0018 & (1, 1, 25) \\
+\textbf{LSTM(25, 25, 4)} & float32 & 104.0 & 11.1 & 5469 & 0 & (1, 1, 25) \\
+\bottomrule
+\end{tabular}

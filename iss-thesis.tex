@@ -407,23 +407,28 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
 
   \section{Hardware}
     \subsection{ESP32-S3 Specifications}
-
-  \section{Software and Tools}
-      \subsection{ESP-NN Library}
-      \subsection{LiteRT (Tensorflow Lite) Framework}
-      \subsection{LabStreaming Layer (LSL) for Data Acquisition and Real-Time Processing}
   
   \section{Quantization}
-  Normally, Deep learning pipelines rely on floating point operations and embed their parameters (i.e weights and biases) as float64s and float32s.
-  Unfortunately, not all MCU architectures have embedded FPU (floating point units) to handle calculations in floating point notations.
-  In addition, chips that have dedicated FPUs in their architecture, for handling float32 data, suffer from longer processing times and resource intensive operation.
-  Furthermore, floating point numbers necessitate larger spaces in memory for tensor allocations (i.e inputs, outputs, model parameters and activations).
+  Normally, Deep learning pipelines rely on floating point operations and embed their parameters (i.e weights and biases)
+  as float32s. Unfortunately, not all MCU architectures have embedded FPU (floating point units) to handle calculations
+  in floating point notations. In addition, chips that have dedicated FPUs in their architecture, for handling float32
+  data, suffer from longer processing times and resource intensive operation compared to the faster integer arithmetic
+  units \cite{krishnamoorthiQuantizingDeepConvolutional2018,jacobQuantizationTrainingNeural2017,nagelWhitePaperNeural2021}.Furthermore, floating point numbers necessitate
+  larger spaces in memory for tensor allocations (i.e inputs, outputs, model parameters and activations)
+  \cite{krishnamoorthiQuantizingDeepConvolutional2018}.
   \\
-  For these reasons, different quantization schemes are unanimously adopted across TinyML literature It is also the case on many MCU platforms (like the ESP32 and ESP32s3),
+  For these reasons, different quantization schemes are widely adopted across TinyML literature It is also the case on many MCU platforms (like the ESP32 and ESP32s3),
   that optimized low-level kernels for ML ops (like Convolutions and MatMuls) are exclusively written with quantization schemes, like INT8, in mind.
+  In fact, 8-bit quantization has been shown to reduce model sizes by a factor of 4 and produce a speedup gain of 2x-3x ,even 
+  10x on specialized processors, compared to float Implementations\cite{krishnamoorthiQuantizingDeepConvolutional2018}.
+
+  On the other hand, quantization algorithms are not lossless since they map a continuous floating point representation into a discrete
+  range. A degradation in final accuracy is always expected in quantized outputs. That's why quantization pipelines require careful fine-tuning to balance
+  quality and performance.  
   \subsection{Quantization Types and Schemes}
   Quantization schemes have been categorized into many section. In this work, we are going to outline schemes that are only relevant to TinyML research.
-  \subsubsection{Categorization according to Data Types}
+  
+  \subsubsection{Data Types}
   By default, popular frameworks like PyTorch, Tensorflow and JAX utilize single-precision floating point numbers (float32s).
   Quantization schemes can then be categorized into the output data types that these float32s are converted to. 
   \\\\
@@ -431,48 +436,198 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   However, float16 adoption in MCU architectures still remain rare. Most MCUs don't have dedicated kernels for handling float16s and just
   use float32 interfaces rendering float16 optimizations completely useless. Others are unable to handle float16 data and immediately throw exceptions.
   \\\\
-  \textbf{Int8, Int16, Int32, Int64} quantization are by the most used. Most MCU architectures are optimized for handling integer operations which 
+  \textbf{Int8, Int16, Int32} quantization are by far the most used. Most MCU architectures are optimized for handling integer operations which 
   makes int quantization adoption easier and more natural. Low-Level kernels usually use a mix of various integer sizes in their internal Implementation,
-  usually inputs, outputs and weights are int8 while biases use larger formats like int32s.
+  usually inputs, outputs and weights are int8 while biases use larger formats like int32s. 
 
-  \subsubsection{Categorization according to Data Types}
+  \subsubsection{Asymmetric vs symmetric quantization}
+  \textbf{symmetric} quantization restricts the zero-point to 0. It only computes the scale of the floating-point values 
+  as the ration between the absolute maximum value in the floating point range and the maximum value in the quantization
+  range. Commonly used for quantizing weights and biases as\cite{krishnamoorthiQuantizingDeepConvolutional2018}. The
+  reason why it is preferred for weights is because using asymmetric quantization (with an additional zero-point value
+  for weights) adds an additional term to each \textbf{W . x} calculation which costs additional compute time during inference
+  \cite{nagelWhitePaperNeural2021}.
 
+  \begin{equation}
+  \begin{aligned}
+      x_{int} &= \operatorname{round}\!\left(\frac{x}{\Delta}\right) \\
+      x_{Q} &= \operatorname{clamp}\!\left(-N_{levels}/2,\; N_{levels}/2 - 1,\; x_{int}\right) && \text{if signed} \\
+      x_{Q} &= \operatorname{clamp}\!\left(0,\; N_{levels} - 1,\; x_{int}\right) && \text{if un-signed} \\
+      x_{out} &= x_{Q}\,\Delta && \text{(de-quantization)}
+  \end{aligned}
+  \end{equation}
 
+  \textbf{Asymmetric} quantization calculates an optimal new zero-point value to map the floating point zero to it. Preferred for activations.
+  \subsubsection{Quantization Aware Training (QAT) vs Post Training Quantization (PTQ)}
   
+  \begin{equation}
+  \begin{aligned}
+      x_{int} &= \operatorname{round}\!\left(\frac{x}{\Delta}\right) + z \\
+      x_{Q} &= \operatorname{clamp}\!\left(0,\; N_{levels} - 1,\; x_{int}\right) \\
+      x_{float} &= (x_{Q} - z)\,\Delta && \text{(de-quantization)}
+  \end{aligned}
+  \end{equation}
+
+  \textbf{Post Training Quantization (PTQ)} works on quantization pre-trained DL models, trained using default floating-point numbers.
+  The quantizing algorithm takes pre-trained weights and biases and calculates the appropriate scaling and shifting parameters. For activations,
+  it uses a representative dataset (representing a sample of input values in floating space) and propagates it through the model to get a closer 
+  statistical model of how values fluctuate in the actual model in order to map it to the quantized range. PTQs are widely adopted in pipelines 
+  that aim at deploying normal, pre-trained models, usually not co-designed for TinyML use, on Edge device without having to re-train the model
+  \cite{krishnamoorthiQuantizingDeepConvolutional2018,nagelWhitePaperNeural2021}.
+  \\\\
+  \textbf{Quantization Aware Training (QAT)} involves having quantization in mind
+  during the training of the actual model, with simulated quantization applied at every
+  step of gradient descent so that the model learns to compensate for quantization noise.
+  The weights are maintained in floating point and updated using floating-point gradients,
+  while a simulated quantization operation (fake quantization) emulates the effect of
+  integer inference during the forward and backward passes. While this method can provide
+  higher accuracies than PTQ \cite{krishnamoorthiQuantizingDeepConvolutional2018,nagelWhitePaperNeural2021}, it
+  necessitates active co-design of the DL model and is not viable for quantizing all
+  available models, since it requires retraining in the presence of simulated quantization,
+  which demands additional training resources and time-consuming retraining.
+
+  \begin{equation}
+  \begin{aligned}
+      w_{float} &= w_{float} - \eta\,\frac{\partial L}{\partial w_{out}}\cdot I_{w_{out}\in(w_{min},\,w_{max})} \\
+      w_{out} &= \operatorname{SimQuant}(w_{float})
+  \end{aligned}
+  \end{equation}
+  
+  \subsubsection{Hybrid vs Full quantization}
+  \textbf{Hybrid} quantization is defined as quantizing the inputs, weights and biases only while leaving intermediate activations
+  as floating point. While this can improve final accuracy since a full quantization is not adopted and activations remain in their full floating point
+  resolution, many MCU platforms and frameworks do not fully support mixed precision computation. In addition, Hybrid models produced the overhead of having
+  to requantize activations after each neural layer which can detrimentally impact the final inference time and the needed allocation space for larger float32 intermediate
+  values.
+  \\\\
+  \textbf{Full} quantization involves the quantization of the entire Pipeline eliminating the need for intermittent requantization steps and produces more faster
+  and more lightweight models since there are not intermediate floats. However, for full quantization, more overhead is needed for calculating additional quantization
+  parameters for activation layers and , depending on the quantization scheme used, may require a set of representative data to calculate those quantization parameters.s
+  
+  \subsubsection{Quantization granularity}
+  Quantization can be done with varying degrees of resolution at the cost of producing an increasing amount of quantization parameters and settings.
+
+  \textbf{Per Tensor} quantization involves calculating scaling and shifting params for each tensor involved in the pipeline. 
+  This scheme is preferred for activations \cite{krishnamoorthiQuantizingDeepConvolutional2018}.
+  \\\\
+  \textbf{Per Channel} quantization involves having a set of quantization params per each channel in a tensor. This presents
+  a more granular quantization scheme as it accounts for distribution differences between individual channels in the data at hand.
+  This is the recommended method for stored weights \cite{krishnamoorthiQuantizingDeepConvolutional2018,nagelWhitePaperNeural2021}.
+
   \subsection{Quantization Scheme Used}
+  In this work, we opted for a PTQ quantization scheme. In order to comply with ESP-NN backend functions, we use full int8 quantization across the 
+  entire model with int32 accumulators and int32 for biases as presented here \cite{jacobQuantizationTrainingNeural2017}. Since ESP-NN uses the same quantization schemes as TFlite runtime, 
+  we are using per tensor asymmetric quantization for inputs and activations while using symmetric per channels quantization
+  for both weights and biases. Similar 8-bit PTQ schemes, with per channel quantization for weights and per layer quantization of activations, have shown
+  accuracies within 2 percent of floating point networks, particularly for CNN architectures \cite{krishnamoorthiQuantizingDeepConvolutional2018}. 
+
+\section{Software and Tools}
+  \subsection{ESP-NN Library}
+  The ESP-NN library contains optimized NN (Neural Network) functions for various Espressif chips. They are the backend used
+  by TensorFlow Lite Micro on esp32 chips. It supports ESP32, ESP32-S3, ESP32-P4 and ESP32-C3 chips. While it provides
+  generic optimizations for most chips, it provide assembly optimized versions for ML dedicated chips like ESP32-S3.
+
+  The optimized ESP-NN libraries on ESP32-S3 chip are only dedicated for Int8 quantized operations. For matrix multiplications,
+  the core arithmetic operations behind fully connected and LSTM layers, 2 functions are available for use.
+  \texttt{esp\_nn\_fully\_connected} which is used for per tensor weight quantization and the \texttt{esp\_nn\_fully\_connected\_per\_ch} variant for per channel quantized weights.
+
+  Similar to \cite{jacobQuantizationTrainingNeural2017}, ESP-NN uses int32 accumulators for accumulating the intermediate products in matmul operations.
+  This follows directly from the integer-arithmetic-only formulation of \cite{jacobQuantizationTrainingNeural2017}, where each real value $r$ is represented
+  through an affine mapping $r = S(q - Z)$ from its quantized integer $q$, with scale $S$ and zero-point $Z$. Under this mapping, a quantized matrix product
+  reduces to:
+  \begin{equation}
+    q_3^{(i,k)} = Z_3 + M \sum_{j=1}^{N} \left(q_1^{(i,j)} - Z_1\right)\left(q_2^{(j,k)} - Z_2\right),
+  \end{equation}
+  where the summation is performed entirely in integers and held in a wide (int32) accumulator, exactly as ESP-NN does. The only non-integer term is the
+  multiplier $M = S_1 S_2 / S_3$, which depends only on the fixed tensor scales and is therefore constant at inference. Since $M \in (0,1)$, it is expressed
+  in the fixed-point form $M = 2^{-n} M_0$ with $M_0 \in [0.5, 1)$. This is precisely how the rescaling is discretized into the kernel's two integer parameters:
+  $M_0$ becomes the fixed-point multiplier \texttt{out\_mult}, and the factor $2^{-n}$ becomes a rounding right-shift by \texttt{out\_shift}. Requantization thus
+  reduces to one integer multiply followed by a shift, keeping the matmul pipeline entirely integer-only.
+  \subsection{LiteRT (Tensorflow Lite) Framework}
+  \subsection{LabStreaming Layer (LSL) for Data Acquisition and Real-Time Processing}
 \chapter{Results}
   \section{Comparison of ML Ops Performance on the ESP32-S3 using Random Weights under different Quantization Schemes}
-      \begin{table}[htbp]
-      \centering
-      \caption{LSTM performance across hidden size and layer depth on the ESP32-S3.}
-      \label{tab:lstm_hl}
-      \small
-      \fittable{tables/lstm_hl_sweep.tex}
-    \end{table}
-
+    
     \begin{table}[htbp]
       \centering
-      \caption{LSTM performance across window sizes on the ESP32-S3.}
-      \label{tab:lstm_win}
+      \caption{Dense layers performance on the ESP32-S3.}
+      \label{tab:dense_timing}
       \small
-      \fittable{tables/lstm_win_sweep.tex}
-    \end{table}
-
-    \begin{table}[htbp]
-      \centering
-      \caption{CNN performance on the ESP32-S3.}
-      \label{tab:conv}
-      \small
-      \fittable{tables/conv_sweep.tex}
+      \fittable{tables/dense_timing.tex}
     \end{table}
 
     \begin{table}[htbp]
       \centering
       \caption{Dense layers performance on the ESP32-S3.}
-      \label{tab:dense}
+      \label{tab:dense_memory}
       \small
-      \fittable{tables/dense_sweep.tex}
+      \fittable{tables/dense_memory.tex}
     \end{table}
+
+    \begin{table}[htbp]
+      \centering
+      \caption{Conv2D layers performance on the ESP32-S3.}
+      \label{tab:conv_timing}
+      \small
+      \fittable{tables/conv_timing.tex}
+    \end{table}
+
+    \begin{table}[htbp]
+      \centering
+      \caption{Conv2D layers performance on the ESP32-S3.}
+      \label{tab:conv_memory}
+      \small
+      \fittable{tables/conv_memory.tex}
+    \end{table}
+    % \begin{table}[htbp]
+    %   \centering
+    %   \caption{Dense layers performance across input sizes the ESP32-S3.}
+    %   \label{tab:dense}
+    %   \small
+    %   \fittable{tables/dense_improved_input_size_sweep.tex}
+    % \end{table}
+
+    % \begin{table}[htbp]
+    %   \centering
+    %   \caption{Dense layers performance across layer size the ESP32-S3.}
+    %   \label{tab:dense}
+    %   \small
+    %   \fittable{tables/dense_improved_layers_sweep.tex}
+    % \end{table}
+    
+    % \begin{table}[htbp]
+    %   \centering
+    %   \caption{LSTM performance across hidden size on the ESP32-S3.}
+    %   \label{tab:lstm_hl}
+    %   \small
+    %   \fittable{tables/lstm_h_sweep.tex}
+    % \end{table}
+
+    % \begin{table}[htbp]
+    %   \centering
+    %   \caption{LSTM performance across layer depth on the ESP32-S3.}
+    %   \label{tab:lstm_hl}
+    %   \small
+    %   \fittable{tables/lstm_l_sweep.tex}
+    % \end{table}
+
+    % \begin{table}[htbp]
+    %   \centering
+    %   \caption{LSTM performance across window sizes on the ESP32-S3.}
+    %   \label{tab:lstm_win}
+    %   \small
+    %   \fittable{tables/lstm_win_sweep.tex}
+    % \end{table}
+
+    % \begin{table}[htbp]
+    %   \centering
+    %   \caption{CNN performance on the ESP32-S3.}
+    %   \label{tab:conv}
+    %   \small
+    %   \fittable{tables/conv_sweep.tex}
+    % \end{table}
+
+    
   \section{Comparison of different Model Configurations}  
 
 \chapter{Discussion}

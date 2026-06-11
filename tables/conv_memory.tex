@@ -1,0 +1,21 @@
+% intended caption: Conv2D layer memory footprint across quantization and PSRAM on the ESP32-S3.
+% intended label: tab:conv_memory
+\begin{tabular}{lcccccccc}
+\toprule
+ & \multicolumn{4}{c}{PSRAM} & \multicolumn{4}{c}{No PSRAM} \\
+ & \multicolumn{2}{c}{Float32} & \multicolumn{2}{c}{Int8} & \multicolumn{2}{c}{Float32} & \multicolumn{2}{c}{Int8} \\
+ & Size (KB) & Arena (KB) & Size (KB) & Arena (KB) & Size (KB) & Arena (KB) & Size (KB) & Arena (KB) \\
+\midrule
+Conv(in=1, out=10, L=1, k=(1, 5)) & 2.3 & 7.9 & 2.6 & 2.6 & 2.3 & 7.9 & 2.6 & 2.6 \\
+Conv(in=1, out=10, L=2, k=(1, 5)) & 3.6 & 4.0 & 3.8 & 3.2 & 3.6 & 4.0 & 3.8 & 3.2 \\
+Conv(in=1, out=10, L=3, k=(1, 5)) & 4.9 & 2.9 & 4.8 & 3.4 & 4.9 & 2.9 & 4.8 & 3.4 \\
+Conv(in=1, out=10, L=4, k=(1, 5)) & 6.0 & 3.0 & 5.8 & 3.5 & 6.0 & 3.0 & 5.8 & 3.5 \\
+Conv(in=1, out=10, L=1, k=(2, 2)) & 2.3 & 7.1 & 2.6 & 2.4 & 2.3 & 7.1 & 2.6 & 2.4 \\
+Conv(in=1, out=10, L=1, k=(1, 10)) & 2.5 & 7.9 & 2.6 & 2.6 & 2.5 & 7.9 & 2.6 & 2.6 \\
+Conv(in=1, out=10, L=1, k=(1, 20)) & 2.9 & 7.1 & 2.7 & 2.4 & 2.9 & 7.1 & 2.7 & 2.4 \\
+Conv(in=1, out=10, L=1, k=(1, 30)) & 3.3 & 6.3 & 2.8 & 2.2 & 3.3 & 6.3 & 2.8 & 2.2 \\
+Conv(in=1, out=1, L=1, k=(1, 5)) & 1.7 & 1.4 & 1.9 & 0.9 & 1.7 & 1.4 & 1.9 & 0.9 \\
+Conv(in=1, out=20, L=1, k=(1, 5)) & 2.5 & 15.8 & 2.9 & 4.6 & 2.5 & 15.8 & 2.9 & 4.6 \\
+Conv(in=1, out=30, L=1, k=(1, 5)) & 2.8 & 23.4 & 3.2 & 6.6 & 2.8 & 23.4 & 3.2 & 6.5 \\
+\bottomrule
+\end{tabular}

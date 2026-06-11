@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.25)  10 JUN 2026 15:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.25)  11 JUN 2026 03:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -705,12 +705,24 @@ File: t1txtt.fd 2000/12/15 v3.1
 
  [2]
 chapter 1.
+
+LaTeX Warning: Citation `martinek_advanced_2021' on page 1 undefined on input line 300.
+
+
+LaTeX Warning: Citation `zheng_surface_2022' on page 1 undefined on input line 310.
+
+
+LaTeX Warning: Citation `valcheva_surface_2026' on page 1 undefined on input line 318.
+
 [1
 
 
 
 
 ]
+
+LaTeX Warning: Citation `lin_mcunet_2020' on page 2 undefined on input line 339.
+
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <8> not available
 (Font)              Font shape `T1/txr/bx/n' tried instead on input line 354.
 
@@ -856,95 +868,120 @@ chapter 2.
 
 ]
 chapter 3.
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 427--437
+
+Underfull \vbox (badness 1112) has occurred while \output is active []
+
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 432--442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 427--437
+Underfull \hbox (badness 10000) in paragraph at lines 432--442
 
  []
 
-[8]
-chapter 4.
-(./tables/lstm_hl_sweep.tex
-LaTeX Font Info:    Font shape `T1/txr/b/n' in size <10.95> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 5.
-) (./tables/lstm_win_sweep.tex) (./tables/conv_sweep.tex) (./tables/dense_sweep.tex) [9
+
+Underfull \vbox (badness 1584) has occurred while \output is active []
+
+ [8]
+Underfull \hbox (badness 10000) in paragraph at lines 471--488
+
+ []
 
 
-] [10] [11] [12
+Underfull \hbox (badness 1668) in paragraph at lines 471--488
+\T1/txr/bx/n/12 Quantization Aware Train-ing (QAT) \T1/txr/m/n/12 in-volves hav-ing quan-ti-za-tion in mind dur-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--506
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 510--516
+
+ []
+
+[10] [11] [12
 
 
 ]
+chapter 4.
+(./tables/dense_timing.tex) (./tables/dense_memory.tex) (./tables/conv_timing.tex) (./tables/conv_memory.tex) [13] [14] [15] [16]
 chapter 5.
-[13] [14
+[17
+
+
+] [18
 
 
 ]
 chapter 6.
-[15] [16
+[19] [20
 
 
 ]
 chapter A.
-[17] [18
+[21] [22
 
 
 ] (./iss-thesis.lof)
 \tf@lof=\write4
 \openout4 = `iss-thesis.lof'.
 
- [19] [20
+ [23] [24
 
 
 ] (./iss-thesis.lot)
 \tf@lot=\write5
 \openout5 = `iss-thesis.lot'.
 
- (./iss-thesis.bbl [21] [22
+ (./iss-thesis.bbl [25] [26
 
 
 ]
 chapter without number
-** WARNING: IEEEtran.bst: No hyphenation pattern has been
-** loaded for the language `en'. Using the pattern for
-** the default language instead.
-** WARNING: IEEEtran.bst: No hyphenation pattern has been
-** loaded for the language `en'. Using the pattern for
-** the default language instead.
-** WARNING: IEEEtran.bst: No hyphenation pattern has been
-** loaded for the language `en'. Using the pattern for
-** the default language instead.
-** WARNING: IEEEtran.bst: No hyphenation pattern has been
-** loaded for the language `en'. Using the pattern for
-** the default language instead.
-) [23] [24
+
+Underfull \hbox (badness 1436) in paragraph at lines 27--28
+[]\T1/txr/m/n/12 B. Ja-cob, S. Kli-gys, B. Chen, M. Zhu, M. Tang, A. Howard, H. Adam and
+ []
+
+
+Underfull \hbox (badness 1389) in paragraph at lines 30--31
+[]\T1/txr/m/n/12 M. Nagel, M. Fournarakis, R. A. Am-jad, Y. Bon-darenko, M. van Baalen and
+ []
+
+) [27] [28
 
 
 ]
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <20.74> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 506.
- [25] (./iss-thesis.aux)
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 661.
+ [29] (./iss-thesis.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 18031 strings out of 467525
- 337592 string characters out of 5418982
- 929176 words of memory out of 5000000
- 46594 multiletter control sequences out of 15000+600000
- 709257 words of font info for 191 fonts, out of 8000000 for 9000
+ 18043 strings out of 467525
+ 337885 string characters out of 5418982
+ 946176 words of memory out of 5000000
+ 46595 multiletter control sequences out of 15000+600000
+ 709224 words of font info for 193 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  108i,20n,107p,11289b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on iss-thesis.pdf (29 pages, 156722 bytes).
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on iss-thesis.pdf (33 pages, 175102 bytes).
 PDF statistics:
- 455 PDF objects out of 1000 (max. 8388607)
- 398 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
+ 496 PDF objects out of 1000 (max. 8388607)
+ 432 compressed objects within 5 object streams
+ 96 named destinations out of 1000 (max. 500000)
  363 words of extra memory for PDF output out of 10000 (max. 10000000)
 
