@@ -1,0 +1,37 @@
+\begin{tabular}{llrrrrrrrr}
+\toprule
+ &  & Stage A (ticks) & ELU-A (\textmu s) & Stage B (ticks) & ELU-B (\textmu s) & LSTM step (ticks) & Reg step (ticks) & Window (\textmu s) & MSE \\
+Win & Step &  &  &  &  &  &  &  &  \\
+\midrule
+\multirow[t]{2}{*}{50} & 1 & 61\,619~{\footnotesize[61\,691]} & 1\,552~{\footnotesize[1\,852]} & 3\,742~{\footnotesize[3\,756]} & 781.4~{\footnotesize[976]} & 5\,276~{\footnotesize[6\,016]} & 104.0~{\footnotesize[120]} & 211\,747~{\footnotesize[212\,107]} & $1.76\!\times\!10^{-14}$~{\footnotesize $[7.12\!\times\!10^{-14}]$} \\
+ & 5 & 61\,643~{\footnotesize[61\,698]} & 1\,549~{\footnotesize[1\,849]} & 3\,733~{\footnotesize[3\,744]} & 782.1~{\footnotesize[976]} & 26\,241~{\footnotesize[26\,855]} & 265.1~{\footnotesize[283]} & 207\,413~{\footnotesize[207\,782]} & $1.76\!\times\!10^{-14}$~{\footnotesize $[7.20\!\times\!10^{-14}]$} \\
+\cline{1-10}
+\multirow[t]{2}{*}{100} & 1 & 131\,484~{\footnotesize[131\,498]} & 3\,458~{\footnotesize[3\,951]} & 9\,229~{\footnotesize[9\,239]} & 1\,557~{\footnotesize[1\,883]} & 5\,250~{\footnotesize[6\,070]} & 106.9~{\footnotesize[122]} & 435\,189~{\footnotesize[435\,908]} & $7.84\!\times\!10^{-15}$~{\footnotesize $[3.16\!\times\!10^{-14}]$} \\
+ & 5 & 131\,463~{\footnotesize[131\,485]} & 3\,452~{\footnotesize[3\,951]} & 9\,129~{\footnotesize[9\,139]} & 1\,559~{\footnotesize[1\,885]} & 26\,165~{\footnotesize[26\,902]} & 265.4~{\footnotesize[281]} & 426\,575~{\footnotesize[427\,208]} & $7.77\!\times\!10^{-15}$~{\footnotesize $[3.15\!\times\!10^{-14}]$} \\
+\cline{1-10}
+\multirow[t]{2}{*}{150} & 1 & 201\,608~{\footnotesize[201\,622]} & 5\,739~{\footnotesize[6\,431]} & 14\,995~{\footnotesize[15\,003]} & 2\,323~{\footnotesize[2\,783]} & 5\,258~{\footnotesize[6\,051]} & 106.5~{\footnotesize[117]} & 662\,879~{\footnotesize[663\,917]} & $2.06\!\times\!10^{-14}$~{\footnotesize $[1.03\!\times\!10^{-13}]$} \\
+ & 5 & 201\,572~{\footnotesize[201\,590]} & 5\,818~{\footnotesize[6\,509]} & 14\,962~{\footnotesize[14\,971]} & 2\,325~{\footnotesize[2\,781]} & 26\,154~{\footnotesize[26\,905]} & 265.7~{\footnotesize[279]} & 648\,405~{\footnotesize[649\,171]} & $2.05\!\times\!10^{-14}$~{\footnotesize $[9.88\!\times\!10^{-14}]$} \\
+\cline{1-10}
+\multirow[t]{2}{*}{200} & 1 & 271\,398~{\footnotesize[271\,411]} & 7\,808~{\footnotesize[8\,681]} & 20\,417~{\footnotesize[20\,429]} & 3\,207~{\footnotesize[3\,824]} & 5\,245~{\footnotesize[6\,053]} & 107.0~{\footnotesize[120]} & 886\,303~{\footnotesize[887\,561]} & $1.54\!\times\!10^{-14}$~{\footnotesize $[4.29\!\times\!10^{-14}]$} \\
+ & 5 & 271\,393~{\footnotesize[271\,409]} & 7\,806~{\footnotesize[8\,679]} & 20\,416~{\footnotesize[20\,430]} & 3\,209~{\footnotesize[3\,822]} & 26\,151~{\footnotesize[26\,900]} & 264.2~{\footnotesize[276]} & 868\,500~{\footnotesize[869\,613]} & $1.51\!\times\!10^{-14}$~{\footnotesize $[4.27\!\times\!10^{-14}]$} \\
+\cline{1-10}
+\multirow[t]{2}{*}{250} & 1 & 341\,182~{\footnotesize[341\,195]} & 9\,759~{\footnotesize[10\,787]} & 25\,661~{\footnotesize[25\,671]} & 4\,099~{\footnotesize[4\,868]} & 5\,243~{\footnotesize[6\,041]} & 107.0~{\footnotesize[122]} & 1\,109\,739~{\footnotesize[1\,111\,317]} & $3.27\!\times\!10^{-14}$~{\footnotesize $[1.01\!\times\!10^{-13}]$} \\
+ & 5 & 341\,174~{\footnotesize[341\,192]} & 9\,747~{\footnotesize[10\,779]} & 25\,668~{\footnotesize[25\,679]} & 4\,101~{\footnotesize[4\,860]} & 26\,151~{\footnotesize[26\,894]} & 264.1~{\footnotesize[280]} & 1\,087\,617~{\footnotesize[1\,088\,936]} & $3.28\!\times\!10^{-14}$~{\footnotesize $[1.01\!\times\!10^{-13}]$} \\
+\cline{1-10}
+\multirow[t]{2}{*}{300} & 1 & 410\,952~{\footnotesize[410\,965]} & 11\,670~{\footnotesize[12\,942]} & 30\,727~{\footnotesize[30\,734]} & 4\,997~{\footnotesize[5\,873]} & 5\,251~{\footnotesize[6\,051]} & 108.3~{\footnotesize[120]} & 1\,335\,628~{\footnotesize[1\,337\,795]} & $1.57\!\times\!10^{-14}$~{\footnotesize $[5.00\!\times\!10^{-14}]$} \\
+ & 5 & 410\,947~{\footnotesize[410\,964]} & 11\,686~{\footnotesize[12\,961]} & 30\,730~{\footnotesize[30\,738]} & 4\,998~{\footnotesize[5\,871]} & 26\,179~{\footnotesize[26\,948]} & 270.6~{\footnotesize[286]} & 1\,307\,814~{\footnotesize[1\,309\,409]} & $1.56\!\times\!10^{-14}$~{\footnotesize $[4.98\!\times\!10^{-14}]$} \\
+\cline{1-10}
+\multirow[t]{2}{*}{350} & 1 & 480\,885~{\footnotesize[480\,898]} & 13\,581~{\footnotesize[15\,041]} & 35\,840~{\footnotesize[35\,852]} & 5\,808~{\footnotesize[6\,796]} & 5\,260~{\footnotesize[6\,046]} & 108.7~{\footnotesize[120]} & 1\,561\,859~{\footnotesize[1\,564\,457]} & $2.87\!\times\!10^{-14}$~{\footnotesize $[7.95\!\times\!10^{-14}]$} \\
+ & 5 & 480\,886~{\footnotesize[480\,905]} & 13\,575~{\footnotesize[15\,030]} & 35\,836~{\footnotesize[35\,844]} & 5\,811~{\footnotesize[6\,800]} & 26\,149~{\footnotesize[26\,902]} & 270.2~{\footnotesize[283]} & 1\,524\,853~{\footnotesize[1\,526\,735]} & $2.86\!\times\!10^{-14}$~{\footnotesize $[7.93\!\times\!10^{-14}]$} \\
+\cline{1-10}
+\multirow[t]{2}{*}{400} & 1 & 551\,236~{\footnotesize[551\,247]} & 15\,517~{\footnotesize[17\,118]} & 40\,902~{\footnotesize[40\,907]} & 6\,651~{\footnotesize[7\,770]} & 5\,267~{\footnotesize[6\,054]} & 105.8~{\footnotesize[119]} & 1\,786\,600~{\footnotesize[1\,789\,213]} & $2.40\!\times\!10^{-14}$~{\footnotesize $[5.78\!\times\!10^{-14}]$} \\
+ & 5 & 551\,178~{\footnotesize[551\,198]} & 15\,513~{\footnotesize[17\,116]} & 41\,011~{\footnotesize[41\,018]} & 6\,652~{\footnotesize[7\,769]} & 26\,101~{\footnotesize[26\,850]} & 264.8~{\footnotesize[278]} & 1\,743\,573~{\footnotesize[1\,745\,654]} & $2.40\!\times\!10^{-14}$~{\footnotesize $[5.67\!\times\!10^{-14}]$} \\
+\cline{1-10}
+\multirow[t]{2}{*}{450} & 1 & 621\,814~{\footnotesize[621\,826]} & 17\,485~{\footnotesize[19\,292]} & 46\,083~{\footnotesize[46\,094]} & 7\,494~{\footnotesize[8\,737]} & 5\,252~{\footnotesize[6\,060]} & 107.0~{\footnotesize[117]} & 2\,008\,382~{\footnotesize[2\,010\,839]} & $1.52\!\times\!10^{-14}$~{\footnotesize $[5.84\!\times\!10^{-14}]$} \\
+ & 5 & 621\,779~{\footnotesize[621\,797]} & 17\,481~{\footnotesize[19\,290]} & 46\,089~{\footnotesize[46\,097]} & 7\,496~{\footnotesize[8\,736]} & 26\,117~{\footnotesize[26\,865]} & 270.0~{\footnotesize[284]} & 1\,963\,818~{\footnotesize[1\,966\,185]} & $1.50\!\times\!10^{-14}$~{\footnotesize $[5.60\!\times\!10^{-14}]$} \\
+\cline{1-10}
+\multirow[t]{2}{*}{500} & 1 & 692\,580~{\footnotesize[692\,596]} & 19\,432~{\footnotesize[21\,383]} & 51\,198~{\footnotesize[51\,204]} & 8\,331~{\footnotesize[9\,699]} & 5\,242~{\footnotesize[6\,039]} & 109.4~{\footnotesize[120]} & 2\,230\,667~{\footnotesize[2\,234\,169]} & $2.83\!\times\!10^{-14}$~{\footnotesize $[1.03\!\times\!10^{-13}]$} \\
+ & 5 & 692\,530~{\footnotesize[692\,548]} & 19\,429~{\footnotesize[21\,387]} & 51\,176~{\footnotesize[51\,190]} & 8\,334~{\footnotesize[9\,696]} & 26\,109~{\footnotesize[26\,858]} & 268.0~{\footnotesize[280]} & 2\,181\,579~{\footnotesize[2\,184\,160]} & $2.84\!\times\!10^{-14}$~{\footnotesize $[1.04\!\times\!10^{-13}]$} \\
+\cline{1-10}
+\bottomrule
+\end{tabular}

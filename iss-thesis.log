@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.25)  11 JUN 2026 03:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.25)  25 JUN 2026 23:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -199,9 +199,15 @@ File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen157
 \Gin@req@width=\dimen158
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip68
+\multirow@cntb=\count287
+\multirow@dima=\skip69
+\bigstrutjot=\dimen159
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip68
+\@mathmargin=\skip70
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -209,21 +215,21 @@ Package: amstext 2024/11/17 v2.01 AMS text
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks23
-\ex@=\dimen159
+\ex@=\dimen160
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen160
+\pmbraise@=\dimen161
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count287
+\inf@bad=\count288
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count288
-\leftroot@=\count289
+\uproot@=\count289
+\leftroot@=\count290
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count290
-\DOTSCASE@=\count291
+\classnum@=\count291
+\DOTSCASE@=\count292
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -233,33 +239,33 @@ LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen161
+\big@size=\dimen162
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count292
+\macc@depth=\count293
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count293
+\c@MaxMatrixCols=\count294
 \dotsspace@=\muskip17
-\c@parentequation=\count294
-\dspbrk@lvl=\count295
+\c@parentequation=\count295
+\dspbrk@lvl=\count296
 \tag@help=\toks24
-\row@=\count296
-\column@=\count297
-\maxfields@=\count298
+\row@=\count297
+\column@=\count298
+\maxfields@=\count299
 \andhelp@=\toks25
-\eqnshift@=\dimen162
-\alignsep@=\dimen163
-\tagshift@=\dimen164
-\tagwidth@=\dimen165
-\totwidth@=\dimen166
-\lineht@=\dimen167
+\eqnshift@=\dimen163
+\alignsep@=\dimen164
+\tagshift@=\dimen165
+\tagwidth@=\dimen166
+\totwidth@=\dimen167
+\lineht@=\dimen168
 \@envbody=\toks26
-\multlinegap=\skip69
-\multlinetaggap=\skip70
+\multlinegap=\skip71
+\multlinetaggap=\skip72
 \mathdisplay@stack=\toks27
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
@@ -272,6 +278,13 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count300
+\float@exts=\toks28
+\float@box=\box59
+\@float@everytoks=\toks29
+\@floatcapt=\box60
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/txfonts.sty
 Package: txfonts 2008/01/22 v3.2.1
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 21.
@@ -386,58 +399,59 @@ Package tocbasic Info: Loading of class-dependent code for package caption3
 
  (/usr/local/texlive/2026/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen168
-\captionmargin=\dimen169
-\caption@leftmargin=\dimen170
-\caption@rightmargin=\dimen171
-\caption@width=\dimen172
-\caption@indent=\dimen173
-\caption@parindent=\dimen174
-\caption@hangindent=\dimen175
+\caption@tempdima=\dimen169
+\captionmargin=\dimen170
+\caption@leftmargin=\dimen171
+\caption@rightmargin=\dimen172
+\caption@width=\dimen173
+\caption@indent=\dimen174
+\caption@parindent=\dimen175
+\caption@hangindent=\dimen176
 )
-\c@caption@flags=\count299
-\c@continuedfloat=\count300
+\c@caption@flags=\count301
+\c@continuedfloat=\count302
+Package caption Info: float package is loaded.
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
-\c@KVtest=\count301
-\sf@farskip=\skip71
-\sf@captopadj=\dimen176
-\sf@capskip=\skip72
-\sf@nearskip=\skip73
-\c@subfigure=\count302
-\c@subfigure@save=\count303
-\c@lofdepth=\count304
-\c@subtable=\count305
-\c@subtable@save=\count306
-\c@lotdepth=\count307
-\sf@top=\skip74
-\sf@bottom=\skip75
+\c@KVtest=\count303
+\sf@farskip=\skip73
+\sf@captopadj=\dimen177
+\sf@capskip=\skip74
+\sf@nearskip=\skip75
+\c@subfigure=\count304
+\c@subfigure@save=\count305
+\c@lofdepth=\count306
+\c@subtable=\count307
+\c@subtable@save=\count308
+\c@lotdepth=\count309
+\sf@top=\skip76
+\sf@bottom=\skip77
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen177
-\WF@size=\dimen178
-\c@WF@wrappedlines=\count308
-\WF@box=\box59
-\WF@everypar=\toks28
+\wrapoverhang=\dimen178
+\WF@size=\dimen179
+\c@WF@wrappedlines=\count310
+\WF@box=\box61
+\WF@everypar=\toks30
 Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen179
-\lightrulewidth=\dimen180
-\cmidrulewidth=\dimen181
-\belowrulesep=\dimen182
-\belowbottomsep=\dimen183
-\aboverulesep=\dimen184
-\abovetopsep=\dimen185
-\cmidrulesep=\dimen186
-\cmidrulekern=\dimen187
-\defaultaddspace=\dimen188
-\@cmidla=\count309
-\@cmidlb=\count310
-\@aboverulesep=\dimen189
-\@belowrulesep=\dimen190
-\@thisruleclass=\count311
-\@lastruleclass=\count312
-\@thisrulewidth=\dimen191
+\heavyrulewidth=\dimen180
+\lightrulewidth=\dimen181
+\cmidrulewidth=\dimen182
+\belowrulesep=\dimen183
+\belowbottomsep=\dimen184
+\aboverulesep=\dimen185
+\abovetopsep=\dimen186
+\cmidrulesep=\dimen187
+\cmidrulekern=\dimen188
+\defaultaddspace=\dimen189
+\@cmidla=\count311
+\@cmidlb=\count312
+\@aboverulesep=\dimen190
+\@belowrulesep=\dimen191
+\@thisruleclass=\count313
+\@lastruleclass=\count314
+\@thisrulewidth=\dimen192
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
  (/usr/local/texlive/2026/texmf-dist/tex/generic/iftex/iftex.sty
@@ -469,16 +483,16 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (/usr/local/texlive/2026/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count313
+\c@section@level=\count315
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count314
+\etb@tempcnta=\count316
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\@linkdim=\dimen192
-\Hy@linkcounter=\count315
-\Hy@pagecounter=\count316
+\@linkdim=\dimen193
+\Hy@linkcounter=\count317
+\Hy@pagecounter=\count318
  (/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -486,7 +500,7 @@ Now handling font encoding PD1 ...
 ) (/usr/local/texlive/2026/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count317
+\Hy@SavedSpaceFactor=\count319
  (/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -500,21 +514,21 @@ Package hyperref Info: Plain pages OFF on input line 4216.
 Package hyperref Info: Backreferencing OFF on input line 4221.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4468.
-\c@Hy@tempcnt=\count318
+\c@Hy@tempcnt=\count320
  (/usr/local/texlive/2026/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4807.
-\XeTeXLinkMargin=\dimen193
+\XeTeXLinkMargin=\dimen194
  (/usr/local/texlive/2026/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count319
-\Field@Width=\dimen194
-\Fld@charsize=\dimen195
+\Fld@menulength=\count321
+\Field@Width=\dimen195
+\Fld@charsize=\dimen196
 Package hyperref Info: Hyper figures OFF on input line 6084.
 Package hyperref Info: Link nesting OFF on input line 6089.
 Package hyperref Info: Hyper index ON on input line 6092.
@@ -522,15 +536,15 @@ Package hyperref Info: backreferencing OFF on input line 6099.
 Package hyperref Info: Link coloring ON on input line 6102.
 Package hyperref Info: Link coloring with OCG OFF on input line 6109.
 Package hyperref Info: PDF/A mode OFF on input line 6114.
-\Hy@abspage=\count320
-\c@Item=\count321
-\c@Hfootnote=\count322
+\Hy@abspage=\count322
+\c@Item=\count323
+\c@Hfootnote=\count324
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
-\Fld@listcount=\count323
-\c@bookmark@seq@number=\count324
+\Fld@listcount=\count325
+\c@bookmark@seq@number=\count326
  (/usr/local/texlive/2026/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
  (/usr/local/texlive/2026/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -538,11 +552,11 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
-\Hy@SectionHShift=\skip76
+\Hy@SectionHShift=\skip78
 )
 
 Package scrlayer-scrpage Warning: replacing deprecated \clearscrheadfoot by
-(scrlayer-scrpage)                \clearpairofpagestyles on input line 174.
+(scrlayer-scrpage)                \clearpairofpagestyles on input line 177.
 
 Class scrreprt Info: loading recommended package `bookmark'.
 (scrreprt)           Using `bookmark' together with `hyperref' is recommended,
@@ -551,142 +565,146 @@ Class scrreprt Info: loading recommended package `bookmark'.
 (scrreprt)           `bookmarkpackage=false' before \begin{document} and
 (scrreprt)           you can avoid this message adding:
 (scrreprt)             \usepackage{bookmark}
-(scrreprt)           before \begin{document} on input line 279.
+(scrreprt)           before \begin{document} on input line 282.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/local/texlive/2026/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count325
+\BKM@id=\count327
 )) (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count326
-) (./iss-thesis.aux)
+\l__color_backend_stack_int=\count328
+) (./iss-thesis.aux
+
+LaTeX Warning: Label `fig:conv2D_sqnr' multiply defined.
+
+)
 \openout1 = `iss-thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 279.
-LaTeX Font Info:    Trying to load font information for OML+txmi on input line 279.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 282.
+LaTeX Font Info:    Trying to load font information for OML+txmi on input line 282.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 279.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 279.
-LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 279.
+LaTeX Font Info:    ... okay on input line 282.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 282.
+LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 282.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 279.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 279.
-LaTeX Font Info:    ... okay on input line 279.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 279.
-LaTeX Font Info:    ... okay on input line 279.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 279.
-LaTeX Font Info:    ... okay on input line 279.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 279.
-LaTeX Font Info:    Trying to load font information for OMX+txex on input line 279.
+LaTeX Font Info:    ... okay on input line 282.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 282.
+LaTeX Font Info:    ... okay on input line 282.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 282.
+LaTeX Font Info:    ... okay on input line 282.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 282.
+LaTeX Font Info:    ... okay on input line 282.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 282.
+LaTeX Font Info:    Trying to load font information for OMX+txex on input line 282.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 279.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 279.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 279.
+LaTeX Font Info:    ... okay on input line 282.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 282.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 282.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 279.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 279.
-LaTeX Font Info:    ... okay on input line 279.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 279.
-LaTeX Font Info:    ... okay on input line 279.
-Package scrbase Info: activating english \abstractname on input line 279.
-Package scrbase Info: activating english \partname on input line 279.
-Package scrbase Info: activating english \chaptername on input line 279.
-Package scrbase Info: activating english \appendixname on input line 279.
-Package scrbase Info: activating english \figurename on input line 279.
-Package scrbase Info: activating english \tablename on input line 279.
-Package scrbase Info: activating english \contentsname on input line 279.
-Package scrbase Info: activating english \listfigurename on input line 279.
-Package scrbase Info: activating english \listtablename on input line 279.
-Package scrbase Info: activating english \bibname on input line 279.
-Package scrbase Info: activating english \indexname on input line 279.
+LaTeX Font Info:    ... okay on input line 282.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 282.
+LaTeX Font Info:    ... okay on input line 282.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 282.
+LaTeX Font Info:    ... okay on input line 282.
+Package scrbase Info: activating english \abstractname on input line 282.
+Package scrbase Info: activating english \partname on input line 282.
+Package scrbase Info: activating english \chaptername on input line 282.
+Package scrbase Info: activating english \appendixname on input line 282.
+Package scrbase Info: activating english \figurename on input line 282.
+Package scrbase Info: activating english \tablename on input line 282.
+Package scrbase Info: activating english \contentsname on input line 282.
+Package scrbase Info: activating english \listfigurename on input line 282.
+Package scrbase Info: activating english \listtablename on input line 282.
+Package scrbase Info: activating english \bibname on input line 282.
+Package scrbase Info: activating english \indexname on input line 282.
  (/usr/local/texlive/2026/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count327
-\scratchdimen=\dimen196
-\scratchbox=\box60
-\nofMPsegments=\count328
-\nofMParguments=\count329
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count330
-\MPscratchDim=\dimen197
-\MPnumerator=\count331
-\makeMPintoPDFobject=\count332
-\everyMPtoPDFconversion=\toks30
+\scratchcounter=\count329
+\scratchdimen=\dimen197
+\scratchbox=\box62
+\nofMPsegments=\count330
+\nofMParguments=\count331
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count332
+\MPscratchDim=\dimen198
+\MPnumerator=\count333
+\makeMPintoPDFobject=\count334
+\everyMPtoPDFconversion=\toks32
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Encoding Info:    Redeclaring text command \k (encoding T1) on input line 279.
+LaTeX Encoding Info:    Redeclaring text command \k (encoding T1) on input line 282.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 279.
+Package hyperref Info: Link coloring ON on input line 282.
 <university-logo.pdf, id=4, 57.21375pt x 57.21375pt>
 File: university-logo.pdf Graphic file (type pdf)
 <use university-logo.pdf>
-Package pdftex.def Info: university-logo.pdf  used on input line 284.
+Package pdftex.def Info: university-logo.pdf  used on input line 287.
 (pdftex.def)             Requested size: 56.9055pt x 56.90804pt.
 <isslogocolor.pdf, id=5, 291.0875pt x 219.82124pt>
 File: isslogocolor.pdf Graphic file (type pdf)
 <use isslogocolor.pdf>
-Package pdftex.def Info: isslogocolor.pdf  used on input line 284.
+Package pdftex.def Info: isslogocolor.pdf  used on input line 287.
 (pdftex.def)             Requested size: 79.66771pt x 60.16087pt.
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <12> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 284.
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 287.
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <17.28> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 284.
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 287.
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <24.88> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 284.
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 287.
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <14.4> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 284.
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 284.
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 287.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 287.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 284.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 287.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 284.
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 287.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 284.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 287.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 284.
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 287.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-Underfull \hbox (badness 2393) in paragraph at lines 284--284
+Underfull \hbox (badness 2393) in paragraph at lines 287--287
 []|\T1/txr/m/n/14.4 sEMG, TinyML, Dig-i-tal Sig-nal
  []
 
 
-Underfull \hbox (badness 1968) in paragraph at lines 284--284
+Underfull \hbox (badness 1968) in paragraph at lines 287--287
 \T1/txr/m/n/14.4 Pro-cess-ing, Deep Learn-ing, re-
  []
 
 
-Underfull \hbox (badness 2809) in paragraph at lines 284--284
+Underfull \hbox (badness 2809) in paragraph at lines 287--287
 \T1/txr/m/n/14.4 gres-sion, Limited-Resource Mi-
  []
 
-LaTeX Font Info:    Trying to load font information for T1+txtt on input line 284.
+LaTeX Font Info:    Trying to load font information for T1+txtt on input line 287.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 ) [1
@@ -705,261 +723,208 @@ File: t1txtt.fd 2000/12/15 v3.1
 
  [2]
 chapter 1.
-
-LaTeX Warning: Citation `martinek_advanced_2021' on page 1 undefined on input line 300.
-
-
-LaTeX Warning: Citation `zheng_surface_2022' on page 1 undefined on input line 310.
-
-
-LaTeX Warning: Citation `valcheva_surface_2026' on page 1 undefined on input line 318.
-
 [1
 
 
 
 
-]
-
-LaTeX Warning: Citation `lin_mcunet_2020' on page 2 undefined on input line 339.
-
-LaTeX Font Info:    Font shape `T1/txr/b/n' in size <8> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 354.
-
-Underfull \hbox (badness 10000) in paragraph at lines 354--354
-[]|\T1/txr/bx/n/8 Processor (CPU /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 356--356
-[]|\T1/txr/m/n/8 SRAM 520KB
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 356--356
-\T1/txr/m/n/8 PSRAM 8MB
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 358--358
-[]|\T1/txr/m/n/8 SRAM 520KB
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 358--358
-\T1/txr/m/n/8 PSRAM 8MB
- []
-
-
-Underfull \hbox (badness 3449) in paragraph at lines 360--360
-[]|\T1/txr/m/n/8 Arm Cortex-M0+, 2
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 360--360
-[]|\T1/txr/m/n/8 SRAM 264KB
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 360--360
-\T1/txr/m/n/8 PSRAM ext.
- []
-
-
-Underfull \hbox (badness 2617) in paragraph at lines 360--360
-\T1/txr/m/n/8 Flash 2MB (16
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-[]|\T1/txr/m/n/8 SRAM 2KB;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-\T1/txr/m/n/8 PSRAM no;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
-\T1/txr/m/n/8 Flash 32KB;
- []
-
-
-Underfull \hbox (badness 1028) in paragraph at lines 364--364
-[]|\T1/txr/m/n/8 Arm Cortex-M7, 1--2
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-[]|\T1/txr/m/n/8 SRAM 1MB;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-\T1/txr/m/n/8 PSRAM ext.;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-[]|\T1/txr/m/n/8 CMSIS-NN/DSP (no
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
-[]|\T1/txr/m/n/8 Arm Cortex-M55 +
- []
-
-
-Underfull \hbox (badness 3735) in paragraph at lines 366--366
-\T1/txr/m/n/8 Neural-ART NPU, 1
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
-[]|\T1/txr/m/n/8 SRAM 4.2MB;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
-\T1/txr/m/n/8 PSRAM ext.;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 366--366
-\T1/txr/m/n/8 Flash flash-less;
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 372--383
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 372--383
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 372--383
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 372--383
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 372--383
-
- []
-
-[2]
-Underfull \vbox (badness 4608) has occurred while \output is active []
-
- [3] [4]
+] [2] [3] [4] (./tables/mcu_specs.tex) [5] [6]
 chapter 2.
-[5
+<Graphs/ECG-Paper-Arch.png, id=201, 1071.00125pt x 610.28pt>
+File: Graphs/ECG-Paper-Arch.png Graphic file (type png)
+<use Graphs/ECG-Paper-Arch.png>
+Package pdftex.def Info: Graphs/ECG-Paper-Arch.png  used on input line 525.
+(pdftex.def)             Requested size: 309.8492pt x 176.55762pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7
 
 
-] [6
+]
+<Graphs/ECG-Monitor-Kim-Paper-Arch.png, id=211, 371.3875pt x 694.595pt>
+File: Graphs/ECG-Monitor-Kim-Paper-Arch.png Graphic file (type png)
+<use Graphs/ECG-Monitor-Kim-Paper-Arch.png>
+Package pdftex.def Info: Graphs/ECG-Monitor-Kim-Paper-Arch.png  used on input line 554.
+(pdftex.def)             Requested size: 309.8492pt x 579.51312pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8 <./Graphs/ECG-Paper-Arch.png>] [9 <./Graphs/ECG-Monitor-Kim-Paper-Arch.png>]
+LaTeX Font Info:    Trying to load font information for TS1+txr on input line 605.
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/ts1txr.fd
+File: ts1txr.fd 2000/12/15 v3.1
+) [10] [11] [12
 
 
 ]
 chapter 3.
+[13] [14]
+<Model.pdf, id=269, 515.8402pt x 626.39317pt>
+File: Model.pdf Graphic file (type pdf)
+<use Model.pdf>
+Package pdftex.def Info: Model.pdf  used on input line 784.
+(pdftex.def)             Requested size: 354.11627pt x 430.02296pt.
 
-Underfull \vbox (badness 1112) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7]
-Underfull \hbox (badness 10000) in paragraph at lines 432--442
+ [15] [16 <./Model.pdf>]
 
- []
+LaTeX Warning: Reference `ch:results' on page 17 undefined on input line 857.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 432--442
-
- []
-
-
-Underfull \vbox (badness 1584) has occurred while \output is active []
-
- [8]
-Underfull \hbox (badness 10000) in paragraph at lines 471--488
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 891--901
 
  []
 
 
-Underfull \hbox (badness 1668) in paragraph at lines 471--488
+Underfull \hbox (badness 10000) in paragraph at lines 891--901
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 930--947
+
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 930--947
 \T1/txr/bx/n/12 Quantization Aware Train-ing (QAT) \T1/txr/m/n/12 in-volves hav-ing quan-ti-za-tion in mind dur-ing
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 497--506
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 510--516
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 956--965
 
  []
 
-[10] [11] [12
 
+Underfull \hbox (badness 10000) in paragraph at lines 969--975
 
-]
+ []
+
+[20] [21]
+Underfull \vbox (badness 2269) has occurred while \output is active []
+
+ [22] [23] [24]
 chapter 4.
-(./tables/dense_timing.tex) (./tables/dense_memory.tex) (./tables/conv_timing.tex) (./tables/conv_memory.tex) [13] [14] [15] [16]
+<Graphs/Dense-Layer-Inference.png, id=416, 1092.7224pt x 659.8251pt>
+File: Graphs/Dense-Layer-Inference.png Graphic file (type png)
+<use Graphs/Dense-Layer-Inference.png>
+Package pdftex.def Info: Graphs/Dense-Layer-Inference.png  used on input line 1145.
+(pdftex.def)             Requested size: 309.8492pt x 187.09563pt.
+(./tables/conv_timing.tex) (./tables/conv_memory.tex)
+<Graphs/Conv2D-input-size-inference.png, id=417, 462.528pt x 346.896pt>
+File: Graphs/Conv2D-input-size-inference.png Graphic file (type png)
+<use Graphs/Conv2D-input-size-inference.png>
+Package pdftex.def Info: Graphs/Conv2D-input-size-inference.png  used on input line 1184.
+(pdftex.def)             Requested size: 309.8492pt x 232.39793pt.
+ [25
+
+
+ <./Graphs/Dense-Layer-Inference.png>] [26]
+<Graphs/CONV-Graph-Layers-4.png, id=431, 244.915pt x 1995.455pt>
+File: Graphs/CONV-Graph-Layers-4.png Graphic file (type png)
+<use Graphs/CONV-Graph-Layers-4.png>
+Package pdftex.def Info: Graphs/CONV-Graph-Layers-4.png  used on input line 1191.
+(pdftex.def)             Requested size: 309.8492pt x 2524.57814pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package scrlayer-scrpage Warning: \headheight to low.
+(scrlayer-scrpage)                At least 28.99998pt needed,
+(scrlayer-scrpage)                but only 18.125pt found.
+(scrlayer-scrpage)                I'll enlarge \headheight, for further
+(scrlayer-scrpage)                processing, but you should do this yourself,
+(scrlayer-scrpage)                e.g., setting typearea's option
+(scrlayer-scrpage)                `headheight=28.99998pt'.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 1195.
+
+
+Overfull \vbox (10.87498pt too high) has occurred while \output is active []
+
+ [27 <./Graphs/Conv2D-input-size-inference.png>]
+Overfull \vbox (1870.899pt too high) has occurred while \output is active []
+
+ [28 <./Graphs/CONV-Graph-Layers-4.png>] (./tables/lstm_timing.tex) (./tables/lstm_memory.tex)
+<Graphs/LSTM-Graph-25.png, id=448, 941.5175pt x 2348.775pt>
+File: Graphs/LSTM-Graph-25.png Graphic file (type png)
+<use Graphs/LSTM-Graph-25.png>
+Package pdftex.def Info: Graphs/LSTM-Graph-25.png  used on input line 1254.
+(pdftex.def)             Requested size: 309.8492pt x 772.98364pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29] [30]
+Overfull \vbox (133.8045pt too high) has occurred while \output is active []
+
+ [31 <./Graphs/LSTM-Graph-25.png>] (./tables/float32_models_A/timing.tex) (./tables/int8_models_A/timing.tex)
+<Graphs/Per-Stage-Latency-Window-Log.png, id=469, 542.025pt x 346.896pt>
+File: Graphs/Per-Stage-Latency-Window-Log.png Graphic file (type png)
+<use Graphs/Per-Stage-Latency-Window-Log.png>
+Package pdftex.def Info: Graphs/Per-Stage-Latency-Window-Log.png  used on input line 1317.
+(pdftex.def)             Requested size: 309.8492pt x 198.30972pt.
+ [32]
+<Graphs/Per-Stage-Latency-Window-Linear.png, id=475, 542.025pt x 542.025pt>
+File: Graphs/Per-Stage-Latency-Window-Linear.png Graphic file (type png)
+<use Graphs/Per-Stage-Latency-Window-Linear.png>
+Package pdftex.def Info: Graphs/Per-Stage-Latency-Window-Linear.png  used on input line 1324.
+(pdftex.def)             Requested size: 309.8492pt x 309.85895pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33 <./Graphs/Per-Stage-Latency-Window-Log.png>] (./tables/float32_models_B/timing.tex) (./tables/int8_models_B/timing.tex) [34 <./Graphs/Per-Stage-Latency-Window-Linear.png>] [35] [36
+
+
+]
 chapter 5.
-[17
-
-
-] [18
-
-
-]
+[37] [38]
 chapter 6.
-[19] [20
+[39
 
 
-]
+] [40]
 chapter A.
-[21] [22
+[41
+
+
+] [42
 
 
 ] (./iss-thesis.lof)
 \tf@lof=\write4
 \openout4 = `iss-thesis.lof'.
 
- [23] [24
+ [43] [44
 
 
 ] (./iss-thesis.lot)
 \tf@lot=\write5
 \openout5 = `iss-thesis.lot'.
 
- (./iss-thesis.bbl [25] [26
+ (./iss-thesis.bbl [45] [46
 
 
 ]
 chapter without number
+[47]
+Underfull \hbox (badness 1259) in paragraph at lines 87--88
+[]\T1/txr/m/n/12 M. At-zori, A. Gi-js-berts, I. Kuzborskij, S. El-sig, A.-G. M. Hager, O. De-riaz,
+ []
 
-Underfull \hbox (badness 1436) in paragraph at lines 27--28
+
+Underfull \hbox (badness 1087) in paragraph at lines 96--97
 []\T1/txr/m/n/12 B. Ja-cob, S. Kli-gys, B. Chen, M. Zhu, M. Tang, A. Howard, H. Adam and
  []
 
-
-Underfull \hbox (badness 1389) in paragraph at lines 30--31
-[]\T1/txr/m/n/12 M. Nagel, M. Fournarakis, R. A. Am-jad, Y. Bon-darenko, M. van Baalen and
- []
-
-) [27] [28
+[48]) [49] [50
 
 
 ]
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <20.74> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 661.
- [29] (./iss-thesis.aux)
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 1509.
+ [51] (./iss-thesis.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -968,20 +933,23 @@ L3 programming layer <2026-01-19>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 18043 strings out of 467525
- 337885 string characters out of 5418982
- 946176 words of memory out of 5000000
- 46595 multiletter control sequences out of 15000+600000
- 709224 words of font info for 193 fonts, out of 8000000 for 9000
+ 18435 strings out of 467525
+ 347355 string characters out of 5418982
+ 949069 words of memory out of 5000000
+ 46881 multiletter control sequences out of 15000+600000
+ 719817 words of font info for 207 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
- 108i,20n,107p,11289b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on iss-thesis.pdf (33 pages, 175102 bytes).
+ 108i,20n,107p,11289b,656s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on iss-thesis.pdf (55 pages, 1331344 bytes).
 PDF statistics:
- 496 PDF objects out of 1000 (max. 8388607)
- 432 compressed objects within 5 object streams
- 96 named destinations out of 1000 (max. 500000)
- 363 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 809 PDF objects out of 1000 (max. 8388607)
+ 681 compressed objects within 7 object streams
+ 165 named destinations out of 1000 (max. 500000)
+ 368 words of extra memory for PDF output out of 10000 (max. 10000000)
 

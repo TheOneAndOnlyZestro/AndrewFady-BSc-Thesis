@@ -1,0 +1,67 @@
+% =====================================================================
+%  MCU comparison table  --  requires in preamble:
+%      \usepackage{booktabs}
+%      \usepackage{tabularx}
+%  Include in the main document with:   \input{mcu_comparison_table}
+% =====================================================================
+\begin{table}[htbp]
+    \centering
+    \caption{Comparison of commercially available MCUs for edge ML applications.}
+    \label{tab:mcu_comparison}
+    \renewcommand{\arraystretch}{1.25}
+    \footnotesize
+    \setlength{\tabcolsep}{4pt}
+    % Three flexible (X) columns share the leftover width equally.
+    \begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}X c >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X c@{}}
+        \toprule
+        \textbf{MCU} & \textbf{Processor} & \textbf{WiFi/BT}
+            & \textbf{Memory \& FPU} & \textbf{NN / SIMD} & \textbf{Cost} \\
+        \midrule
+        ESP32
+            & Xtensa LX6, 2$\times$ @\,240\,MHz
+            & Yes
+            & 520\,KB SRAM; 8\,MB PSRAM + 16\,MB Flash (ext.); SP~FPU
+            & ESP-DL / ESP-NN
+            & \$3--8 \\
+        \addlinespace[3pt]
+        ESP32-S3
+            & Xtensa LX7, 2$\times$ @\,240\,MHz
+            & Yes
+            & 512\,KB SRAM; 8\,MB PSRAM + 16\,MB Flash (ext.); SP~FPU
+            & ESP-DL / ESP-NN (vector ext.)
+            & \$4--10 \\
+        \addlinespace[3pt]
+        Pi Pico (RP2040)
+            & Cortex-M0+, 2$\times$ @\,133\,MHz
+            & Wi-Fi\textsuperscript{a}
+            & 264\,KB SRAM; ext. PSRAM; 2\,MB Flash; no FPU
+            & CMSIS-NN (no SIMD)
+            & \$4--6 \\
+        \addlinespace[3pt]
+        Arduino Nano
+            & ATmega328P (8-bit), 1$\times$ @\,16\,MHz
+            & No
+            & 2\,KB SRAM; no PSRAM; 32\,KB Flash; no FPU
+            & None
+            & \$10--25 \\
+        \addlinespace[3pt]
+        STM32H7
+            & Cortex-M7, 1--2$\times$ @\,480\,MHz
+            & No
+            & 1\,MB SRAM; ext. PSRAM; 2\,MB Flash; DP~FPU
+            & CMSIS-NN/DSP (no MVE)
+            & \$8--20 \\
+        \addlinespace[3pt]
+        STM32N6
+            & Cortex-M55 + Neural-ART NPU, 1$\times$ @\,800\,MHz
+            & No
+            & 4.2\,MB SRAM; ext. PSRAM; flashless\textsuperscript{b}; H/SP/DP~FPU
+            & Helium SIMD + NPU (600\,GOPS); ST~Edge~AI
+            & \$5--12 \\
+        \bottomrule
+    \end{tabularx}
+
+    \vspace{3pt}
+    {\footnotesize \textsuperscript{a}\,Wi-Fi on Pico~W only; base RP2040 has no radio.\quad
+    \textsuperscript{b}\,No internal user flash; boots from external XSPI. NPU clocked at 1\,GHz.}
+\end{table}

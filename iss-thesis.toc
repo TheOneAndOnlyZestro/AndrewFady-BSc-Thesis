@@ -3,49 +3,58 @@
 \contentsline {subsection}{\numberline {1.1.1}Bioelectric Signals and Human Machine Interaction (HMI)}{1}{subsection.1.1.1}%
 \contentsline {subsection}{\numberline {1.1.2}Electromyography (EMG) Basics}{1}{subsection.1.1.2}%
 \contentsline {subsection}{\numberline {1.1.3}EMG Signal Preprocessing and Feature Extraction}{2}{subsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.1.4}Deep Learning (DL) Pipelines for Bioelectric Signal Processing}{2}{subsection.1.1.4}%
-\contentsline {subsection}{\numberline {1.1.5}Deep Learning (DL) for EMG Signal Processing}{2}{subsection.1.1.5}%
-\contentsline {section}{\numberline {1.2}TinyML and Resource-Constrained Microcontroller Platforms}{2}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Microcontrollers}{2}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Limitations and Constraints of Microcontroller Platforms}{2}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}TinyML Overview}{2}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}TinyML Frameworks and tools}{4}{subsection.1.2.4}%
-\contentsline {subsection}{\numberline {1.2.5}Applications of TinyML in Bioelectric Signal Processing}{4}{subsection.1.2.5}%
-\contentsline {chapter}{\numberline {2}State of The Art (SoTA)}{5}{chapter.2}%
-\contentsline {subsection}{\numberline {2.0.1}EMG Signal Processing Pipelines on Microcontroller Platforms}{5}{subsection.2.0.1}%
-\contentsline {subsection}{\numberline {2.0.2}EMG Signal Processing Pipelines with TinyML Frameworks}{5}{subsection.2.0.2}%
-\contentsline {chapter}{\numberline {3}Materials and Methods}{7}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Dataset Description and Preprocessing}{7}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}NinaPro DB2 Dataset}{7}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Preprocessing and Feature Extraction}{7}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Deep Learning Model Architecture}{7}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Hardware}{7}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}ESP32-S3 Specifications}{7}{subsection.3.3.1}%
-\contentsline {section}{\numberline {3.4}Quantization}{7}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Quantization Types and Schemes}{8}{subsection.3.4.1}%
-\contentsline {subsubsection}{\nonumberline Data Types}{8}{subsubsection*.3}%
-\contentsline {subsubsection}{\nonumberline Asymmetric vs symmetric quantization}{8}{subsubsection*.4}%
-\contentsline {subsubsection}{\nonumberline Quantization Aware Training (QAT) vs Post Training Quantization (PTQ)}{9}{subsubsection*.5}%
-\contentsline {subsubsection}{\nonumberline Hybrid vs Full quantization}{9}{subsubsection*.6}%
-\contentsline {subsubsection}{\nonumberline Quantization granularity}{10}{subsubsection*.7}%
-\contentsline {subsection}{\numberline {3.4.2}Quantization Scheme Used}{10}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Software and Tools}{10}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}ESP-NN Library}{10}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}LiteRT (Tensorflow Lite) Framework}{11}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}LabStreaming Layer (LSL) for Data Acquisition and Real-Time Processing}{11}{subsection.3.5.3}%
-\contentsline {chapter}{\numberline {4}Results}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Comparison of ML Ops Performance on the ESP32-S3 using Random Weights under different Quantization Schemes}{13}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Comparison of different Model Configurations}{13}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Discussion}{17}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Software Challenges}{17}{section.5.1}%
-\contentsline {section}{\numberline {5.2}LSTM Compatibility and Overhead}{17}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Conclusion}{19}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conclusion}{19}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Limitations}{19}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Future Work}{19}{section.6.3}%
+\contentsline {subsection}{\numberline {1.1.4}Machine Learning and Deep Learning Approaches for sEMG-Based Classification and Regression}{2}{subsection.1.1.4}%
+\contentsline {subsubsection}{\nonumberline Classical Machine Learning Approaches}{3}{subsubsection*.2}%
+\contentsline {subsubsection}{\nonumberline Deep Learning Approaches}{3}{subsubsection*.3}%
+\contentsline {section}{\numberline {1.2}TinyML and Resource-Constrained Microcontroller Platforms}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Microcontrollers}{4}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Limitations and Constraints of Microcontroller Platforms}{4}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}TinyML Overview}{5}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Applications of TinyML}{6}{subsection.1.2.4}%
+\contentsline {chapter}{\numberline {2}State of The Art (SoTA)}{7}{chapter.2}%
+\contentsline {subsection}{\numberline {2.0.1}ECG Classification using TinyML}{7}{subsection.2.0.1}%
+\contentsline {subsection}{\numberline {2.0.2}EMG Signal Processing}{10}{subsection.2.0.2}%
+\contentsline {chapter}{\numberline {3}Materials and Methods}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Dataset Description and Preprocessing}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}NinaPro DB2 Dataset}{13}{subsection.3.1.1}%
+\contentsline {subsubsection}{\nonumberline Channel and Gesture Selection}{13}{subsubsection*.7}%
+\contentsline {subsubsection}{\nonumberline Preprocessing}{14}{subsubsection*.8}%
+\contentsline {section}{\numberline {3.2}Deep Learning Model Architecture}{14}{section.3.2}%
+\contentsline {paragraph}{\nonumberline Input block (feature extraction).}{14}{paragraph*.9}%
+\contentsline {paragraph}{\nonumberline Downsampling block.}{14}{paragraph*.10}%
+\contentsline {paragraph}{\nonumberline Recurrent block.}{14}{paragraph*.11}%
+\contentsline {paragraph}{\nonumberline Regression head.}{15}{paragraph*.12}%
+\contentsline {subsubsection}{\nonumberline Model Configurations}{15}{subsubsection*.13}%
+\contentsline {section}{\numberline {3.3}Hardware}{16}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}ESP32-S3 Specifications}{16}{subsection.3.3.1}%
+\contentsline {subsubsection}{\nonumberline Processor and Memory Architecture}{17}{subsubsection*.16}%
+\contentsline {subsubsection}{\nonumberline Processor Instruction Extensions (PIE) and SIMD}{17}{subsubsection*.17}%
+\contentsline {section}{\numberline {3.4}Quantization}{18}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Quantization Types and Schemes}{18}{subsection.3.4.1}%
+\contentsline {subsubsection}{\nonumberline Data Types}{18}{subsubsection*.18}%
+\contentsline {subsubsection}{\nonumberline Asymmetric vs symmetric quantization}{19}{subsubsection*.19}%
+\contentsline {subsubsection}{\nonumberline Quantization Aware Training (QAT) vs Post Training Quantization (PTQ)}{19}{subsubsection*.20}%
+\contentsline {subsubsection}{\nonumberline Hybrid vs Full quantization}{20}{subsubsection*.21}%
+\contentsline {subsubsection}{\nonumberline Quantization granularity}{20}{subsubsection*.22}%
+\contentsline {subsection}{\numberline {3.4.2}Quantization Scheme Used}{20}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Software and Tools}{21}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}ESP-NN Library}{21}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}LiteRT (TensorFlow Lite) Framework}{21}{subsection.3.5.2}%
+\contentsline {subsubsection}{\nonumberline Modular Architecture}{23}{subsubsection*.23}%
+\contentsline {subsubsection}{\nonumberline Graph-Level Transformations for Quantization}{23}{subsubsection*.24}%
+\contentsline {subsubsection}{\nonumberline Experimental Workflow}{24}{subsubsection*.25}%
+\contentsline {chapter}{\numberline {4}Results}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Comparison of ML Ops Performance on the ESP32-S3 using Random Weights under different Quantization Schemes}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Comparison of different Model Configurations}{32}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Discussion}{37}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Model Performance}{37}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Conclusion}{39}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusion}{39}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Limitations}{39}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Future Work}{39}{section.6.3}%
 \def \@chapapp {\appendixname }
-\contentsline {chapter}{\numberline {A}Additionally}{21}{appendix.A}%
-\contentsline {chapter}{\nonumberline List of Figures}{23}{chapter*.12}%
-\contentsline {chapter}{\nonumberline List of Tables}{25}{chapter*.13}%
-\contentsline {chapter}{\nonumberline Bibliography}{27}{chapter*.14}%
+\contentsline {chapter}{\numberline {A}Additionally}{41}{appendix.A}%
+\contentsline {chapter}{\nonumberline List of Figures}{43}{chapter*.40}%
+\contentsline {chapter}{\nonumberline List of Tables}{45}{chapter*.41}%
+\contentsline {chapter}{\nonumberline Bibliography}{47}{chapter*.42}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

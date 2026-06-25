@@ -28,6 +28,23 @@
   langid = {english}
 }
 
+@article{atzoriCharacterizationBenchmarkDatabase2015,
+  title = {Characterization of a Benchmark Database for Myoelectric Movement Classification},
+  author = {Atzori, Manfredo and Gijsberts, Arjan and Kuzborskij, Ilja and Elsig, Simone and Hager, Anne-Gabrielle Mittaz and Deriaz, Olivier and Castellini, Claudio and Muller, Henning and Caputo, Barbara},
+  year = 2015,
+  month = jan,
+  journal = {IEEE transactions on neural systems and rehabilitation engineering: a publication of the IEEE Engineering in Medicine and Biology Society},
+  volume = {23},
+  number = {1},
+  pages = {73--83},
+  issn = {1558-0210},
+  doi = {10.1109/TNSRE.2014.2328495},
+  abstract = {In this paper, we characterize the Ninapro database and its use as a benchmark for hand prosthesis evaluation. The database is a publicly available resource that aims to support research on advanced myoelectric hand prostheses. The database is obtained by jointly recording surface electromyography signals from the forearm and kinematics of the hand and wrist while subjects perform a predefined set of actions and postures. Besides describing the acquisition protocol, overall features of the datasets and the processing procedures in detail, we present benchmark classification results using a variety of feature representations and classifiers. Our comparison shows that simple feature representations such as mean absolute value and waveform length can achieve similar performance to the computationally more demanding marginal discrete wavelet transform. With respect to classification methods, the nonlinear support vector machine was found to be the only method consistently achieving high performance regardless of the type of feature representation. Furthermore, statistical analysis of these results shows that classification accuracy is negatively correlated with the subject's Body Mass Index. The analysis and the results described in this paper aim to be a strong baseline for the Ninapro database. Thanks to the Ninapro database (and the characterization described in this paper), the scientific community has the opportunity to converge to a common position on hand movement recognition by surface electromyography, a field capable to strongly affect hand prosthesis capabilities.},
+  langid = {english},
+  pmid = {25486646},
+  keywords = {Benchmarking,Biomechanical Phenomena,Databases Factual,Electromyography,Forearm,Hand,Humans,Movement,Posture,Prostheses and Implants,Prosthesis Design,Signal Processing Computer-Assisted,Support Vector Machine,Wavelet Analysis,Wrist}
+}
+
 @misc{banburyBenchmarkingTinyMLSystems2020,
   title = {Benchmarking {{TinyML Systems}}: {{Challenges}} and {{Direction}}},
   shorttitle = {Benchmarking {{TinyML Systems}}},
@@ -41,6 +58,16 @@
   keywords = {FOS: Computer and information sciences,Machine Learning (cs.LG),Performance (cs.PF)}
 }
 
+@book{buteauTinyMLRealTimeEmbedded2024,
+  title = {{{TinyML}} for {{Real-Time Embedded HD-EMG Hand Gesture Recognition}} with {{On-Device Fine-Tuning}}},
+  author = {Buteau, {\'E}tienne and Gagn{\'e}, Gabriel and Bonilla, William and Boukadoum, Mounir and Fortier, Paul and Gosselin, Benoit},
+  year = 2024,
+  month = jul,
+  volume = {2024},
+  pages = {6},
+  doi = {10.1109/EMBC53108.2024.10781755}
+}
+
 @misc{cioflanNanoHydraEnergyEfficientTimeSeries2025,
   title = {{{NanoHydra}}: {{Energy-Efficient Time-Series Classification}} at the {{Edge}}},
   shorttitle = {{{NanoHydra}}},
@@ -52,6 +79,90 @@
   abstract = {Time series classification (TSC) on extreme edge devices represents a stepping stone towards intelligent sensor nodes that preserve user privacy and offer real-time predictions. Resource-constrained devices require efficient TinyML algorithms that prolong the device lifetime of battery-operated devices without compromising the classification accuracy. We introduce NanoHydra, a TinyML TSC methodology relying on lightweight binary random convolutional kernels to extract meaningful features from data streams. We demonstrate our system on the ultra-low-power GAP9 microcontroller, exploiting its eight-core cluster for the parallel execution of computationally intensive tasks. We achieve a classification accuracy of up to 94.47\% on ECG5000 dataset, comparable with state-of-the-art works. Our efficient NanoHydra requires only 0.33 ms to accurately classify a 1-second long ECG signal. With a modest energy consumption of 7.69 uJ per inference, 18x more efficient than the state-of-the-art, NanoHydra is suitable for smart wearable devices, enabling a device lifetime of over four years.},
   copyright = {arXiv.org perpetual, non-exclusive license},
   keywords = {FOS: Electrical engineering electronic engineering information engineering,Signal Processing (eess.SP)}
+}
+
+@article{cote-allardInterpretingDeepLearning2020,
+  title = {Interpreting {{Deep Learning Features}} for {{Myoelectric Control}}: {{A Comparison}} with {{Handcrafted Features}}},
+  shorttitle = {Interpreting {{Deep Learning Features}} for {{Myoelectric Control}}},
+  author = {{C{\^o}t{\'e}-Allard}, Ulysse and Campbell, Evan and Phinyomark, Angkoon and Laviolette, Fran{\c c}ois and Gosselin, Benoit and Scheme, Erik},
+  year = 2020,
+  month = mar,
+  journal = {Frontiers in Bioengineering and Biotechnology},
+  volume = {8},
+  eprint = {1912.00283},
+  primaryclass = {eess.SP},
+  pages = {158},
+  issn = {2296-4185},
+  doi = {10.3389/fbioe.2020.00158},
+  urldate = {2026-06-14},
+  abstract = {The research in myoelectric control systems primarily focuses on extracting discriminative representations from the electromyographic (EMG) signal by designing handcrafted features. Recently, deep learning techniques have been applied to the challenging task of EMG-based gesture recognition. The adoption of these techniques slowly shifts the focus from feature engineering to feature learning. However, the black-box nature of deep learning makes it hard to understand the type of information learned by the network and how it relates to handcrafted features. Additionally, due to the high variability in EMG recordings between participants, deep features tend to generalize poorly across subjects using standard training methods. Consequently, this work introduces a new multi-domain learning algorithm, named ADANN, which significantly enhances (p=0.00004) inter-subject classification accuracy by an average of 19.40\% compared to standard training. Using ADANN-generated features, the main contribution of this work is to provide the first topological data analysis of EMG-based gesture recognition for the characterisation of the information encoded within a deep network, using handcrafted features as landmarks. This analysis reveals that handcrafted features and the learned features (in the earlier layers) both try to discriminate between all gestures, but do not encode the same information to do so. Furthermore, using convolutional network visualization techniques reveal that learned features tend to ignore the most activated channel during gesture contraction, which is in stark contrast with the prevalence of handcrafted features designed to capture amplitude information. Overall, this work paves the way for hybrid feature sets by providing a clear guideline of complementary information encoded within learned and handcrafted features.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Machine Learning,Electrical Engineering and Systems Science - Signal Processing},
+  file = {/Users/andrewfahmy/Zotero/storage/4B9EIFFE/Côté-Allard et al. - 2020 - Interpreting Deep Learning Features for Myoelectric Control A Comparison with Handcrafted Features.pdf;/Users/andrewfahmy/Zotero/storage/ZQL9VX32/1912.html}
+}
+
+@article{coteallardDeepLearningElectromyographic2019,
+  title = {Deep {{Learning}} for {{Electromyographic Hand Gesture Signal Classification Using Transfer Learning}}},
+  author = {C{\^o}t{\'e} Allard, Ulysse and Fall, C. L. and Drouin, Alexandre and {Campeau-Lecours}, Alexandre and Gosselin, Cl{\'e}ment and Glette, Kyrre and Laviolette, Francois and Gosselin, Benoit},
+  year = 2019,
+  month = jan,
+  journal = {IEEE transactions on neural systems and rehabilitation engineering: a publication of the IEEE Engineering in Medicine and Biology Society},
+  volume = {PP},
+  doi = {10.1109/TNSRE.2019.2896269},
+  abstract = {In recent years, the use of deep learning algorithms has become increasingly more prominent for their unparalleled ability to automatically learn discriminant features from large amounts of data. However, within the field of electromyography-based gesture recognition, deep learning algorithms are seldom employed as it requires an unreasonable amount of time for a single person, in a single session, to generate tens of thousands of examples. This work's hypothesis is that general, informative features can be learned from the large amount of data generated by aggregating the signals of multiple users, thus reducing the recording burden imposed on a single person while enhancing gesture recognition. As such, this paper proposes applying transfer learning on the aggregated data of multiple users, while leveraging the capacity of deep learning algorithms to learn discriminant features from large dataset, without the need for in-depth feature engineering. To this end, two datasets are recorded with the Myo Armband (Thalmic Labs), a low-cost, low-sampling rate (200Hz), 8-channel, consumer-grade, dry electrode sEMG armband. These two datasets are comprised of 19 and 17 able-bodied participants respectively. A third dataset, also recorded with the Myo Armband, was taken from the NinaPro database and is comprised of 10 able-bodied participants. This transfer learning scheme is shown to outperform the current state-of-the-art in gesture recognition. It achieves an average accuracy of 98.31\% for 7 hand/wrist gestures over 17 able-bodied participants and 65.57\% for 18 hand/wrist gestures over 10 able-bodied participants. Finally, a use-case study employing eight able-bodied participants suggests that real-time feedback reduces the degradation in accuracy normally experienced over time.},
+  file = {/Users/andrewfahmy/Zotero/storage/JGQYB6FZ/Côté Allard et al. - 2019 - Deep Learning for Electromyographic Hand Gesture Signal Classification Using Transfer Learning.pdf}
+}
+
+@misc{davidTensorFlowLiteMicro2021,
+  title = {{{TensorFlow Lite Micro}}: {{Embedded Machine Learning}} on {{TinyML Systems}}},
+  shorttitle = {{{TensorFlow Lite Micro}}},
+  author = {David, Robert and Duke, Jared and Jain, Advait and Reddi, Vijay Janapa and Jeffries, Nat and Li, Jian and Kreeger, Nick and Nappier, Ian and Natraj, Meghna and Regev, Shlomi and Rhodes, Rocky and Wang, Tiezhen and Warden, Pete},
+  year = 2021,
+  month = mar,
+  number = {arXiv:2010.08678},
+  eprint = {2010.08678},
+  primaryclass = {cs.LG},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2010.08678},
+  urldate = {2026-06-25},
+  abstract = {Deep learning inference on embedded devices is a burgeoning field with myriad applications because tiny embedded devices are omnipresent. But we must overcome major challenges before we can benefit from this opportunity. Embedded processors are severely resource constrained. Their nearest mobile counterparts exhibit at least a 100 -- 1,000x difference in compute capability, memory availability, and power consumption. As a result, the machine-learning (ML) models and associated ML inference framework must not only execute efficiently but also operate in a few kilobytes of memory. Also, the embedded devices' ecosystem is heavily fragmented. To maximize efficiency, system vendors often omit many features that commonly appear in mainstream systems, including dynamic memory allocation and virtual memory, that allow for cross-platform interoperability. The hardware comes in many flavors (e.g., instruction-set architecture and FPU support, or lack thereof). We introduce TensorFlow Lite Micro (TF Micro), an open-source ML inference framework for running deep-learning models on embedded systems. TF Micro tackles the efficiency requirements imposed by embedded-system resource constraints and the fragmentation challenges that make cross-platform interoperability nearly impossible. The framework adopts a unique interpreter-based approach that provides flexibility while overcoming these challenges. This paper explains the design decisions behind TF Micro and describes its implementation details. Also, we present an evaluation to demonstrate its low resource requirement and minimal run-time performance overhead.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Machine Learning},
+  file = {/Users/andrewfahmy/Zotero/storage/M3PPA5LD/David et al. - 2021 - TensorFlow Lite Micro Embedded Machine Learning on TinyML Systems.pdf;/Users/andrewfahmy/Zotero/storage/IH7RSTUY/2010.html}
+}
+
+@article{delucaFilteringSurfaceEMG2010,
+  title = {Filtering the Surface {{EMG}} Signal: {{Movement}} Artifact and Baseline Noise Contamination},
+  shorttitle = {Filtering the Surface {{EMG}} Signal},
+  author = {De Luca, Carlo J. and Donald Gilmore, L. and Kuznetsov, Mikhail and Roy, Serge H.},
+  year = 2010,
+  month = may,
+  journal = {Journal of Biomechanics},
+  volume = {43},
+  number = {8},
+  pages = {1573--1579},
+  issn = {0021-9290},
+  doi = {10.1016/j.jbiomech.2010.01.027},
+  urldate = {2026-06-13},
+  abstract = {The surface electromyographic (sEMG) signal that originates in the muscle is inevitably contaminated by various noise signals or artifacts that originate at the skin-electrode interface, in the electronics that amplifies the signals, and in external sources. Modern technology is substantially immune to some of these noises, but not to the baseline noise and the movement artifact noise. These noise sources have frequency spectra that contaminate the low-frequency part of the sEMG frequency spectrum. There are many factors which must be taken into consideration when determining the appropriate filter specifications to remove these artifacts; they include the muscle tested and type of contraction, the sensor configuration, and specific noise source. The band-pass determination is always a compromise between (a) reducing noise and artifact contamination, and (b) preserving the desired information from the sEMG signal. This study was designed to investigate the effects of mechanical perturbations and noise that are typically encountered during sEMG recordings in clinical and related applications. The analysis established the relationship between the attenuation rates of the movement artifact and the sEMG signal as a function of the filter band pass. When this relationship is combined with other considerations related to the informational content of the signal, the signal distortion of filters, and the kinds of artifacts evaluated in this study, a Butterworth filter with a corner frequency of 20Hz and a slope of 12dB/oct is recommended for general use. The results of this study are relevant to biomechanical and clinical applications where the measurements of body dynamics and kinematics may include artifact sources.},
+  keywords = {Baseline noise,EMG signal,Filtering,Movement artifact},
+  file = {/Users/andrewfahmy/Zotero/storage/AT8B5Q6X/De Luca et al. - 2010 - Filtering the surface EMG signal Movement artifact and baseline noise contamination.pdf;/Users/andrewfahmy/Zotero/storage/UCNFL2ZC/S0021929010000631.html}
+}
+
+@misc{espressif-esp32-s3-TRM,
+  title = {{{ESP32-S3 Technical Reference}}},
+  author = {{Espressif Systems}},
+  publisher = {Espressif Systems}
+}
+
+@article{faraoneConvolutionalRecurrentNeuralNetworks2020,
+  title = {Convolutional-{{Recurrent Neural Networks}} on {{Low-Power Wearable Platforms}} for {{Cardiac Arrhythmia Detection}}},
+  author = {Faraone, Antonino and Delgado, Ricard},
+  year = 2020,
+  month = aug,
+  pages = {157},
+  doi = {10.1109/AICAS48895.2020.9073950},
+  file = {/Users/andrewfahmy/Zotero/storage/HAWU9HDK/Faraone and Delgado - 2020 - Convolutional-Recurrent Neural Networks on Low-Power Wearable Platforms for Cardiac Arrhythmia Detec.pdf}
 }
 
 @article{hizemReliableECGAnomaly2025,
@@ -68,6 +179,38 @@
   urldate = {2026-06-03},
   abstract = {The advent of Tiny Machine Learning (TinyML) has unlocked the potential to deploy machine learning models on resource-constrained edge devices, revolutionizing real-time monitoring in Internet of Medical Things (IoMT) applications. This study introduces a novel approach to real-time electrocardiogram (ECG) anomaly detection by integrating TinyML with edge Artificial Intelligence (AI) on low-power embedded systems. We demonstrate the feasibility and effectiveness of deploying optimized models on edge devices, such as the Raspberry Pi and Arduino, to detect ECG anomalies, including arrhythmias. The proposed workflow encompasses data preprocessing, feature extraction, and model inference, all executed directly on the edge device, eliminating the need for cloud resources. To address the constraints of memory and power consumption in wearable devices, we applied advanced optimization techniques, including model pruning and quantization, achieving an optimal balance between accuracy and resource utilization. The optimized model achieved an accuracy of 92.3\% while reducing the power consumption to 0.024 mW, enabling continuous, long-term health monitoring with minimal energy requirements. This work highlights the potential of TinyML to advance edge AI for real-time medical applications.},
   langid = {english}
+}
+
+@article{hudginsNewStrategyMultifunction1993,
+  title = {A New Strategy for Multifunction Myoelectric Control},
+  author = {Hudgins, B. and Parker, P. and Scott, R.N.},
+  year = 1993,
+  month = jan,
+  journal = {IEEE Transactions on Biomedical Engineering},
+  volume = {40},
+  number = {1},
+  pages = {82--94},
+  issn = {00189294},
+  doi = {10.1109/10.204774},
+  urldate = {2026-06-14},
+  copyright = {https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html}
+}
+
+@misc{huSpatialtemporalFusionConvolutional2018,
+  title = {Spatial-Temporal {{Fusion Convolutional Neural Network}} for {{Simulated Driving Behavior Recognition}}},
+  author = {Hu, Yaocong and Lu, MingQi and Lu, Xiaobo},
+  year = 2018,
+  month = dec,
+  number = {arXiv:1812.00615},
+  eprint = {1812.00615},
+  primaryclass = {cs.CV},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.1812.00615},
+  urldate = {2026-06-13},
+  abstract = {Abnormal driving behaviour is one of the leading cause of terrible traffic accidents endangering human life. Therefore, study on driving behaviour surveillance has become essential to traffic security and public management. In this paper, we conduct this promising research and employ a two stream CNN framework for video-based driving behaviour recognition, in which spatial stream CNN captures appearance information from still frames, whilst temporal stream CNN captures motion information with pre-computed optical flow displacement between a few adjacent video frames. We investigate different spatial-temporal fusion strategies to combine the intra frame static clues and inter frame dynamic clues for final behaviour recognition. So as to validate the effectiveness of the designed spatial-temporal deep learning based model, we create a simulated driving behaviour dataset, containing 1237 videos with 6 different driving behavior for recognition. Experiment result shows that our proposed method obtains noticeable performance improvements compared to the existing methods.},
+  archiveprefix = {arXiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
+  file = {/Users/andrewfahmy/Zotero/storage/2GN3LVEA/Hu et al. - 2018 - Spatial-temporal Fusion Convolutional Neural Network for Simulated Driving Behavior Recognition.pdf;/Users/andrewfahmy/Zotero/storage/AX5QJGPI/1812.html}
 }
 
 @misc{jacobQuantizationTrainingNeural2017,
@@ -175,6 +318,16 @@
   file = {/Users/andrewfahmy/Zotero/storage/QER9NNND/Martinek et al. - 2021 - Advanced Bioelectrical Signal Processing Methods Past, Present and Future Approach—Part I Cardiac.pdf}
 }
 
+@book{mohapatraHandGestureClassification2024,
+  title = {Hand {{Gesture Classification Using Surface Electromyography Signals Based}} on {{Fusion}} of {{Time Domain Features}}},
+  author = {Mohapatra, Nihar and Sahoo, Jaya and Sahoo, Goutam Kumar},
+  year = 2024,
+  month = apr,
+  pages = {6},
+  doi = {10.1109/RAEEUCCI61380.2024.10547968},
+  file = {/Users/andrewfahmy/Zotero/storage/BKXHDI4Q/Mohapatra et al. - 2024 - Hand Gesture Classification Using Surface Electromyography Signals Based on Fusion of Time Domain Fe.pdf}
+}
+
 @misc{nagelWhitePaperNeural2021,
   title = {A {{White Paper}} on {{Neural Network Quantization}}},
   author = {Nagel, Markus and Fournarakis, Marios and Amjad, Rana Ali and Bondarenko, Yelysei and van Baalen, Mart and Blankevoort, Tijmen},
@@ -190,6 +343,85 @@
   archiveprefix = {arXiv},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
   file = {/Users/andrewfahmy/Zotero/storage/GQ9MUZY7/Nagel et al. - 2021 - A White Paper on Neural Network Quantization.pdf;/Users/andrewfahmy/Zotero/storage/5D3UIEGX/2106.html}
+}
+
+@article{niSurveyHandGesture2024,
+  title = {A Survey on Hand Gesture Recognition Based on Surface Electromyography: {{Fundamentals}}, Methods, Applications, Challenges and Future Trends},
+  shorttitle = {A Survey on Hand Gesture Recognition Based on Surface Electromyography},
+  author = {Ni, Sike and {Al-qaness}, Mohammed A. A. and Hawbani, Ammar and {Al-Alimi}, Dalal and Abd Elaziz, Mohamed and Ewees, Ahmed A.},
+  year = 2024,
+  month = nov,
+  journal = {Applied Soft Computing},
+  volume = {166},
+  pages = {112235},
+  issn = {1568-4946},
+  doi = {10.1016/j.asoc.2024.112235},
+  urldate = {2026-06-25},
+  abstract = {Hand gestures are crucial for developing prosthetic and rehabilitation devices, enabling intuitive human--computer interaction (HCI) and improving accessibility for individuals with impairments. Recently, gesture recognition systems based on surface electromyography (sEMG) have been widely employed in various fields, demonstrating remarkable advantages and developments. In this paper, we present a comprehensive survey on sEMG-based hand gesture recognition. We provide an overview of the basic knowledge and background of sEMG signals and the acquisition equipment used. We delve into the applied feature extraction methods and classification models, focusing on recent advances in deep learning techniques. We also identify the datasets of sEMG signals used for hand gesture recognition. Moreover, we highlight recent applications of sEMG-based gesture recognition methods, including HCI, sign language recognition, rehabilitation, prosthesis control, and exoskeletons for augmentation. Additionally, we outline the latest innovative progress in this field, such as the influence of force, user identity detection, and migration effects. We also discuss the current limitations and challenges. Finally, we summarize the main findings and discuss future directions to enhance sEMG-based hand gesture recognition.},
+  keywords = {Deep learning,Electromyography,Gesture recognition,Human-computer interaction,sEMG},
+  file = {/Users/andrewfahmy/Zotero/storage/GDW62TBQ/Ni et al. - 2024 - A survey on hand gesture recognition based on surface electromyography Fundamentals, methods, appli.pdf;/Users/andrewfahmy/Zotero/storage/EXASGVAD/S1568494624010093.html}
+}
+
+@article{phinyomarkFeatureReductionSelection2012,
+  title = {Feature {{Reduction}} and {{Selection}} for {{EMG Signal Classification}}},
+  author = {Phinyomark, Angkoon and Phukpattaranont, P. and Limsakul, Chusak},
+  year = 2012,
+  month = jun,
+  journal = {Expert Systems with Applications},
+  volume = {39},
+  pages = {7420--7431},
+  doi = {10.1016/j.eswa.2012.01.102},
+  abstract = {Feature extraction is a significant method to extract the useful information which is hidden in surface electromyography (EMG) signal and to remove the unwanted part and interferences. To be successful in classification of the EMG signal, selection of a feature vector ought to be carefully considered. However, numerous studies of the EMG signal classification have used a feature set that have contained a number of redundant features. In this study, most complete and up-to-date thirty-seven time domain and frequency domain features have been proposed to be studied their properties. The results, which were verified by scatter plot of features, statistical analysis and classifier, indicated that most time domain features are superfluity and redundancy. They can be grouped according to mathematical property and information into four main types: energy and complexity, frequency, prediction model, and time-dependence. On the other hand, all frequency domain features are calculated based on statistical parameters of EMG power spectral density. Its performance in class separability viewpoint is not suitable for EMG recognition system. Recommendation of features to avoid the usage of redundant features for classifier in EMG signal classification applications is also proposed in this study.}
+}
+
+@article{raezTechniquesEMGSignal2006,
+  title = {Techniques of {{EMG}} Signal Analysis: Detection, Processing, Classification and Applications},
+  shorttitle = {Techniques of {{EMG}} Signal Analysis},
+  author = {Raez, M.B.I. and Hussain, M.S. and {Mohd-Yasin}, F.},
+  year = 2006,
+  month = mar,
+  journal = {Biological Procedures Online},
+  volume = {8},
+  pages = {11--35},
+  issn = {1480-9222},
+  doi = {10.1251/bpo115},
+  urldate = {2026-06-13},
+  abstract = {Electromyography (EMG) signals can be used for clinical/biomedical applications, Evolvable Hardware Chip (EHW) development, and modern human computer interaction. EMG signals acquired from muscles require advanced methods for detection, decomposition, processing, and classification. The purpose of this paper is to illustrate the various methodologies and algorithms for EMG signal analysis to provide efficient and effective ways of understanding the signal and its nature. We further point up some of the hardware implementations using EMG focusing on applications related to prosthetic hand control, grasp recognition, and human computer interaction. A comparison study is also given to show performance of various EMG signal analysis methods. This paper provides researchers a good understanding of EMG signal and its analysis procedures. This knowledge will help them develop more powerful, flexible, and efficient applications.},
+  pmcid = {PMC1455479},
+  pmid = {16799694},
+  file = {/Users/andrewfahmy/Zotero/storage/IDXVMSAR/Raez et al. - 2006 - Techniques of EMG signal analysis detection, processing, classification and applications.pdf}
+}
+
+@article{smithDeterminingOptimalWindow2011,
+  title = {Determining the {{Optimal Window Length}} for {{Pattern Recognition-Based Myoelectric Control}}: {{Balancing}} the {{Competing Effects}} of {{Classification Error}} and {{Controller Delay}}},
+  shorttitle = {Determining the {{Optimal Window Length}} for {{Pattern Recognition-Based Myoelectric Control}}},
+  author = {Smith, Lauren H. and Hargrove, Levi J. and Lock, Blair A. and Kuiken, Todd A.},
+  year = 2011,
+  month = apr,
+  journal = {IEEE Transactions on Neural Systems and Rehabilitation Engineering},
+  volume = {19},
+  number = {2},
+  pages = {186--192},
+  issn = {1534-4320, 1558-0210},
+  doi = {10.1109/TNSRE.2010.2100828},
+  urldate = {2026-06-14},
+  copyright = {https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html}
+}
+
+@article{t.HandGestureClassification2024,
+  title = {Hand Gesture Classification Framework Leveraging the Entropy Features from {{sEMG}} Signals and {{VMD}} Augmented Multi-Class {{SVM}}},
+  author = {T., Prabhavathy and Elumalai, Vinodh Kumar and E., Balaji},
+  year = 2024,
+  month = mar,
+  journal = {Expert Systems with Applications},
+  volume = {238},
+  pages = {121972},
+  issn = {0957-4174},
+  doi = {10.1016/j.eswa.2023.121972},
+  urldate = {2026-06-25},
+  abstract = {To improve the classification accuracy of hand movements from sEMG signals, this paper puts forward a unified hand gesture classification framework which exploits the potentials of variational mode decomposition (VMD) and multi-class support vector machine (SVM). Acquiring the sEMG signals from 25 intact subjects for ten functional activities in real-time, we implement a non-recursive adaptive decomposition technique to sEMG signals and perform power spectral analysis to identify the dominant narrow-band intrinsic mode functions (IMFs) that contain prominent biomarkers. Subsequently, to compute the optimal feature vectors from a set of entropy measures, this work investigates the performance of two techniques namely minimum redundancy and maximum relevance (MRMR) technique and kernel principal component analysis (kPCA). After extracting the optimal set of entropy features, the proposed approach implements a multi-class SVM based on one-vs-one (OVO) strategy to classify the hand gestures. The performance of the multi-class SVM compared with those of the K-nearest neighbor (KNN) and na\"ive bayes (NB) classifiers highlight that multi-class SVM offers superior performance with an average classification accuracy of 99.98\%. Moreover, for statistical analysis of the experimental results, this work performs Friedman test to analyze the significance of the SVM, KNN and NB classifier performances. Finally, the performance comparison of the proposed approach with those of the state-of-the-art techniques highlights the superiority of the proposed framework to improve the hand gesture classification accuracy.},
+  keywords = {Gesture classification,kPCA,Multi-class SVM,Prosthetic hand,VMD},
+  file = {/Users/andrewfahmy/Zotero/storage/TSQWLTGM/T. et al. - 2024 - Hand gesture classification framework leveraging the entropy features from sEMG signals and VMD augm.pdf;/Users/andrewfahmy/Zotero/storage/696R9WTP/S0957417423024740.html}
 }
 
 @article{valchevaSurfaceEMGDriven2026,
@@ -220,6 +452,36 @@
   keywords = {Artificial Intelligence (cs.AI),FOS: Computer and information sciences,Machine Learning (cs.LG)}
 }
 
+@article{zanghieriRobustRealTimeEmbedded2020,
+  title = {Robust {{Real-Time Embedded EMG Recognition Framework Using Temporal Convolutional Networks}} on a {{Multicore IoT Processor}}},
+  author = {Zanghieri, Marcello and Benatti, Simone and Burrello, Alessio and Kartsch, Victor and Conti, Francesco and Benini, Luca},
+  year = 2020,
+  month = apr,
+  journal = {IEEE Transactions on Biomedical Circuits and Systems},
+  volume = {14},
+  number = {2},
+  pages = {244--256},
+  issn = {1932-4545, 1940-9990},
+  doi = {10.1109/TBCAS.2019.2959160},
+  urldate = {2026-06-14},
+  copyright = {https://ieeexplore.ieee.org/Xplorehelp/downloads/license-information/IEEE.html}
+}
+
+@inproceedings{zanghieriSEMGbasedRegressionHand2021,
+  title = {{{sEMG-based Regression}} of {{Hand Kinematics}} with {{Temporal Convolutional Networks}} on a {{Low-Power Edge Microcontroller}}},
+  booktitle = {2021 {{IEEE International Conference}} on {{Omni-Layer Intelligent Systems}} ({{COINS}})},
+  author = {Zanghieri, Marcello and Benatti, Simone and Burrello, Alessio and Kartsch Morinigo, Victor Javier and Meattini, Roberto and Palli, Gianluca and Melchiorri, Claudio and Benini, Luca},
+  year = 2021,
+  month = aug,
+  pages = {1--6},
+  publisher = {IEEE},
+  address = {Barcelona, Spain},
+  doi = {10.1109/COINS51742.2021.9524188},
+  urldate = {2026-06-15},
+  copyright = {https://doi.org/10.15223/policy-029},
+  isbn = {978-1-6654-3156-9}
+}
+
 @article{zhengSurfaceElectromyographyNatural2022,
   title = {Surface {{Electromyography}} as a {{Natural Human-Machine Interface}}: {{A Review}}},
   shorttitle = {Surface {{Electromyography}} as a {{Natural Human-Machine Interface}}},
@@ -232,4 +494,19 @@
   doi = {10.1109/JSEN.2022.3165988},
   abstract = {Surface electromyography (sEMG) is a non-invasive method of measuring neuromuscular potentials generated when the brain instructs the body to perform both fine and coarse locomotion. This technique has seen extensive investigation over the last two decades, with significant advances in both the hardware and signal processing methods used to collect and analyze sEMG signals. While early work focused mainly on medical applications, there has been growing interest in utilizing sEMG as a sensing modality to enable next-generation, high-bandwidth, and natural human-machine interfaces. In the first part of this review, we briefly overview the human skeletomuscular physiology that gives rise to sEMG signals followed by a review of developments in sEMG acquisition hardware. Special attention is paid towards the fidelity of these devices as well as form factor, as recent advances have pushed the limits of user comfort and high-bandwidth acquisition. In the second half of the article, we explore work quantifying the information content of natural human gestures and then review the various signal processing and machine learning methods developed to extract information in sEMG signals. Finally, we discuss the future outlook in this field, highlighting the key gaps in current methods to enable seamless natural interactions between humans and machines.},
   file = {/Users/andrewfahmy/Zotero/storage/6QESZB7T/Zheng et al. - 2022 - Surface Electromyography as a Natural Human-Machine Interface A Review.pdf}
+}
+
+@article{zhongDeepFeatureLearning2026,
+  title = {Deep {{Feature Learning From Electromyographic Signals}} for {{Gesture Recognition Systems}}},
+  author = {Zhong, Wenjuan and Jiang, Xinyu and Szymaniak, Katarzyna and Jabbari, Milad and Ma, Chenfei and Nazarpour, Kianoush},
+  year = 2026,
+  journal = {IEEE Transactions on Neural Systems and Rehabilitation Engineering},
+  volume = {34},
+  pages = {20--35},
+  issn = {1558-0210},
+  doi = {10.1109/TNSRE.2025.3635419},
+  urldate = {2026-06-25},
+  abstract = {Deep learning applied to electromyography (EMG) signals enables accurate hand gesture recognition, revolutionizing diverse applications such as human-machine interaction, neural interfaces, and rehabilitative robotics. A well-designed deep learning architecture is crucial for accurately and robustly modeling and decoding the multidimensional information embedded in the EMG data. This survey presents a comprehensive review of state-of-the-art deep learning models and, for the first time, offers a categorization of advanced architectures from the perspective of data representations. EMG, as a distinctive biosignal modality, can be characterized through multiple representational forms, including temporal waveforms, spatial images, spectral domains, and graph-based structures comprising interconnected nodes. Consequently, the optimal model architecture is closely tied to the specific data representation employed. In addition, the limited availability of EMG datasets, particularly those with high-quality labels, remains a critical bottleneck and continues to impede the translation of research advances into widespread real-world applications. We therefore examine emerging semi-supervised and self-supervised learning frameworks, which serve as complementary approaches to fully supervised paradigms. Finally, we outline promising future directions for the development of generalizable and robust deep learning for practical EMG decoding.},
+  keywords = {Computer architecture,Convolution,Data models,Decoding,deep learning,Deep learning,Electrodes,Electromyography,Electromyography (EMG),Feature extraction,feature representation,gesture recognition,Gesture recognition,Representation learning},
+  file = {/Users/andrewfahmy/Zotero/storage/Y4JUHZHD/Zhong et al. - 2026 - Deep Feature Learning From Electromyographic Signals for Gesture Recognition Systems.pdf}
 }

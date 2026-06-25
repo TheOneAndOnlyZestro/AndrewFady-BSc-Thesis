@@ -1,0 +1,27 @@
+% intended caption: LSTM layer memory footprint across quantization and PSRAM on the ESP32-S3.
+% intended label: tab:lstm_memory
+\begin{tabular}{cllcccccccc}
+\toprule
+ &  &  & \multicolumn{4}{c}{PSRAM} & \multicolumn{4}{c}{No PSRAM} \\
+ &  &  & \multicolumn{2}{c}{Float32} & \multicolumn{2}{c}{Int8} & \multicolumn{2}{c}{Float32} & \multicolumn{2}{c}{Int8} \\
+ &  &  & Size (KB) & Arena (KB) & Size (KB) & Arena (KB) & Size (KB) & Arena (KB) & Size (KB) & Arena (KB) \\
+ & Input & Architecture &  &  &  &  &  &  &  &  \\
+\midrule
+\multirow{5}{*}{\rotatebox[origin=c]{90}{Time-Steps}} & (1, 1, 25) & LSTM(25, 25, 1) & 25.8 & 3.2 & 16.0 & 5.5 & 25.8 & 3.2 & 16.0 & 5.5 \\
+ & (5, 1, 25) & LSTM(25, 25, 1) & 41.4 & 9.2 & 43.5 & 21.1 & 41.4 & 9.2 & 43.5 & 21.1 \\
+ & (10, 1, 25) & LSTM(25, 25, 1) & 60.9 & 16.5 & 77.6 & 41.3 & 60.9 & 16.5 & 77.6 & 41.3 \\
+ & (15, 1, 25) & LSTM(25, 25, 1) & 81.5 & 24.4 & 113.2 & 63.2 & 81.5 & 24.4 & 113.2 & 63.2 \\
+ & (20, 1, 25) & LSTM(25, 25, 1) & 101.0 & 31.6 & 147.5 & 85.9 & ------ & ------ & ------ & ------ \\
+\cmidrule(lr){1-11}
+\multirow{4}{*}{\rotatebox[origin=c]{90}{Hidden Size}} & (1, 1, 50) & LSTM(50, 50, 1) & 84.4 & 4.5 & 33.0 & 8.3 & 84.4 & 4.5 & 33.0 & 8.3 \\
+ & (1, 1, 100) & LSTM(100, 100, 1) & 318.7 & 7.0 & 96.2 & 13.8 & ------ & ------ & ------ & ------ \\
+ & (1, 1, 150) & LSTM(150, 150, 1) & 709.4 & 9.6 & 198.6 & 19.3 & ------ & ------ & ------ & ------ \\
+ & (1, 1, 200) & LSTM(200, 200, 1) & 1256.2 & 12.1 & 340.0 & 24.8 & ------ & ------ & ------ & ------ \\
+\cmidrule(lr){1-11}
+\multirow{7}{*}{\rotatebox[origin=c]{90}{Output Size}} & (1, 1, 25) & LSTM(25, 25, 2) & 54.3 & 6.3 & 35.7 & 10.7 & 54.3 & 6.3 & 35.7 & 10.7 \\
+ & (1, 1, 25) & LSTM(25, 25, 3) & 80.6 & 8.8 & 52.9 & 15.5 & 80.6 & 8.8 & 52.9 & 15.5 \\
+ & (1, 1, 25) & LSTM(25, 25, 4) & 106.9 & 11.1 & 70.1 & 20.5 & 106.9 & 11.1 & 70.1 & 20.5 \\
+ & (1, 1, 25) & LSTM(25, 25, 5) & 133.2 & 13.2 & 87.3 & 25.1 & 133.2 & 13.2 & 87.3 & 25.1 \\
+ & (1, 1, 25) & LSTM(25, 25, 6) & 159.4 & 15.4 & 104.5 & 30.1 & ------ & ------ & ------ & ------ \\
+\bottomrule
+\end{tabular}

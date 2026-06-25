@@ -8,54 +8,52 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: refs.bib
-Warning--I didn't find a database entry for "martinek_advanced_2021"
-Warning--I didn't find a database entry for "zheng_surface_2022"
-Warning--I didn't find a database entry for "valcheva_surface_2026"
-Warning--I didn't find a database entry for "lin_mcunet_2020"
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--missing publisher in mohapatraHandGestureClassification2024
+Warning--empty journal in faraoneConvolutionalRecurrentNeuralNetworks2020
 
 Done.
-You've used 3 entries,
+You've used 26 entries,
             4186 wiz_defined-function locations,
-            851 strings with 8333 characters,
-and the built_in function-call counts, 1518 in all, are:
-= -- 84
-> -- 62
-< -- 0
-+ -- 30
-- -- 15
-* -- 76
-:= -- 232
-add.period$ -- 6
-call.type$ -- 3
-change.case$ -- 3
-chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 119
-empty$ -- 136
-format.name$ -- 17
-if$ -- 317
+            999 strings with 15083 characters,
+and the built_in function-call counts, 18841 in all, are:
+= -- 1458
+> -- 618
+< -- 118
++ -- 314
+- -- 129
+* -- 920
+:= -- 2770
+add.period$ -- 52
+call.type$ -- 26
+change.case$ -- 25
+chr.to.int$ -- 234
+cite$ -- 28
+duplicate$ -- 1428
+empty$ -- 1460
+format.name$ -- 153
+if$ -- 4298
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 33
-newline$ -- 32
-num.names$ -- 3
-pop$ -- 98
+int.to.str$ -- 26
+missing$ -- 292
+newline$ -- 101
+num.names$ -- 26
+pop$ -- 708
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 102
+skip$ -- 1420
 stack$ -- 0
-substring$ -- 3
-swap$ -- 80
-text.length$ -- 0
+substring$ -- 617
+swap$ -- 1180
+text.length$ -- 40
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 3
-warning$ -- 0
-while$ -- 3
-width$ -- 4
-write$ -- 43
-(There were 4 warnings)
+type$ -- 26
+warning$ -- 2
+while$ -- 76
+width$ -- 28
+write$ -- 260
+(There were 2 warnings)
