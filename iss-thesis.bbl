@@ -20,6 +20,9 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{jonasPrePrint}
+{Jonas Koellner} and {Bin Yang}, ``Towards natural wrist-hand motion: A lightweight neural network for proportional {{EMG-driven}} prosthetic control.''
+
 \bibitem{martinekAdvancedBioelectricalSignal2021}
 R.~Martinek, M.~Ladrova, M.~Sidikova, R.~Jaros, K.~Behbehani, R.~Kahankova and A.~{Kawala-Sterniuk}, ``Advanced {{Bioelectrical Signal Processing Methods}}: {{Past}}, {{Present}} and {{Future Approach}}---{{Part I}}: {{Cardiac Signals}},'' \emph{Sensors}, vol.~21, no.~15, p. 5186, Jul. 2021.
 
@@ -71,6 +74,9 @@ H.~Yelchuri and R.~R, ``A review of {{TinyML}},'' 2022.
 \bibitem{linMCUNetTinyDeep2020}
 J.~Lin, W.-M. Chen, Y.~Lin, J.~Cohn, C.~Gan and S.~Han, ``{{MCUNet}}: {{Tiny Deep Learning}} on {{IoT Devices}},'' 2020.
 
+\bibitem{linTinyMachineLearning2024}
+J.~Lin, L.~Zhu, W.-M. Chen, W.-C. Wang and S.~Han, ``Tiny {{Machine Learning}}: {{Progress}} and {{Futures}},'' 2024.
+
 \bibitem{davidTensorFlowLiteMicro2021}
 R.~David, J.~Duke, A.~Jain, V.~J. Reddi, N.~Jeffries, J.~Li, N.~Kreeger, I.~Nappier, M.~Natraj, S.~Regev, R.~Rhodes, T.~Wang and P.~Warden, ``{{TensorFlow Lite Micro}}: {{Embedded Machine Learning}} on {{TinyML Systems}},'' Mar. 2021.
 
@@ -85,6 +91,9 @@ M.~Zanghieri, S.~Benatti, A.~Burrello, V.~J. Kartsch~Morinigo, R.~Meattini, G.~P
 
 \bibitem{atzoriCharacterizationBenchmarkDatabase2015}
 M.~Atzori, A.~Gijsberts, I.~Kuzborskij, S.~Elsig, A.-G.~M. Hager, O.~Deriaz, C.~Castellini, H.~Muller and B.~Caputo, ``Characterization of a benchmark database for myoelectric movement classification,'' \emph{IEEE transactions on neural systems and rehabilitation engineering: a publication of the IEEE Engineering in Medicine and Biology Society}, vol.~23, no.~1, pp. 73--83, Jan. 2015.
+
+\bibitem{ninaproWebsite}
+``Ninapro {{Official Website}},'' https://ninapro.hevs.ch/.
 
 \bibitem{espressif-esp32-s3-TRM}
 {Espressif Systems}, ``{{ESP32-S3 Technical Reference}}.''

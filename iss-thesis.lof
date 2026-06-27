@@ -1,19 +1,22 @@
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Figure from \cite {linTinyMachineLearning2024} showing the taxonomy of the TinyML field}}{6}{figure.caption.5}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Convolutional--recurrent architecture employed by Faraone et al.\ \cite {faraoneConvolutionalRecurrentNeuralNetworks2020}.}}{8}{figure.caption.5}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Convolutional--fully-connected architecture employed by Kim et al.\ \cite {kimTinyMLBasedClassificationECG2023}.}}{9}{figure.caption.6}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Deep Learning Architecture used for EMG regression by Koellner et al}}{16}{figure.caption.15}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Figure shows latency of dense layers against the amount of layers used in a geometric decay.}}{25}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Figure shows latency of Conv2D layers against Input Size.}}{27}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Figure shows Conv2D graph with 4 convolutional layers.}}{28}{figure.caption.30}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Figure shows the accuracy of the quantization using the SQNR metric of Conv2D layers against Input size}}{31}{figure.caption.33}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Figure shows latency of model stages over window length.}}{33}{figure.caption.36}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Figure shows latency of model stages over window length.}}{34}{figure.caption.37}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Convolutional--recurrent architecture employed by Faraone et al.\ \cite {faraoneConvolutionalRecurrentNeuralNetworks2020}.}}{8}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Convolutional--fully-connected architecture employed by Kim et al.\ \cite {kimTinyMLBasedClassificationECG2023}.}}{9}{figure.caption.7}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\def \@chapapp {\appendixname }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Deep Learning Architecture used for EMG regression by Koellner et al}}{18}{figure.caption.16}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Figure shows latency of dense layers against the amount of layers used in a geometric decay.}}{27}{figure.caption.27}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Figure shows latency of Conv2D layers against Input Size.}}{29}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Figure shows Conv2D graph with 4 convolutional layers.}}{30}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Figure shows the LSTM qunatized graph}}{33}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Figure shows latency of model stages over window length.}}{38}{figure.caption.40}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Figure shows latency of model stages over window length.}}{39}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces LSTM memory footprint and per-window inference latency as a function of step size, at a fixed window length of $500$ samples. Memory (left, log scale) grows steeply with step size for both the model and the activation arena, whereas the per-window latency (right) remains essentially constant, varying by under $3\%$ across the full range. Note that the latency axis is zoomed; the apparent dip corresponds to an absolute change of only a few tens of microseconds.}}{39}{figure.caption.42}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Average NMSE for the selected training-set trials under full-dataset calibration.}}{42}{figure.caption.43}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Average NMSE for the selected test-set trials under full-dataset calibration.}}{42}{figure.caption.44}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
