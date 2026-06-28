@@ -55,7 +55,8 @@
 % -----------------------------------------------------------------
 
 
-\documentclass[12pt,DIV14,BCOR12mm,a4paper,footinclude=false,headinclude,parskip=half-,twoside,openright,cleardoublepage=empty,toc=index,bibliography=totoc,listof=totoc]{scrreprt}
+%\documentclass[12pt,DIV14,BCOR12mm,a4paper,footinclude=false,headinclude,parskip=half-,twoside,openright,cleardoublepage=empty,toc=index,bibliography=totoc,listof=totoc]{scrreprt}
+\documentclass[12pt,DIV16,BCOR12mm,a4paper,footinclude=false,headinclude,parskip=half-,twoside,openright,cleardoublepage=empty,toc=index,bibliography=totoc,listof=totoc]{scrreprt}
 % encoding needs to be defined here, otherwise umlauts on the titelpage won't work.
 \newcommand{\fittable}[1]{%
   \begingroup
@@ -95,7 +96,7 @@
 % --------------> put student information here <------------------
 % *****************************************************************
 % Please fill in all items denoted by "to be defined (TBD)"
-\def \deworktitle{Arbeitstitel, to be defined (TBD)}        % German title/translation
+\def \deworktitle{\normalsize Implementierung einer Elektromyographie-Verarbeitungspipeline von einem Torch-Modell zu TinyML auf ressourcenbeschränkten Mikrocontroller-Plattformen}       % German title/translation
 \def \enworktitle{Implementation of an Electromyography Processing Pipeline from Torch model to TinyML on resource-constrained microcontroller platforms}        % English title/translation
 \def \tutor{Jonas Koellner, Prof. Dr Turker Ince}  % name of your supervisor
 \def \student{Andrew Fady Fahmy}  % your name
@@ -107,15 +108,15 @@
  Limited-Resource Microcontroller Platforms} % keywords for your thesis
 
 \def \abstract{This thesis investigates the deployment of a convolutional--recurrent
-surface electromyography (sEMG) gesture-regression model developed by \cite{jonasPrePrint}
+surface electromyography (sEMG) gesture-regression model developed by Koellner and Yang
 on a commodity, resource-constrainer microcontroller (the ESP32-S3) using a portable, 
 non-destructive methodology: a pre-trained
 PyTorch network is adapted for embedded inference via the industry-standard LiteRT framework
 without retraining. A modular pipeline partitions the network into four exportable stages and
-exports the LSTM as a windowed block, reducing the memory footprint from over $1.5MB$ to about
+exports the LSTM as a windowed block, reducing the memory footprint from over $2.8MB$ to about
 $260KB$ and enabling mixed-precision deployment that roughly halves the latency of the default
 floating-point model. Results show int8 quantization is highly effective for the convolutional
-stages but counterproductive for the recurrent stages, where
+stages with varying accuracy across trials but counterproductive for the recurrent stages, where
 requantization dominates latency and error compounds across timesteps, thus characterising both
 the promise and the limits of portable, framework-based TinyML for recurrent biosignal models.}
 
@@ -207,25 +208,46 @@ the promise and the limits of portable, framework-based TinyML for recurrent bio
 
 % Title page
 \titlehead{
-	\includegraphics[width=20mm]{university-logo}
-	\hspace{6mm}
-	\ifthenelse{\equal{\doclang}{german}}{
-		\begin{minipage}[b]{.6\textwidth}
-		{\Large Universit\"at Stuttgart } \\
-		Institut f\"ur Signalverarbeitung und Systemtheorie\\
-		Professor Dr.-Ing. B. Yang \vspace{0pt}
-		\end{minipage}
-	}{
-		\begin{minipage}[b]{.6\textwidth}
-		{\Large University of Stuttgart } \\
-		Institute for Signal Processing and System Theory\\
-		Professor Dr.-Ing. B. Yang \vspace{0pt}
-		\end{minipage}
-	}
-	\hspace{1mm}
-	\includegraphics[width=28mm]{isslogocolor}
+    % --- Row 1: Stuttgart logo + institute text + ISS logo ---
+    \includegraphics[width=18mm]{university-logo}
+    \hspace{20mm}
+    \ifthenelse{\equal{\doclang}{german}}{
+        \begin{minipage}[b]{.6\textwidth}
+        {\Large Universit\"at Stuttgart } \\
+        Institut f\"ur Signalverarbeitung und Systemtheorie\\
+        Professor Dr.-Ing. B. Yang \vspace{0pt}
+        \end{minipage}
+    }{
+        \begin{minipage}[b]{.6\textwidth}
+        {\Large University of Stuttgart } \\
+        Institute for Signal Processing and System Theory\\
+        Professor Dr.-Ing. B. Yang \vspace{0pt}
+        \end{minipage}
+    }
+    \hfill
+    \raisebox{-2mm}{\includegraphics[width=20mm]{isslogocolor}}
+
+    \vspace{0mm}
+
+    % --- Row 2: GIU logo + text ---
+    \raisebox{2mm}{\includegraphics[width=58mm]{giu-logo-real}}
+    \hspace{-20mm}
+    \ifthenelse{\equal{\doclang}{german}}{
+        \begin{minipage}[b]{.6\textwidth}
+        {\Large German International University } \\
+        Platzhalter Institut / Lehrstuhl\\
+        Platzhalter Betreuer \vspace{0pt}
+        \end{minipage}
+    }{
+        \begin{minipage}[b]{.6\textwidth}
+        {\Large German International University } \\
+        Media Engineering and Technology\\
+        Professor Dr.-Ing T. Ince \vspace{0pt}
+        \end{minipage}
+    }
 }
-\subject{\worksubject\vspace*{-5mm}} % Art und Nummer der Arbeit
+
+\subject{\worksubject\vspace*{-15mm}} % Art und Nummer der Arbeit
 \title{\maintitle}%\\ \Large{\subtitle}}
 \subtitle{\translatedtitle}
 \author{
@@ -262,6 +284,12 @@ the promise and the limits of portable, framework-based TinyML for recurrent bio
     \abstract
   \end{minipage}
 }
+
+% \publishers{\footnotesize
+%   \begin{minipage}[t]{.9\textwidth}
+%     \abstract
+%   \end{minipage}
+% }
 \numberwithin{equation}{chapter} 
 \sloppy 
 
@@ -314,7 +342,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   \section{EMG and Deep Learning Pipelines for Bioelectric Signal Processing}
     \subsection{Bioelectric Signals and Human Machine Interaction (HMI)}
 
-    A bioelectric signal is a biological signal that originates from the human body;
+    A bioelectric signal originates from the human body;
     it is the sum of the action potentials of cells at an anatomical site such as the
     heart, the brain, or skeletal muscle \cite{martinekAdvancedBioelectricalSignal2021}.
     Such signals have been used extensively in Human--Machine Interaction (HMI), as they
@@ -346,7 +374,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     non-invasive nature, its wider accessibility without the need for trained experts, and
     the greater comfort it affords the user \cite{valchevaSurfaceEMGDriven2026}.
 
-    For these reasons, this study focuses exclusively on sEMG data.
+    For these reasons, this study and \cite{jonasPrePrint} focused exclusively on sEMG data.
 
     \subsection{EMG Signal Preprocessing and Feature Extraction}
     Raw EMG signals suffer from a multitude of issues that obscure their insightful value.
@@ -363,14 +391,13 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     $400$~Hz. Fourth-order Butterworth band-pass filters with a $20$--$450$~Hz passband are used by
     most studies to retain viable information while discarding the $5$--$20$~Hz corner frequencies
     \cite{delucaFilteringSurfaceEMG2010}. To suppress undesired high-frequency noise, many studies
-    additionally recommend smoothing techniques such as forward--backward filtering, as well as
-    rectification to convert the bipolar signal into positive-only, mono-polar data. Normalisation
+    additionally recommend smoothing techniques such as forward--backward filtering. Normalisation
     is likewise ubiquitous in digital signal processing and machine learning, as it promotes stable
     and faster training while reducing amplitude variability across subjects, sessions, and electrode
     placements \cite{coteallardDeepLearningElectromyographic2019}.
 
     Windowing is also widely adopted in EMG pre-processing pipelines, with parameter choices varying
-    across the literature. For real-time closed-loop control, input latency is critical: a maximum
+    across the literature. For real-time closed-loop control: a maximum
     latency of $300$~ms was initially recommended \cite{hudginsNewStrategyMultifunction1993}, although
     more recent studies suggest that it is optimally kept between $100$ and $250$~ms
     \cite{coteallardDeepLearningElectromyographic2019, smithDeterminingOptimalWindow2011}. While larger
@@ -391,7 +418,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     discriminative representation suitable for classifiers such as the SVM. Deep learning models, by
     contrast, are designed to operate end-to-end, learning task-relevant features directly from the
     filtered signal rather than relying on features specified in advance by a human expert
-    \cite{cote-allardInterpretingDeepLearning2020}. Accordingly, the pipeline developed in this thesis
+    \cite{cote-allardInterpretingDeepLearning2020}. Accordingly, the pipeline deployed in this thesis
     does not employ any hand-crafted feature extraction. Pre-processing is restricted to the time domain,
     filtering, windowing, and normalisation, after which the deep learning model performs its own
     feature extraction internally. This choice reflects the broader shift in the field away from manual
@@ -408,15 +435,8 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     \subsubsection{Classical Machine Learning Approaches}
 
     Among classical ML classifiers, the Support Vector Machine (SVM) is one of the most widely adopted methods
-    for sEMG-based gesture recognition \cite{niSurveyHandGesture2024}. An SVM constructs the decision boundary
-    that maximises the margin separating the classes, where the margin is defined by the training examples
-    lying closest to the boundary, the support vectors \cite{niSurveyHandGesture2024}. For data that are not
-    linearly separable, which is typically the case for sEMG, the SVM employs the so-called kernel trick:
-    rather than explicitly mapping the inputs into a higher-dimensional space in which a separating hyperplane
-    exists, a kernel function (commonly the Radial Basis Function) computes the requisite inner products
-    directly, thereby avoiding an explicit and costly nonlinear transformation \cite{niSurveyHandGesture2024}.
-
-    SVMs have been applied extensively to sEMG classification, with feature-augmented variants reporting average
+    for sEMG-based gesture recognition \cite{niSurveyHandGesture2024}. SVMs have been applied extensively to sEMG
+    classification, with feature-augmented variants reporting average
     accuracies as high as 99.98\% on constrained gesture sets \cite{t.HandGestureClassification2024}. The method
     is regarded as one of the more robust and accurate classical classifiers for sEMG
     \cite{mohapatraHandGestureClassification2024}, and is frequently employed as the reference baseline against
@@ -573,8 +593,8 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
       the authors substitute the LSTM of the original architecture with a less expressive GRU specifically
       to reduce the memory footprint and operation count. Finally, and most significantly, the recurrent
       component could not be executed using a general-purpose inference engine; the authors report that
-      TensorFlow Lite for Microcontrollers did not support recurrent operators at the time, necessitating a
-      hand-written CMSIS-NN implementation.
+      TensorFlow Lite for Microcontrollers did not support optimized recurrent operators at the time, 
+      necessitating a hand-written CMSIS-NN implementation.
 
       A second representative study is the work of Kim et al.\ \cite{kimTinyMLBasedClassificationECG2023},
       which develops a TinyML-based classifier for an ECG monitoring embedded system (TinyCES). In contrast
@@ -641,10 +661,10 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
       adapts and further optimises TEMPONet to estimate five continuous degrees of actuation, evaluating it on
       NinaPro DB8 (which includes two trans-radial amputees). Through channel reduction and int8 quantisation, the
       authors reduce the memory footprint to 70.9\,kB and the inference latency to 4.76\,ms on the GAP8, achieving a
-      mean absolute error of 6.89\textdegree---marginally below the float32 LSTM baseline of the dataset
+      mean absolute error of 6.89\textdegree, marginally below the float32 LSTM baseline of the dataset
       \cite{zanghieriSEMGbasedRegressionHand2021}. Notably, the authors deliberately favour a purely convolutional
       model over recurrent alternatives, citing evidence that TCNs match or exceed the accuracy of LSTMs on sEMG
-      sequence modelling while being substantially more amenable to parallelisation and embedded deployment.
+      sequence modelling while being substantially more open to parallelisation and embedded deployment.
 
       While both studies represent a compelling state of the art, their design choices differ from those of the
       present work in three respects that are directly relevant to our contribution. First, with regard to model
@@ -840,6 +860,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
         \caption{Deep Learning Architecture used for EMG regression by Koellner et al}
         \label{fig:model_arch}
       \end{figure}
+
   \section{Hardware}
     \subsection{ESP32-S3 Specifications}
 
@@ -848,7 +869,9 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     external PSRAM (pseudo-static RAM). The ESP32-S3 was selected because it is one
     of the few low-cost microcontrollers whose architecture incorporates dedicated
     hardware acceleration for the integer arithmetic that dominates quantized
-    neural-network inference. This subsection summarizes the characteristics of the
+    neural-network inference. As noted in the motivation, an Espressif MCU was likewise chosen 
+    in response to the notable scarcity of TinyML sEMG studies addressing deployment on such platforms.
+    This subsection summarizes the characteristics of the
     platform that are most relevant to on-device machine learning and to the
     single-instruction-multiple-data (SIMD) execution exploited by the ESP-NN
     backend. All figures are taken from the official \textit{ESP32-S3 Technical
@@ -877,13 +900,43 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
 
   
     \subsubsection{Processor Instruction Extensions (PIE) and SIMD}
-
     The feature most relevant to this work is the ESP32-S3's Processor Instruction
     Extensions (PIE), a vector instruction set defined through the Tensilica
     Instruction Extension (TIE) language and added specifically to accelerate AI and
     digital-signal-processing workloads. The PIE follows the SIMD paradigm, applying a
     single instruction across multiple data elements packed into wide vector
     registers, and supports $8$-bit, $16$-bit, and $32$-bit integer vector operations.
+
+    \subsubsection{Hardware Configuration}
+    Espressif boards are highly configurable, which gives them a significant edge over
+    their competitors. It is important to document the configuration used in this
+    implementation in order to fully characterise the hardware environment in which the
+    benchmarks were obtained. All experiments were conducted under the Espressif IoT
+    Development Framework (ESP-IDF) version $6.0.0$ with the GCC toolchain, targeting the
+    ESP32-S3.
+
+    The CPU was clocked at its maximum frequency of $240$~MHz, establishing the baseline
+    against which all latency measurements should be interpreted. Crucially for this work,
+    the ESP-NN backend was enabled in its optimised configuration
+    (\texttt{CONFIG\_NN\_OPTIMIZED}), so that the assembly-optimised \texttt{int8} kernels
+    discussed in Section~\ref{sec:esp-nn} were used rather than the generic ANSI-C reference
+    implementations; this setting underpins the \texttt{int8}-versus-floating-point latency
+    behaviour reported in the results.
+
+    The memory configuration is likewise central to the measurements, given the
+    SRAM-versus-PSRAM latency effects examined throughout. The board was configured with
+    $8$~MB of external Octal PSRAM operating at $80$~MHz, integrated into the heap via the
+    standard allocator (\texttt{CONFIG\_SPIRAM\_USE\_MALLOC}). The allocation thresholds
+    that govern whether a given buffer is placed in fast internal SRAM or external PSRAM
+    were left at their defaults, reserving $32$~KB of internal memory and routing
+    allocations below $16$~KB to internal SRAM. The instruction and data caches, through
+    which all external-memory accesses are mediated, were configured at $16$~KB and
+    $32$~KB respectively, both with a $32$-byte line size and eight-way associativity.
+
+    Finally, the device was fitted with $16$~MB of external flash operating at $80$~MHz in
+    DIO mode, and a custom partition table was used to reserve a dedicated partition into
+    which the packed model binaries were flashed, as described in
+    Section~\ref{sec:esp-nn}.
   
   \section{Quantization}
   Normally, Deep learning pipelines rely on floating point operations and embed their parameters (i.e weights and biases)
@@ -1000,6 +1053,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
 
 \section{Software and Tools}
   \subsection{ESP-NN Library}
+  \label{sec:esp-nn}
   The ESP-NN library contains optimized NN (Neural Network) functions for various Espressif chips. They are the backend used
   by TensorFlow Lite Micro on esp32 chips. It supports ESP32, ESP32-S3, ESP32-P4 and ESP32-C3 chips. While it provides
   generic optimizations for most chips, it provide assembly optimized versions for ML dedicated chips like ESP32-S3.
@@ -1022,7 +1076,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   reduces to one integer multiply followed by a shift, keeping the matmul pipeline entirely integer-only.
   
   \subsection{LiteRT (TensorFlow Lite) Framework}
-
+  \label{sec:impl}
   LiteRT is the successor to the widely adopted TensorFlow Lite pipeline. Developed
   by Google, TensorFlow Lite was designed to streamline TinyML workflows by
   providing a means of converting pre-trained TensorFlow models into a flatbuffer
@@ -1081,75 +1135,115 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   intermediate conversion formats, while retaining the \texttt{.tflite} file format
   for backward compatibility. LiteRT additionally exposes a range of configurable
   quantization schemes, including Float16, hybrid, and full Int8 quantization.
+  
+  \section{Implementation Details and Experimental Setup}
+  \subsection{Problems with Direct Conversion}
 
-  \subsubsection{Modular Architecture}
+  Our initial approach was to convert the entire network into a single flatbuffer and
+  deploy it as one monolithic graph. This proved unworkable for several distinct reasons,
+  which together motivated the modular strategy described in the following section.
 
-  To address these issues, we adopted a modular deployment strategy. Rather than
-  exporting the entire network as a single flatbuffer with one long and costly graph,
-  we partitioned the model at carefully chosen points so as to eliminate redundant
-  operations and to permit independent selection of quantization scheme and numerical
-  precision for each part, with the joint objectives of minimizing mean squared error
-  and reducing the memory footprint. After experimenting with the placement of these
-  partitions, we settled on three split points that divide the model into four stages.
+  The first and most serious issue was the recurrent stage. Although TensorFlow Lite
+  Micro on the ESP32-S3 nominally exposes a \texttt{UnidirectionalLSTM} operator through
+  its \texttt{MutableOpResolver}, exporting the LSTM via this operator did not function
+  correctly in our experiments. We therefore implemented the LSTM manually as an unrolled
+  cell and copied the trained parameters from the original model into it.
+
+  The second issue arose from a large concatenation at the output of the recurrent stage,
+  which had to assemble the entire downsampled window of $250$ timesteps. TensorFlow Lite
+  Micro restricts each concatenation operator to at most ten inputs, forcing this single
+  operation to be expressed as a tree of concatenation blocks, each combining at most ten
+  inputs. This restructuring inflated both the operation count and the model size, which
+  reached $2.8$~MB for the full network, far beyond a comfortable budget for the target
+  MCU, and produced a prohibitive per-window latency of approximately $5{,}000$~ms.
+
+  Quantization compounded these difficulties. Exporting the convolutional feature
+  extractor as a single \texttt{int8} block proved inadequate for three reasons. The ELU
+  activations, which lack a native ESP-NN kernel, were decomposed by the converter into
+  primitive \texttt{Exp}, \texttt{Sub}, and comparison operations, degrading performance.
+  The one-dimensional convolutions were not quantized by the default PT2E quantizer.
+  Finally, the \texttt{BatchNorm1d} layers were realized as separate operations that
+  executed in floating point even within an otherwise \texttt{int8} graph. Each of these
+  is addressed by a dedicated graph-level transformation below.
+
+  \subsection{Modular Architecture}
+  \label{sec:model_arch_methodology}
+  To overcome the limitations of the monolithic export, we adopted a modular deployment
+  strategy in which the network is partitioned at carefully chosen points rather than
+  exported as a single long graph. Partitioning serves three purposes: it eliminates
+  redundant operations, it permits the quantization scheme and numerical precision to be
+  selected independently for each part, and it keeps the working set of any one stage
+  small. The partition points were chosen experimentally with the joint objectives of
+  minimizing the mean squared error and reducing the memory footprint, yielding three
+  split points that divide the model into four stages.
 
   The partitioning was performed non-destructively: each stage was reconstructed as a
-  standalone model from the trained network, with the corresponding parameters copied
-  into the appropriate stage. The resulting four stages comprise two convolutional
-  models for the feature-extraction operations (the temporal and spatial convolutions
-  of the input block forming the first stage, and the downsampling convolution forming
-  the second), a single instance of the two-layer LSTM cell as the third stage, and
-  the regression head as the fourth.
+  standalone model from the trained network, with the corresponding parameters copied into
+  it, so that neither the architecture nor the trained weights were altered. The four
+  resulting stages are the two convolutional feature-extraction models (the temporal and
+  spatial convolutions of the input block forming the first stage, and the downsampling
+  convolution the second), the two-layer LSTM cell as the third stage, and the regression
+  head as the fourth.
 
-  A key element of this strategy concerns the export of the recurrent stage. Rather
-  than unrolling and exporting the LSTM over the entire window---which had produced
-  the prohibitive footprint and initialization cost described above---the LSTM is
-  exported as a single block spanning only a small, fixed number of timesteps (one or
-  five in our experiments) and is then invoked repeatedly within a loop on the device,
-  together with the regression head, to process the full sequence. Because only one
-  short LSTM block resides in memory at any time and is reused across iterations,
-  rather than the complete set of unrolled timesteps being materialized as distinct
-  cells, this windowed export reduces the memory overhead of the recurrent stage
-  considerably. The number of timesteps processed per block (the LSTM block step size)
-  therefore becomes a deployment parameter that trades recurrent loop overhead against
-  the working memory of the stage. Taken together, these measures reduced the memory
-  footprint from over $1.5$~MB to approximately $260$~KB for the complete model.
-  Crucially, the modular decomposition also enabled mixed-precision deployment,
-  allowing accurate floating-point LSTM stages to operate alongside optimized
-  Int8-quantized convolutional stages.
+  The export of the recurrent stage is central to this strategy. Rather than unrolling the
+  LSTM across the entire window, which produced the prohibitive footprint and latency noted
+  above, the LSTM is exported as a single block spanning only a small, fixed number of
+  timesteps and is then invoked repeatedly within an on-device loop, together with the
+  regression head, to process the full sequence. Because a single short block resides in
+  memory and is reused across iterations, rather than the full set of unrolled timesteps
+  being materialized as distinct cells, this windowed export sharply reduces the working
+  memory of the recurrent stage. The number of timesteps per block, the \emph{LSTM step
+  size}, thus becomes a deployment parameter trading recurrent loop overhead against working
+  memory, the effect of which is characterised in the results.
 
-  \subsubsection{Graph-Level Transformations for Quantization}
+  Taken together, these measures reduced the footprint of the complete model from $2.8$~MB
+  to approximately $260$~KB. Equally importantly, the decomposition enabled mixed-precision
+  deployment, allowing accurate floating-point recurrent stages to operate alongside
+  optimized \texttt{int8} convolutional stages.
 
-  Two further non-destructive transformations of the model graph were necessary to
-  obtain correct and efficient quantized stages.
+  \subsection{Graph-Level Transformations for Quantization}
+  \label{sec:graph_mod}
+  Three non-destructive transformations of the model graph were required to obtain correct
+  and efficient quantized stages, each addressing one of the quantization problems
+  identified above.
 
-  First, the batch-normalization layers were folded manually into the weights of the
-  preceding convolutions. The LiteRT converter was unable to fuse the
-  \texttt{BatchNorm1d} layers on its own; instead, it realized each normalization as a
-  separate pair of multiply and add operations in the graph. Beyond the redundant
-  computation this introduced, it aggravated the quantization problem, since both
-  operations were placed inside a floating-point quantize/dequantize island. We
-  therefore folded the batch-normalization parameters back into the corresponding
-  convolution weights and biases analytically and removed the layers from the graph,
-  eliminating both the spurious operations and the associated precision conversions.
+  First, the batch-normalization layers were folded into the weights and
+  biases of the preceding convolutions and removed from the graph. The converter was unable
+  to fuse the \texttt{BatchNorm1d} layers itself, realizing each instead as a separate
+  multiply--add pair placed inside a floating-point quantize/dequantize island; folding them
+  removed both the redundant computation and the associated precision conversions.
 
-  Second, the one-dimensional convolutions were reformulated as two-dimensional
-  convolutions. The LiteRT and TensorFlow Lite Micro toolchain does not quantize
-  \texttt{Conv1D} operations by default; expressing the same computation as a
-  \texttt{Conv2D} with a singleton spatial dimension was required for the
-  convolutional stages to be quantized correctly.
+  Second, the one-dimensional convolutions were reformulated as two-dimensional convolutions
+  with a singleton spatial dimension, since the LiteRT and TensorFlow Lite Micro toolchain
+  does not quantize \texttt{Conv1D} operations by default.
 
-  \subsubsection{Experimental Workflow}
+  Third, the first ELU activation block was removed from the graph and reimplemented
+  manually as an \texttt{int8} look-up table, avoiding the decomposed floating-point island
+  produced by the converter; the second ELU block was retained in floating point. 
+  The concatenation of the residual point also had to be reimplemented to account
+  for manually implementing the second ELU.
 
-  The experimental workflow proceeds as follows. A configuration-driven system accepts
-  a list of model configurations---specifying parameters such as the window length and
-  the LSTM block step size---and batch-converts each configuration to the LiteRT
-  format, exporting eight models per configuration: four in floating point and four
-  Int8-quantized, corresponding to the four pipeline stages. The exported models are
-  then packed into a single contiguous binary file and flashed to a dedicated partition
-  of the microcontroller's flash memory. The complete input trial is exported alongside
-  it, together with the reference output produced by the original PyTorch model, against
-  which the noramlized mean squared error is computed. On the ESP32-S3, a continuous loop iterates
-  over all configurations to generate the final results.
+  \subsection{Experimental Workflow}
+
+  The experimental workflow proceeds as follows. A configuration-driven system accepts a
+  list of model configurations, specifying parameters such as the window length and the LSTM
+  step size, and batch-converts each to the LiteRT format, exporting eight models per
+  configuration: the four pipeline stages in floating point and the same four stages
+  \texttt{int8}-quantized. The exported models are packed into a single contiguous binary
+  and flashed to a dedicated partition of the microcontroller's flash memory. The complete
+  input trial is exported alongside them, together with the reference output of the original
+  PyTorch model, against which the normalized mean squared error is computed. On the
+  ESP32-S3, a continuous loop iterates over all configurations to generate the final results.
+
+  It is crucial to emphasise that the NMSE, and all accuracy metrics reported in this work,
+  were computed relative to the outputs of the original floating-point PyTorch model rather
+  than against the NinaPro DB2 ground-truth labels. This choice follows directly from the
+  scope of the thesis established earlier: the present work is concerned solely with the
+  faithful deployment and implementation of a pre-trained model on resource-constrained
+  hardware, not with its predictive accuracy on the underlying task. The reference model's
+  outputs therefore constitute the appropriate ground truth, as the objective is to quantify
+  the fidelity loss introduced by the deployment pipeline itself, in isolation from any error
+  intrinsic to the model.
 
   \chapter{Results}
   \section{Comparison of ML Ops Performance on the ESP32-S3 using Random Weights under different Quantization Schemes}
@@ -1407,17 +1501,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
       \label{fig:per_stge_latency_window_linear}
     \end{figure}
 
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.7\textwidth]{Graphs/Win_500_steps.png}
-      \caption{LSTM memory footprint and per-window inference latency as a function of
-      step size, at a fixed window length of $500$ samples. Memory (left, log scale)
-      grows steeply with step size for both the model and the activation arena, whereas
-      the per-window latency (right) remains essentially constant, varying by under
-      $3\%$ across the full range. Note that the latency axis is zoomed; the apparent
-      dip corresponds to an absolute change of only a few tens of microseconds.}
-      \label{fig:lstm_step_sweep}
-    \end{figure}
+    
     % \begin{table}[htbp]
     %   \centering
     %   \caption{Model B (float32) performance on the ESP32-S3.}
@@ -1473,7 +1557,8 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   orders of magnitude above the floating-point baseline, the error remains small in
   absolute terms.
 
-  Calibrating instead on the entire training set and evaluating across multiple trials
+  Calibrating instead on the entire training set and evaluating across multiple trials,
+  unifromly picked from the set,
   yields a more demanding and realistic assessment, as a single set of quantization
   parameters must now generalise across recordings rather than being fitted to the trial
   under test. Figure~\ref{fig:train_quantization_nmse} reports the resulting average NMSE
@@ -1483,9 +1568,9 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
 
   Crucially, no evidence of systematic degradation is found across the held-out test
   trials. Figure~\ref{fig:test_quantization_nmse} reports the average NMSE on the
-  test-set trials. More than half attain an average NMSE at or below $0.2$, and about
-  $85\%$ remain below $0.4$, with the four largest values reaching only approximately
-  $0.56$ to $0.73$; with one test trial exceeding $1.0$.
+  test-set trials, unifromly picked from the set. More than half attain an average NMSE 
+  at or below $0.2$, and about $85\%$ remain below $0.4$, with the four largest values 
+  reaching only approximately $0.56$ to $0.73$; with one test trial exceeding $1.0$.
 
   \begin{figure}[H]
       \centering
@@ -1525,58 +1610,51 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
 
   \subsection{ELU Activation Handling}
 
-  The ELU activations represent a second area of concern. The TensorFlow Lite Micro
-  runtime and the ESP-NN backend implement only a limited set of activation
-  functions (such as ReLU, Hard-Swish, Logistic, and Softmax) and provide no native
-  implementation for ELU. Consequently, the LiteRT converter decomposes the
-  \texttt{torch.nn.ELU} module into a sequence of primitive operations. In the
-  quantized graph, the exporter further isolates this region as a floating-point
-  island bracketed by quantization and dequantization stages that traverse the
-  entire activation tensor, adding considerable overhead. To address this, we
-  removed the ELU section from the model graph and reimplemented it manually using
-  an \texttt{int8} look-up table (LUT). For the first activation block (ELU-A), this
-  substitution reduces the latency from approximately $1{,}624$ to $125$~\textmu s
-  at a window length of $50$ and from $20{,}198$ to $1{,}295$~\textmu s at a window
-  length of $500$, corresponding to a speed-up of roughly $13$ to $16\times$. We
-  note that the second activation block (ELU-B) is retained in floating point
-  (dequantized from \texttt{int8} without a LUT) and therefore exhibits no
-  comparable improvement, with its latency remaining essentially unchanged between
-  the two configurations (for example, $771$ versus $780$~\textmu s at a window
-  length of $50$).
+  The manual \texttt{int8} look-up-table reimplementation of the first ELU block
+  (Section~\ref{sec:graph_mod}) yields a substantial latency reduction. For this block (ELU-A),
+  the substitution reduces the latency from approximately $1{,}624$ to $125$~\textmu s at
+  a window length of $50$, and from $20{,}198$ to $1{,}295$~\textmu s at a window length
+  of $500$, a speed-up of roughly $13$ to $16\times$. As expected, the second activation
+  block (ELU-B), retained in floating point, exhibits no comparable improvement; its
+  latency is essentially unchanged between the two configurations (for example, $771$
+  versus $780$~\textmu s at a window length of $50$). This confirms that the cost of the
+  decomposed ELU island stemmed from the floating-point quantize/dequantize traversals
+  rather than the activation arithmetic itself, and that a single-pass LUT removes that
+  cost almost entirely.
 
   \subsection{LSTM Step Size}
 
-  The LSTM step size constitutes an important hyperparameter governing the trade-off
-  between recurrent loop overhead and memory footprint. Because the multi-layer LSTM
-  is unrolled into its constituent operations, increasing the step size batches more
-  timesteps into the unrolled graph, which was done in the hope that the per-invocation
-  recurrent loop overhead may be reduced but it ended up inflating both the model size
-  and the activation arena. To characterise this trade-off, we swept the step size from $1$ 
-  to $50$ at a fixed window length of $500$ samples, measuring the resulting LSTM model size,
-  arena footprint, and per-window inference latency.
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.7\textwidth]{Graphs/Win_500_steps.png}
+      \caption{LSTM memory footprint and per-window inference latency as a function of
+      step size, at a fixed window length of $500$ samples. Memory (left, log scale)
+      grows steeply with step size for both the model and the activation arena, whereas
+      the per-window latency (right) remains essentially constant, varying by under
+      $3\%$ across the full range. Note that the latency axis is zoomed; the apparent
+      dip corresponds to an absolute change of only a few tens of microseconds.}
+      \label{fig:lstm_step_sweep}
+    \end{figure}
+  The effect of the LSTM step size (Section~\ref{sec:model_arch_methodology}) was characterised by sweeping it
+  from $1$ to $50$ at a fixed window length of $500$ samples. The results
+  (Figure~\ref{fig:lstm_step_sweep}, float32) reveal a pronounced asymmetry between
+  memory and latency. The memory cost grows steeply with the step size: the LSTM model
+  size rises from roughly $200$~kB at a step of $1$ to approximately $1{,}000$~kB at a
+  step of $50$, while the activation arena grows even more sharply, from under $10$~kB to
+  about $200$~kB, an increase of more than twentyfold. The per-window latency, by
+  contrast, is essentially flat, remaining within a narrow band of approximately
+  $3{,}190$ to $3{,}260$~ms across all step sizes; it decreases only marginally as the
+  step size grows, since a larger step invokes the recurrent cell fewer times per window,
+  but this saving plateaus almost immediately.
 
-  The results, shown in Figure~\ref{fig:lstm_step_sweep} in which a float32 is used,
-  reveal a pronounced asymmetry.
-  The memory cost grows steeply with the step size: the LSTM model size rises from
-  roughly $200$~kB at a step of $1$ to approximately
-  $1000$~kB at a step of $50$, while the activation arena grows even more sharply,
-  from under $10$~kB to about $200$~kB over the same
-  range, an increase of more than twentyfold. By contrast, the per-window inference
-  latency is essentially flat, remaining within a narrow band of approximately
-  $3190$--$3260$~ms across all step sizes. Notably, the latency in fact decreases
-  slightly as the step size increases, since a larger step executes the recurrent cell
-  fewer times per window; however, the magnitude of this saving is marginal and plateaus
-  almost immediately.
-
-  This asymmetry has a clear practical implication: increasing the step size yields no
-  meaningful latency benefit while incurring a substantial and rapidly growing memory
-  cost. The growth in arena size is the more critical of the two, as it directly
-  constrains deployability, a sufficiently large arena may no longer fit in fast
-  on-chip SRAM and must instead be allocated in slower external PSRAM or flash, which
-  would itself introduce additional memory-access latency. The step size should
-  therefore be kept small in memory-constrained deployments; in our setting, a step of
-  $1$ offers the most favourable operating point, attaining the lowest memory footprint
-  with no penalty to inference latency.
+  The practical implication is clear: increasing the step size yields no meaningful
+  latency benefit while incurring a substantial and rapidly growing memory cost. The
+  growth in arena size is the more critical of the two, as it directly constrains
+  deployability; a sufficiently large arena may no longer fit in fast on-chip SRAM and
+  must instead be allocated in slower external PSRAM, itself introducing additional
+  memory-access latency. The step size should therefore be kept small in
+  memory-constrained deployments, with a step of $1$ offering the most favourable
+  operating point: the lowest memory footprint with no latency penalty.
 
   \subsection{Window Length}
 
@@ -1599,8 +1677,8 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   substantial deviations at the final output. The same effect applies to the
   regression head, which is invoked within the same recurrent loop. Cell-state
   quantization is particularly problematic. In contrast to the hidden state, the
-  cell state exhibits a wide dynamic range---spanning approximately $-30$ to $30$ in
-  our experiments---which causes standard \texttt{int8} quantization to be coarse:
+  cell state exhibits a wide dynamic range, spanning approximately $-30$ to $30$ in
+  our experiments, which causes standard \texttt{int8} quantization to be coarse:
   numerically significant variations are collapsed into narrow ranges, producing
   repeated saturated values and severely degraded error metrics. The conventional
   remedy is a dedicated \texttt{int16} quantization scheme for the cell-state path,

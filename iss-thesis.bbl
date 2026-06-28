@@ -20,9 +20,6 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{jonasPrePrint}
-{Jonas Koellner} and {Bin Yang}, ``Towards natural wrist-hand motion: A lightweight neural network for proportional {{EMG-driven}} prosthetic control.''
-
 \bibitem{martinekAdvancedBioelectricalSignal2021}
 R.~Martinek, M.~Ladrova, M.~Sidikova, R.~Jaros, K.~Behbehani, R.~Kahankova and A.~{Kawala-Sterniuk}, ``Advanced {{Bioelectrical Signal Processing Methods}}: {{Past}}, {{Present}} and {{Future Approach}}---{{Part I}}: {{Cardiac Signals}},'' \emph{Sensors}, vol.~21, no.~15, p. 5186, Jul. 2021.
 
@@ -31,6 +28,9 @@ M.~Zheng, M.~Crouch and M.~Eggleston, ``Surface {{Electromyography}} as a {{Natu
 
 \bibitem{valchevaSurfaceEMGDriven2026}
 I.~V. Valcheva, V.~Gandhi and E.~Chinellato, ``Surface {{EMG}} driven gesture recognition using machine learning for robotic applications,'' \emph{Discover Robotics}, vol.~2, no.~1, p.~4, Feb. 2026.
+
+\bibitem{jonasPrePrint}
+{Jonas Koellner} and {Bin Yang}, ``Towards natural wrist-hand motion: A lightweight neural network for proportional {{EMG-driven}} prosthetic control.''
 
 \bibitem{raezTechniquesEMGSignal2006}
 M.~Raez, M.~Hussain and F.~{Mohd-Yasin}, ``Techniques of {{EMG}} signal analysis: Detection, processing, classification and applications,'' \emph{Biological Procedures Online}, vol.~8, pp. 11--35, Mar. 2006.

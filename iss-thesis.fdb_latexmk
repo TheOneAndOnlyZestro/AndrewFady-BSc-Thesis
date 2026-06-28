@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex iss-thesis"] 1782590885.519 "iss-thesis.aux" "iss-thesis.bbl" "iss-thesis" 1782591034.18366 0
+["bibtex iss-thesis"] 1782653255.80932 "iss-thesis.aux" "iss-thesis.bbl" "iss-thesis" 1782653258.00384 0
   "./IEEEtran_ISS.bst" 1646050277 61493 9a0007069aeb95a8ab0383e4064e87f7 ""
   "./refs.bib" 1782554089.04384 59563 00898cf986e714fa04ca1b72ecf52c05 ""
-  "iss-thesis.aux" 1782591033.99031 42017 1cc0bb833e42825395202fe3590ec258 "pdflatex"
+  "iss-thesis.aux" 1782653257.80239 44858 764b538dbff989b487dac18afb99036a "pdflatex"
   (generated)
   "iss-thesis.bbl"
   "iss-thesis.blg"
   (rewritten before read)
-["pdflatex"] 1782591032.05588 "/Users/andrewfahmy/Desktop/Bachelor-Paper/thesis/iss-thesis.tex" "iss-thesis.pdf" "iss-thesis" 1782591034.18379 0
-  "/Users/andrewfahmy/Desktop/Bachelor-Paper/thesis/iss-thesis.tex" 1782591031.53276 110043 07852f519cf50a4f220c03c19c69c4dd ""
+["pdflatex"] 1782653255.88969 "/Users/andrewfahmy/Desktop/Bachelor-Paper/thesis/iss-thesis.tex" "iss-thesis.pdf" "iss-thesis" 1782653258.00402 0
+  "/Users/andrewfahmy/Desktop/Bachelor-Paper/thesis/iss-thesis.tex" 1782653253.50214 114542 5216319cdce0a335c7e16efb91cc9539 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
@@ -161,13 +161,14 @@
   "Graphs/Win_500_steps.png" 1782499589.04415 64415 e03235d9b401c164a9cc031284004fcc ""
   "Graphs/test_trials_qunatization_nmse.png" 1782589139.2731 43297 c6ba9d7f098c9b319896cdb4a36cae45 ""
   "Graphs/train_trial_quantization_nmse.png" 1782588833.76302 43800 880846bb52b18bd2979e0b97413ce7b8 ""
-  "Model.pdf" 1782211972.13961 60776 29e61696af76e595df6aac70a0472419 ""
-  "iss-thesis.aux" 1782591033.99031 42017 1cc0bb833e42825395202fe3590ec258 "pdflatex"
-  "iss-thesis.bbl" 1782590885.59513 8493 acadef5ab3d2f4d207a2d11783b6a892 "bibtex iss-thesis"
-  "iss-thesis.lof" 1782591033.996 2648 bddd2c1d2f7bd28d5e36a3e3992bb04c "pdflatex"
-  "iss-thesis.lot" 1782591033.99603 1673 4139da3313d99b8413df8802d935ffd0 "pdflatex"
-  "iss-thesis.tex" 1782591031.53276 110043 07852f519cf50a4f220c03c19c69c4dd ""
-  "iss-thesis.toc" 1782591033.99589 6177 3507f941a136af036c9476035a4a8778 "pdflatex"
+  "Model.pdf" 1782595870.51621 66152 52fca50d5c3b139a41dfdf3e9bfa93c8 ""
+  "giu-logo-real.png" 1782592822.22085 17932 d954255aa322b9cdffa0bc4d9215f014 ""
+  "iss-thesis.aux" 1782653257.80239 44858 764b538dbff989b487dac18afb99036a "pdflatex"
+  "iss-thesis.bbl" 1782653255.88762 8493 392d489483257d761a26fc52ae6715a3 "bibtex iss-thesis"
+  "iss-thesis.lof" 1782653257.80824 2648 aef47316cecc0a3006df7f913e4fafc0 "pdflatex"
+  "iss-thesis.lot" 1782653257.80826 1673 2f8f1185e798a76c6c4ef47f2f5801a1 "pdflatex"
+  "iss-thesis.tex" 1782653253.50214 114542 5216319cdce0a335c7e16efb91cc9539 ""
+  "iss-thesis.toc" 1782653257.80816 6480 6f62e3f6d36d58b52b742a21c280f63b "pdflatex"
   "isslogocolor.pdf" 1646050277 48759 9a043d1ace3b3522951066bd65d61c39 ""
   "tables/conv_memory.tex" 1781189187.20351 2296 75e10e4b17e4adc1c040525e9c79af98 ""
   "tables/conv_timing.tex" 1781181553.33706 2356 01da255baf0286461ef8eaa55e6b52c2 ""
