@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.25)  28 JUN 2026 16:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.25)  28 JUN 2026 18:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -695,6 +695,11 @@ LaTeX Font Info:    Trying to load font information for U+txsyc on input line 33
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
+Underfull \hbox (badness 3009) in paragraph at lines 331--331
+[]|\T1/txr/m/n/14.4 Jonas Koell-ner, Prof. Dr-Ing
+ []
+
+
 Underfull \hbox (badness 2393) in paragraph at lines 331--331
 []|\T1/txr/m/n/14.4 sEMG, TinyML, Dig-i-tal Sig-nal
  []
@@ -732,104 +737,104 @@ chapter 1.
 
 
 
-] [2] [3] (./tables/mcu_specs.tex) [4]
-<Graphs/TinyML-Classification.png, id=218, 1292.83pt x 401.5pt>
+] [2] [3] (./tables/mcu_specs.tex) [4] [5]
+<Graphs/TinyML-Classification.png, id=232, 1292.83pt x 401.5pt>
 File: Graphs/TinyML-Classification.png Graphic file (type png)
 <use Graphs/TinyML-Classification.png>
-Package pdftex.def Info: Graphs/TinyML-Classification.png  used on input line 532.
+Package pdftex.def Info: Graphs/TinyML-Classification.png  used on input line 569.
 (pdftex.def)             Requested size: 457.72493pt x 142.15059pt.
- [5] [6 <./Graphs/TinyML-Classification.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 595--605
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 595--605
+
+ []
+
+[6 <./Graphs/TinyML-Classification.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 634--651
+
+ []
+
+
+Underfull \hbox (badness 1005) in paragraph at lines 634--651
+\T1/txr/bx/n/12 Quantization Aware Train-ing (QAT) \T1/txr/m/n/12 in-volves hav-ing quan-ti-za-tion in mind dur-ing the
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 660--669
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 673--679
+
+ []
+
+[8]
 chapter 2.
-<Graphs/ECG-Paper-Arch.png, id=241, 1071.00125pt x 610.28pt>
+<Graphs/ECG-Paper-Arch.png, id=277, 1071.00125pt x 610.28pt>
 File: Graphs/ECG-Paper-Arch.png Graphic file (type png)
 <use Graphs/ECG-Paper-Arch.png>
-Package pdftex.def Info: Graphs/ECG-Paper-Arch.png  used on input line 584.
+Package pdftex.def Info: Graphs/ECG-Paper-Arch.png  used on input line 713.
 (pdftex.def)             Requested size: 320.41225pt x 182.58255pt.
-[7
+[9
 
 
 ]
-<Graphs/ECG-Monitor-Kim-Paper-Arch.png, id=250, 371.3875pt x 694.595pt>
+<Graphs/ECG-Monitor-Kim-Paper-Arch.png, id=287, 371.3875pt x 694.595pt>
 File: Graphs/ECG-Monitor-Kim-Paper-Arch.png Graphic file (type png)
 <use Graphs/ECG-Monitor-Kim-Paper-Arch.png>
-Package pdftex.def Info: Graphs/ECG-Monitor-Kim-Paper-Arch.png  used on input line 613.
+Package pdftex.def Info: Graphs/ECG-Monitor-Kim-Paper-Arch.png  used on input line 742.
 (pdftex.def)             Requested size: 320.41225pt x 599.26901pt.
- [8 <./Graphs/ECG-Paper-Arch.png>] [9 <./Graphs/ECG-Monitor-Kim-Paper-Arch.png>]
-LaTeX Font Info:    Trying to load font information for TS1+txr on input line 664.
+ [10 <./Graphs/ECG-Paper-Arch.png>] [11 <./Graphs/ECG-Monitor-Kim-Paper-Arch.png>]
+LaTeX Font Info:    Trying to load font information for TS1+txr on input line 793.
  (/usr/local/texlive/2026/texmf-dist/tex/latex/txfonts/ts1txr.fd
 File: ts1txr.fd 2000/12/15 v3.1
-) [10] [11] [12
+) [12] [13] [14
 
 
 ]
 chapter 3.
-[13] [14
+[15] [16
 
 
 ]
 chapter 4.
-[15] [16]
-<Model.pdf, id=324, 515.8402pt x 626.39317pt>
+[17] [18]
+<Model.pdf, id=360, 515.8402pt x 626.39317pt>
 File: Model.pdf Graphic file (type pdf)
 <use Model.pdf>
-Package pdftex.def Info: Model.pdf  used on input line 859.
+Package pdftex.def Info: Model.pdf  used on input line 988.
 (pdftex.def)             Requested size: 366.18843pt x 444.6849pt.
- [17] [18 <./Model.pdf>] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 962--972
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 962--972
-
- []
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1018
-
- []
-
-
-Underfull \hbox (badness 1005) in paragraph at lines 1001--1018
-\T1/txr/bx/n/12 Quantization Aware Train-ing (QAT) \T1/txr/m/n/12 in-volves hav-ing quan-ti-za-tion in mind dur-ing the
- []
-
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 1027--1036
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1040--1046
-
- []
-
-[22] [23]
-Underfull \hbox (badness 1314) in paragraph at lines 1146--1151
+ [19] [20 <./Model.pdf>] [21] [22] [23]
+Underfull \hbox (badness 1314) in paragraph at lines 1170--1175
 \T1/txr/m/n/12 cro on the ESP32-S3 nom-i-nally ex-poses a \T1/txtt/m/n/12 UnidirectionalLSTM \T1/txr/m/n/12 op-er-a-tor through its
  []
 
 [24] [25] [26]
 chapter 5.
-<Graphs/Dense-Layer-Inference.png, id=468, 1092.7224pt x 659.8251pt>
+<Graphs/Dense-Layer-Inference.png, id=469, 1092.7224pt x 659.8251pt>
 File: Graphs/Dense-Layer-Inference.png Graphic file (type png)
 <use Graphs/Dense-Layer-Inference.png>
-Package pdftex.def Info: Graphs/Dense-Layer-Inference.png  used on input line 1255.
+Package pdftex.def Info: Graphs/Dense-Layer-Inference.png  used on input line 1298.
 (pdftex.def)             Requested size: 320.41225pt x 193.46875pt.
 (./tables/conv_timing.tex) [27
 
 
  <./Graphs/Dense-Layer-Inference.png>] (./tables/conv_memory.tex)
-<Graphs/Conv2D-input-size-inference.png, id=476, 462.528pt x 344.0052pt>
+<Graphs/Conv2D-input-size-inference.png, id=477, 462.528pt x 344.0052pt>
 File: Graphs/Conv2D-input-size-inference.png Graphic file (type png)
 <use Graphs/Conv2D-input-size-inference.png>
-Package pdftex.def Info: Graphs/Conv2D-input-size-inference.png  used on input line 1294.
+Package pdftex.def Info: Graphs/Conv2D-input-size-inference.png  used on input line 1337.
 (pdftex.def)             Requested size: 320.41225pt x 238.31917pt.
  [28]
-<Graphs/CONV-Graph-Layers-4.png, id=483, 244.915pt x 1995.455pt>
+<Graphs/CONV-Graph-Layers-4.png, id=484, 244.915pt x 1995.455pt>
 File: Graphs/CONV-Graph-Layers-4.png Graphic file (type png)
 <use Graphs/CONV-Graph-Layers-4.png>
-Package pdftex.def Info: Graphs/CONV-Graph-Layers-4.png  used on input line 1301.
+Package pdftex.def Info: Graphs/CONV-Graph-Layers-4.png  used on input line 1344.
 (pdftex.def)             Requested size: 72.26424pt x 588.77592pt.
 
 
@@ -840,92 +845,92 @@ Package scrlayer-scrpage Warning: \headheight to low.
 (scrlayer-scrpage)                processing, but you should do this yourself,
 (scrlayer-scrpage)                e.g., setting typearea's option
 (scrlayer-scrpage)                `headheight=28.99998pt'.
-(scrlayer-scrpage)                I'll also decrease \topmargin on input line 1305.
+(scrlayer-scrpage)                I'll also decrease \topmargin on input line 1348.
 
 
 Overfull \vbox (10.87498pt too high) has occurred while \output is active []
 
  [29 <./Graphs/Conv2D-input-size-inference.png>] [30 <./Graphs/CONV-Graph-Layers-4.png>] (./tables/lstm_timing.tex) (./tables/lstm_memory.tex) [31]
-<Graphs/LSTM-Graph-25.png, id=504, 941.5175pt x 2348.775pt>
+<Graphs/LSTM-Graph-25.png, id=505, 941.5175pt x 2348.775pt>
 File: Graphs/LSTM-Graph-25.png Graphic file (type png)
 <use Graphs/LSTM-Graph-25.png>
-Package pdftex.def Info: Graphs/LSTM-Graph-25.png  used on input line 1367.
+Package pdftex.def Info: Graphs/LSTM-Graph-25.png  used on input line 1410.
 (pdftex.def)             Requested size: 236.01091pt x 588.76926pt.
  [32] [33 <./Graphs/LSTM-Graph-25.png>] (./tables/macs/model_macs.tex) [34] (./tables/float_models_A_nmse/timing.tex) [35] (./tables/float_models_A_nmse/size.tex) (./tables/int8_models_A_nmse/timing.tex) [36] (./tables/int8_models_A_nmse/size.tex)
-<Graphs/Per-Stage-Latency-Window-Log.png, id=540, 542.025pt x 346.896pt>
+<Graphs/Per-Stage-Latency-Window-Log.png, id=541, 542.025pt x 346.896pt>
 File: Graphs/Per-Stage-Latency-Window-Log.png Graphic file (type png)
 <use Graphs/Per-Stage-Latency-Window-Log.png>
-Package pdftex.def Info: Graphs/Per-Stage-Latency-Window-Log.png  used on input line 1492.
+Package pdftex.def Info: Graphs/Per-Stage-Latency-Window-Log.png  used on input line 1535.
 (pdftex.def)             Requested size: 320.41225pt x 205.06914pt.
  [37]
-<Graphs/Per-Stage-Latency-Window-Linear.png, id=547, 542.025pt x 542.025pt>
+<Graphs/Per-Stage-Latency-Window-Linear.png, id=548, 542.025pt x 542.025pt>
 File: Graphs/Per-Stage-Latency-Window-Linear.png Graphic file (type png)
 <use Graphs/Per-Stage-Latency-Window-Linear.png>
-Package pdftex.def Info: Graphs/Per-Stage-Latency-Window-Linear.png  used on input line 1499.
+Package pdftex.def Info: Graphs/Per-Stage-Latency-Window-Linear.png  used on input line 1542.
 (pdftex.def)             Requested size: 320.41225pt x 320.42053pt.
+<Graphs/train_trial_quantization_nmse.png, id=549, 578.16pt x 361.35pt>
+File: Graphs/train_trial_quantization_nmse.png Graphic file (type png)
+<use Graphs/train_trial_quantization_nmse.png>
+Package pdftex.def Info: Graphs/train_trial_quantization_nmse.png  used on input line 1549.
+(pdftex.def)             Requested size: 320.41225pt x 200.25388pt.
  [38 <./Graphs/Per-Stage-Latency-Window-Log.png> <./Graphs/Per-Stage-Latency-Window-Linear.png>]
-chapter 6.
-[39
+<Graphs/test_trials_qunatization_nmse.png, id=558, 578.16pt x 361.35pt>
+File: Graphs/test_trials_qunatization_nmse.png Graphic file (type png)
+<use Graphs/test_trials_qunatization_nmse.png>
+Package pdftex.def Info: Graphs/test_trials_qunatization_nmse.png  used on input line 1557.
+(pdftex.def)             Requested size: 320.41225pt x 200.25388pt.
+ [39 <./Graphs/train_trial_quantization_nmse.png> <./Graphs/test_trials_qunatization_nmse.png>] [40
 
 
 ]
-<Graphs/train_trial_quantization_nmse.png, id=567, 578.16pt x 361.35pt>
-File: Graphs/train_trial_quantization_nmse.png Graphic file (type png)
-<use Graphs/train_trial_quantization_nmse.png>
-Package pdftex.def Info: Graphs/train_trial_quantization_nmse.png  used on input line 1577.
-(pdftex.def)             Requested size: 320.41225pt x 200.25388pt.
-<Graphs/test_trials_qunatization_nmse.png, id=568, 578.16pt x 361.35pt>
-File: Graphs/test_trials_qunatization_nmse.png Graphic file (type png)
-<use Graphs/test_trials_qunatization_nmse.png>
-Package pdftex.def Info: Graphs/test_trials_qunatization_nmse.png  used on input line 1585.
-(pdftex.def)             Requested size: 320.41225pt x 200.25388pt.
- [40 <./Graphs/train_trial_quantization_nmse.png> <./Graphs/test_trials_qunatization_nmse.png>]
-<Graphs/Win_500_steps.png, id=577, 1011.78pt x 361.35pt>
+chapter 6.
+[41]
+<Graphs/Win_500_steps.png, id=582, 1011.78pt x 361.35pt>
 File: Graphs/Win_500_steps.png Graphic file (type png)
 <use Graphs/Win_500_steps.png>
-Package pdftex.def Info: Graphs/Win_500_steps.png  used on input line 1629.
+Package pdftex.def Info: Graphs/Win_500_steps.png  used on input line 1667.
 (pdftex.def)             Requested size: 320.41225pt x 114.43236pt.
- [41 <./Graphs/Win_500_steps.png>] [42]
+ [42] [43 <./Graphs/Win_500_steps.png>] [44] [45] [46
+
+
+]
 chapter 7.
 
-Underfull \hbox (badness 1331) in paragraph at lines 1695--1701
+Underfull \hbox (badness 1331) in paragraph at lines 1814--1820
 \T1/txr/m/n/12 regression model on com-mod-ity, resource-constrained mi-cro-con-troller hard-ware us-ing a
  []
 
-[43
-
-
-] [44] (./iss-thesis.lof)
+[47] [48] (./iss-thesis.lof)
 \tf@lof=\write4
 \openout4 = `iss-thesis.lof'.
 
- [45
+ [49
 
 
-] [46
+] [50
 
 
 ] (./iss-thesis.lot)
 \tf@lot=\write5
 \openout5 = `iss-thesis.lot'.
 
- (./iss-thesis.bbl [47] [48
+ (./iss-thesis.bbl [51] [52
 
 
 ]
 chapter without number
-[49] [50]
-Underfull \hbox (badness 2181) in paragraph at lines 108--109
+[53]
+Underfull \hbox (badness 2181) in paragraph at lines 90--91
 []\T1/txr/m/n/12 M. Nagel, M. Fournarakis, R. A. Am-jad, Y. Bon-darenko, M. van Baalen and
  []
 
-) [51] [52
+[54]) [55] [56
 
 
 ]
 LaTeX Font Info:    Font shape `T1/txr/b/n' in size <20.74> not available
-(Font)              Font shape `T1/txr/bx/n' tried instead on input line 1803.
- [53] (./iss-thesis.aux)
+(Font)              Font shape `T1/txr/bx/n' tried instead on input line 1865.
+ [57] (./iss-thesis.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -936,18 +941,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18510 strings out of 467525
- 349353 string characters out of 5418982
- 961571 words of memory out of 5000000
- 46937 multiletter control sequences out of 15000+600000
+ 18515 strings out of 467525
+ 349366 string characters out of 5418982
+ 961575 words of memory out of 5000000
+ 46938 multiletter control sequences out of 15000+600000
  718441 words of font info for 205 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  108i,20n,107p,11289b,656s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxi.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/txex.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on iss-thesis.pdf (57 pages, 1984885 bytes).
+Output written on iss-thesis.pdf (61 pages, 1988567 bytes).
 PDF statistics:
- 930 PDF objects out of 1000 (max. 8388607)
- 788 compressed objects within 8 object streams
- 184 named destinations out of 1000 (max. 500000)
- 489 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 953 PDF objects out of 1000 (max. 8388607)
+ 806 compressed objects within 9 object streams
+ 188 named destinations out of 1000 (max. 500000)
+ 497 words of extra memory for PDF output out of 10000 (max. 10000000)
 

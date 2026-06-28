@@ -80,6 +80,15 @@ J.~Lin, L.~Zhu, W.-M. Chen, W.-C. Wang and S.~Han, ``Tiny {{Machine Learning}}: 
 \bibitem{davidTensorFlowLiteMicro2021}
 R.~David, J.~Duke, A.~Jain, V.~J. Reddi, N.~Jeffries, J.~Li, N.~Kreeger, I.~Nappier, M.~Natraj, S.~Regev, R.~Rhodes, T.~Wang and P.~Warden, ``{{TensorFlow Lite Micro}}: {{Embedded Machine Learning}} on {{TinyML Systems}},'' Mar. 2021.
 
+\bibitem{krishnamoorthiQuantizingDeepConvolutional2018}
+R.~Krishnamoorthi, ``Quantizing deep convolutional networks for efficient inference: {{A}} whitepaper,'' Jun. 2018.
+
+\bibitem{jacobQuantizationTrainingNeural2017}
+B.~Jacob, S.~Kligys, B.~Chen, M.~Zhu, M.~Tang, A.~Howard, H.~Adam and D.~Kalenichenko, ``Quantization and {{Training}} of {{Neural Networks}} for {{Efficient Integer-Arithmetic-Only Inference}},'' Dec. 2017.
+
+\bibitem{nagelWhitePaperNeural2021}
+M.~Nagel, M.~Fournarakis, R.~A. Amjad, Y.~Bondarenko, M.~van Baalen and T.~Blankevoort, ``A {{White Paper}} on {{Neural Network Quantization}},'' Jun. 2021.
+
 \bibitem{faraoneConvolutionalRecurrentNeuralNetworks2020}
 A.~Faraone and R.~Delgado, ``Convolutional-{{Recurrent Neural Networks}} on {{Low-Power Wearable Platforms}} for {{Cardiac Arrhythmia Detection}},'' p. 157, Aug. 2020.
 
@@ -97,14 +106,5 @@ M.~Atzori, A.~Gijsberts, I.~Kuzborskij, S.~Elsig, A.-G.~M. Hager, O.~Deriaz, C.~
 
 \bibitem{espressif-esp32-s3-TRM}
 {Espressif Systems}, ``{{ESP32-S3 Technical Reference}}.''
-
-\bibitem{krishnamoorthiQuantizingDeepConvolutional2018}
-R.~Krishnamoorthi, ``Quantizing deep convolutional networks for efficient inference: {{A}} whitepaper,'' Jun. 2018.
-
-\bibitem{jacobQuantizationTrainingNeural2017}
-B.~Jacob, S.~Kligys, B.~Chen, M.~Zhu, M.~Tang, A.~Howard, H.~Adam and D.~Kalenichenko, ``Quantization and {{Training}} of {{Neural Networks}} for {{Efficient Integer-Arithmetic-Only Inference}},'' Dec. 2017.
-
-\bibitem{nagelWhitePaperNeural2021}
-M.~Nagel, M.~Fournarakis, R.~A. Amjad, Y.~Bondarenko, M.~van Baalen and T.~Blankevoort, ``A {{White Paper}} on {{Neural Network Quantization}},'' Jun. 2021.
 
 \end{thebibliography}

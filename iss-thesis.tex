@@ -98,7 +98,7 @@
 % Please fill in all items denoted by "to be defined (TBD)"
 \def \deworktitle{\normalsize Implementierung einer Elektromyographie-Verarbeitungspipeline von einem Torch-Modell zu TinyML auf ressourcenbeschränkten Mikrocontroller-Plattformen}       % German title/translation
 \def \enworktitle{Implementation of an Electromyography Processing Pipeline from Torch model to TinyML on resource-constrained microcontroller platforms}        % English title/translation
-\def \tutor{Jonas Koellner, Prof. Dr Turker Ince}  % name of your supervisor
+\def \tutor{Jonas Koellner, Prof. Dr-Ing Turker Ince}  % name of your supervisor
 \def \student{Andrew Fady Fahmy}  % your name
 \def \worksubject{Bachelorarbeit S1509}  % type and number (S/Dxxxx) of your thesis
 \def \startdate{01/03/2026}
@@ -109,7 +109,7 @@
 
 \def \abstract{This thesis investigates the deployment of a convolutional--recurrent
 surface electromyography (sEMG) gesture-regression model developed by Koellner and Yang
-on a commodity, resource-constrainer microcontroller (the ESP32-S3) using a portable, 
+on a commodity, resource-constrained microcontroller (the ESP32-S3) using a portable, 
 non-destructive methodology: a pre-trained
 PyTorch network is adapted for embedded inference via the industry-standard LiteRT framework
 without retraining. A modular pipeline partitions the network into four exportable stages and
@@ -456,7 +456,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     Deep learning circumvents the manual feature-engineering bottleneck by learning hierarchical, task-relevant
     representations directly from the data, enabling end-to-end classification and regression
     \cite{zhongDeepFeatureLearning2026}. Owing to its successes across domains ranging from computer vision to
-    digital signal processing, broad methods of DL architectures has been adapted to sEMG decoding. Crucially,
+    digital signal processing, broad methods of DL architectures have been adapted to sEMG decoding. Crucially,
     the choice of architecture is tightly coupled to the representation in which the sEMG signal is cast
     \cite{zhongDeepFeatureLearning2026}.
 
@@ -508,52 +508,181 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     
     \input{tables/mcu_specs.tex}
     
-    \subsection{TinyML Overview}
-    Historically, the only viable approach to machine learning (ML) and deep learning (DL) inference within IoT systems was Cloud ML. This paradigm leveraged
-    the communication capabilities of MCUs, such as Wi-Fi, to transmit raw sensor data to remote servers possessing substantially greater computational
-    resources for processing, subsequently retrieving the resulting commands in order to actuate physical responses \cite{linMCUNetTinyDeep2020}. 
-    While this strategy exploited the full capabilities of cloud clusters and relaxed the hardware requirements of IoT devices, it suffers from several limitations that are particularly acute for
-    real-time biosignal applications such as the sEMG-based gesture decoding addressed in this work \cite{yelchuriReviewTinyML2022}.
+    \subsection{TinyML}
 
-    First, the round-trip transmission of data and commands to and from remote servers introduces latency that is incompatible with the sub-50\,ms response
-    times required for natural, real-time prosthetic and human--machine interaction. Second, cloud inference presupposes reliable network connectivity, an
-    assumption that fails for wearable and assistive devices intended to operate continuously and in arbitrary environments \cite{linTinyMachineLearning2024}. Third, the transmission of raw
-    physiological signals over a network exposes sensitive medical data to security vulnerabilities and privacy violations, a concern that is especially
-    pronounced in healthcare applications. Finally, the Cloud ML paradigm necessitates the development and maintenance of potentially costly server
-    infrastructure, undermining the low-cost, self-contained operation that makes wearable assistive technology widely accessible.
+    TinyML constitutes a subfield of Edge ML concerned specifically with deploying
+    deep learning models on low-cost, highly resource-constrained MCUs through the
+    joint optimisation of ML kernels and the underlying hardware to satisfy the
+    prevailing constraints. Since its emergence, TinyML has gained considerable
+    traction and been adopted across numerous sectors that previously depended on
+    Cloud ML.
 
-    These limitations motivate the relocation of inference from the cloud to the device itself, and served as the principal catalysts for research into
-    Edge ML, which seeks to optimise ML frameworks for execution on mobile edge devices and MCUs. TinyML constitutes a subfield of Edge ML concerned
-    specifically with deploying deep learning models on low-cost, highly resource-constrained MCUs through the joint optimisation of ML kernels and underlying
-    hardware to satisfy the prevailing constraints.
+    The first widely known application was simple wake-word detection for Amazon,
+    Apple, and Google \cite{davidTensorFlowLiteMicro2021}; since then, the range of
+    applications has grown significantly. In the healthcare domain, this includes
+    extensive use of wearable technology for low-cost health monitoring, which
+    demands the reliable and secure processing of sensitive personal data alongside
+    the rapid and timely detection of critical health abnormalities and emergency
+    conditions \cite{yelchuriReviewTinyML2022,linTinyMachineLearning2024}.
+    Furthermore, owing to the proximity of MCUs to sensory data and their capacity
+    to respond with minimal latency, TinyML is well suited to gesture-based
+    human--machine interaction (HMI). Such applications range from natural and
+    cost-effective real-time interaction within AR/VR environments to more
+    consequential uses, such as facilitating more intuitive control of prosthetic
+    limbs for individuals with disabilities and amputations
+    \cite{linMCUNetTinyDeep2020}.
+
+    The suitability of TinyML for these applications is best understood by contrast
+    with the approach it displaced. Historically, the only viable means of machine
+    learning (ML) and deep learning (DL) inference within IoT systems was Cloud ML.
+    This paradigm leveraged the communication capabilities of MCUs, such as Wi-Fi,
+    to transmit raw sensor data to remote servers possessing substantially greater
+    computational resources for processing, subsequently retrieving the resulting
+    commands in order to actuate physical responses \cite{linMCUNetTinyDeep2020}.
+    While this strategy exploited the full capabilities of cloud clusters and
+    relaxed the hardware requirements of IoT devices, it suffers from several
+    limitations that are particularly acute for the real-time biosignal
+    applications described above, such as the sEMG-based gesture decoding addressed
+    in this work \cite{yelchuriReviewTinyML2022}.
+
+    First, the round-trip transmission of data and commands to and from remote
+    servers introduces latency that is incompatible with the sub-50\,ms response
+    times required for natural, real-time prosthetic and human--machine
+    interaction. Second, cloud inference presupposes reliable network connectivity,
+    an assumption that fails for wearable and assistive devices intended to operate
+    continuously and in arbitrary environments \cite{linTinyMachineLearning2024}.
+    Third, the transmission of raw physiological signals over a network exposes
+    sensitive medical data to security vulnerabilities and privacy violations, a
+    concern that is especially pronounced in healthcare applications. Finally, the
+    Cloud ML paradigm necessitates the development and maintenance of potentially
+    costly server infrastructure, undermining the low-cost, self-contained
+    operation that makes wearable assistive technology widely accessible.
+
+    By performing inference directly on the device, TinyML overcomes these
+    limitations: it eliminates network round-trip latency, removes the dependence
+    on connectivity, keeps sensitive physiological data local, and avoids the cost
+    of server infrastructure, which is precisely what makes the wearable, real-time
+    applications described above feasible.
 
     \begin{figure}[H]
       \centering % Centers the image horizontally
       \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{Graphs/TinyML-Classification.png}
-      \caption{Figure from \cite{linTinyMachineLearning2024} showing the taxonomy of the TinyML field}
+      \caption{Figure from \cite{linTinyMachineLearning2024} showing the taxonomy of the TinyML field.}
       \label{fig:conv_graph}
     \end{figure}
-    \subsection{Applications of TinyML}
-    Since its emergence, TinyML has gained considerable traction and been adopted across numerous sectors that previously depended on Cloud ML.
 
-    The initial most well-known application of TinyML was simple wake-word detection for Amazon,
-    Apple and Google \cite{davidTensorFlowLiteMicro2021}. Since then, TinyML applications have grown significantly.
-    In the healthcare domain, this includes extensive applications in wearable technology for low-cost health
-    monitoring, which demands the reliable and secure
-    processing of sensitive personal data, alongside the rapid and timely detection of critical health abnormalities and emergency conditions
-    \cite{yelchuriReviewTinyML2022,linTinyMachineLearning2024}.
+    \section{Quantization}
+    Normally, Deep learning pipelines rely on floating point operations and embed their parameters (i.e weights and biases)
+    as float32s. Unfortunately, not all MCU architectures have embedded FPU (floating point units) to handle calculations
+    in floating point notations. In addition, chips that have dedicated FPUs in their architecture, for handling float32
+    data, suffer from longer processing times and resource intensive operation compared to the faster integer arithmetic
+    units \cite{krishnamoorthiQuantizingDeepConvolutional2018,jacobQuantizationTrainingNeural2017,nagelWhitePaperNeural2021}.Furthermore, floating point numbers necessitate
+    larger spaces in memory for tensor allocations (i.e inputs, outputs, model parameters and activations)
+    \cite{krishnamoorthiQuantizingDeepConvolutional2018}.
+    \\
+    For these reasons, different quantization schemes are widely adopted across TinyML literature It is also the case on many MCU platforms (like the ESP32 and ESP32s3),
+    that optimized low-level kernels for ML ops (like Convolutions and MatMuls) are exclusively written with quantization schemes, like INT8, in mind.
+    In fact, 8-bit quantization has been shown to reduce model sizes by a factor of 4 and produce a speedup gain of 2x-3x ,even 
+    10x on specialized processors, compared to float Implementations\cite{krishnamoorthiQuantizingDeepConvolutional2018}.
 
-    Furthermore, owing to the proximity of MCUs to sensory data and their capacity to respond with minimal latency, TinyML is well suited to gesture-based
-    human–machine interaction (HMI). Such applications range from enabling natural and cost-effective real-time interaction within AR/VR environments to more
-    consequential uses, such as facilitating more intuitive control of prosthetic limbs for individuals with disabilities and amputations \cite{linMCUNetTinyDeep2020}.
-  
+    On the other hand, quantization algorithms are not lossless since they map a continuous floating point representation into a discrete
+    range. A degradation in final accuracy is always expected in quantized outputs. That's why quantization pipelines require careful fine-tuning to balance
+    quality and performance.  
+    \subsection{Quantization Types and Schemes}
+    Quantization schemes have been categorized into many sections. In this work, we are going to outline schemes that are only relevant to TinyML research.
+    
+    \subsubsection{Data Types}
+    By default, popular ML frameworks like PyTorch, Tensorflow and JAX utilize single-precision floating point numbers (float32s).
+    Quantization schemes can then be categorized into the output data types that these float32s are converted to. 
+    \\\\
+    \textbf{Float16} quantization uses half the space used by float32s while maintaining the floating point interface as float32s.
+    However, float16 adoption in MCU architectures still remain rare. Most MCUs don't have dedicated kernels for handling float16s and just
+    use float32 interfaces rendering float16 optimizations completely useless. Others are unable to handle float16 data and immediately throw exceptions.
+    \\\\
+    \textbf{Int8, Int16, Int32} quantization are by far the most used. Most MCU architectures are optimized for handling integer operations which 
+    makes int quantization adoption easier and more natural. Low-Level kernels usually use a mix of various integer sizes in their internal Implementation,
+    usually inputs, outputs and weights are int8 while biases use larger formats like int32s. 
+
+    \subsubsection{Asymmetric vs symmetric quantization}
+    \textbf{symmetric} quantization restricts the zero-point to 0. It only computes the scale of the floating-point values 
+    as the ratio between the absolute maximum value in the floating point range and the maximum value in the quantization
+    range. Commonly used for quantizing weights and biases as\cite{krishnamoorthiQuantizingDeepConvolutional2018}. The
+    reason why it is preferred for weights is because using asymmetric quantization (with an additional zero-point value
+    for weights) adds an additional term to each \textbf{W . x} calculation which costs additional compute time during inference
+    \cite{nagelWhitePaperNeural2021}.
+
+    \begin{equation}
+    \begin{aligned}
+        x_{int} &= \operatorname{round}\!\left(\frac{x}{\Delta}\right) \\
+        x_{Q} &= \operatorname{clamp}\!\left(-N_{levels}/2,\; N_{levels}/2 - 1,\; x_{int}\right) && \text{if signed} \\
+        x_{Q} &= \operatorname{clamp}\!\left(0,\; N_{levels} - 1,\; x_{int}\right) && \text{if un-signed} \\
+        x_{out} &= x_{Q}\,\Delta && \text{(de-quantization)}
+    \end{aligned}
+    \end{equation}
+
+    \textbf{Asymmetric} quantization calculates an optimal new zero-point value to map the floating point zero to it. Preferred for activations.
+    \subsubsection{Quantization Aware Training (QAT) vs Post Training Quantization (PTQ)}
+    
+    \begin{equation}
+    \begin{aligned}
+        x_{int} &= \operatorname{round}\!\left(\frac{x}{\Delta}\right) + z \\
+        x_{Q} &= \operatorname{clamp}\!\left(0,\; N_{levels} - 1,\; x_{int}\right) \\
+        x_{float} &= (x_{Q} - z)\,\Delta && \text{(de-quantization)}
+    \end{aligned}
+    \end{equation}
+
+    \textbf{Post Training Quantization (PTQ)} works on quantization pre-trained DL models, trained using default floating-point numbers.
+    The quantizing algorithm takes pre-trained weights and biases and calculates the appropriate scaling and shifting parameters. For activations,
+    it uses a representative dataset (representing a sample of input values in floating space) and propagates it through the model to get a closer 
+    statistical model of how values fluctuate in the actual model in order to map it to the quantized range. PTQs are widely adopted in pipelines 
+    that aim at deploying normal, pre-trained models, usually not co-designed for TinyML use, on Edge device without having to re-train the model
+    \cite{krishnamoorthiQuantizingDeepConvolutional2018,nagelWhitePaperNeural2021}.
+    \\\\
+    \textbf{Quantization Aware Training (QAT)} involves having quantization in mind
+    during the training of the actual model, with simulated quantization applied at every
+    step of gradient descent so that the model learns to compensate for quantization noise.
+    The weights are maintained in floating point and updated using floating-point gradients,
+    while a simulated quantization operation (fake quantization) emulates the effect of
+    integer inference during the forward and backward passes. While this method can provide
+    higher accuracies than PTQ \cite{krishnamoorthiQuantizingDeepConvolutional2018,nagelWhitePaperNeural2021}, it
+    necessitates active co-design of the DL model and is not viable for quantizing all
+    available models, since it requires retraining in the presence of simulated quantization,
+    which demands additional training resources and time-consuming retraining.
+
+    \begin{equation}
+    \begin{aligned}
+        w_{float} &= w_{float} - \eta\,\frac{\partial L}{\partial w_{out}}\cdot I_{w_{out}\in(w_{min},\,w_{max})} \\
+        w_{out} &= \operatorname{SimQuant}(w_{float})
+    \end{aligned}
+    \end{equation}
+    
+    \subsubsection{Hybrid vs Full quantization}
+    \textbf{Hybrid} quantization is defined as quantizing the inputs, weights and biases only while leaving intermediate activations
+    as floating point. While this can improve final accuracy since a full quantization is not adopted and activations remain in their full floating point
+    resolution, many MCU platforms and frameworks do not fully support mixed precision computation. In addition, Hybrid models produced the overhead of having
+    to requantize activations after each neural layer which can detrimentally impact the final inference time and the needed allocation space for larger float32 intermediate
+    values.
+    \\\\
+    \textbf{Full} quantization involves the quantization of the entire Pipeline eliminating the need for intermittent requantization steps and produces faster
+    and more lightweight models since there are no intermediate floats. However, for full quantization, more overhead is needed for calculating additional quantization
+    parameters for activation layers and , depending on the quantization scheme used, may require a set of representative data to calculate those quantization parameters.
+    
+    \subsubsection{Quantization granularity}
+    Quantization can be done with varying degrees of resolution at the cost of producing an increasing amount of quantization parameters and settings.
+
+    \textbf{Per Tensor} quantization involves calculating scaling and shifting params for each tensor involved in the pipeline. 
+    This scheme is preferred for activations \cite{krishnamoorthiQuantizingDeepConvolutional2018}.
+    \\\\
+    \textbf{Per Channel} quantization involves having a set of quantization params per each channel in a tensor. This presents
+    a more granular quantization scheme as it accounts for distribution differences between individual channels in the data at hand.
+    This is the recommended method for stored weights \cite{krishnamoorthiQuantizingDeepConvolutional2018,nagelWhitePaperNeural2021}.
     \chapter{State of The Art (SoTA)}
       It is generally difficult to assemble a clear SoTA metric given the literature sparsity on Time-Series
       processing on Resource-Constrained Microcontrollers especially on specific types like EMG. So in order to 
       identify a clear SoTA body, we have to look for other studies on similar Time-Series data structures
       and other Bioelectric signals ML based processing on microcontrollers.
 
-      \subsection{ECG Classification using TinyML}
+      \section{ECG Classification using TinyML}
       Owing to the scarcity of prior work on sEMG processing under TinyML constraints, we extend our
       review to the classification of the electrocardiogram (ECG), a bioelectric signal that shares many
       characteristics with the EMG and whose embedded deployment has been studied more extensively.
@@ -626,7 +755,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
       and latency challenges posed by recurrent architectures on resource-constrained MCUs.
 
 
-      \subsection{EMG Signal Processing}
+      \section{EMG Signal Processing}
 
       The closest prior work to this thesis is a pair of studies conducted by the same group at the
       University of Bologna, which together address the complete sEMG processing pipeline, from model design
@@ -788,7 +917,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   The input block performs feature learning along the temporal and spatial
   (inter-channel) axes in sequence. The windowed signal is first expanded to
   $(B, 1, C, T)$ and passed through a temporal two-dimensional convolution with
-  $48$ output channels, a kernel of size $(1, k)$ and same padding, followed by
+  $48$ output channels, a kernel of size $(1, 51)$ and same padding, followed by
   batch normalization. A spatial convolution with a kernel of size $(C, 1)$ and
   channel-wise grouping then mixes information across the input channels, after
   which the tensor is squeezed back to $(B, 48, T)$ and subjected to a further batch
@@ -814,7 +943,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   \paragraph{Regression head.}
   The final stage is a fully connected regressor that maps the LSTM output to the
   target. It consists of linear layers with a geometric falloff that map $48 + C$ 
-  channels to the final regression output of $2$ Channels with Tanh actiavtions
+  channels to the final regression output of $2$ channels with tanh activations
   between the layers, not after output. 
 
   \subsubsection{Model Configuration}
@@ -850,14 +979,14 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
         & Layers       & 2  \\
         & Hidden size  & 56 \\
       \midrule
-      Regressor & Layers & 3 \\
+      Regressor & Layers & 2 \\
       \bottomrule
     \end{tabular}
   \end{table}
       \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{Model.pdf}
-        \caption{Deep Learning Architecture used for EMG regression by Koellner et al}
+        \caption{Deep Learning Architecture used for EMG regression by Koellner and Yang}
         \label{fig:model_arch}
       \end{figure}
 
@@ -907,7 +1036,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     single instruction across multiple data elements packed into wide vector
     registers, and supports $8$-bit, $16$-bit, and $32$-bit integer vector operations.
 
-    \subsubsection{Hardware Configuration}
+    \section{Hardware Configuration}
     Espressif boards are highly configurable, which gives them a significant edge over
     their competitors. It is important to document the configuration used in this
     implementation in order to fully characterise the hardware environment in which the
@@ -938,113 +1067,8 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     which the packed model binaries were flashed, as described in
     Section~\ref{sec:esp-nn}.
   
-  \section{Quantization}
-  Normally, Deep learning pipelines rely on floating point operations and embed their parameters (i.e weights and biases)
-  as float32s. Unfortunately, not all MCU architectures have embedded FPU (floating point units) to handle calculations
-  in floating point notations. In addition, chips that have dedicated FPUs in their architecture, for handling float32
-  data, suffer from longer processing times and resource intensive operation compared to the faster integer arithmetic
-  units \cite{krishnamoorthiQuantizingDeepConvolutional2018,jacobQuantizationTrainingNeural2017,nagelWhitePaperNeural2021}.Furthermore, floating point numbers necessitate
-  larger spaces in memory for tensor allocations (i.e inputs, outputs, model parameters and activations)
-  \cite{krishnamoorthiQuantizingDeepConvolutional2018}.
-  \\
-  For these reasons, different quantization schemes are widely adopted across TinyML literature It is also the case on many MCU platforms (like the ESP32 and ESP32s3),
-  that optimized low-level kernels for ML ops (like Convolutions and MatMuls) are exclusively written with quantization schemes, like INT8, in mind.
-  In fact, 8-bit quantization has been shown to reduce model sizes by a factor of 4 and produce a speedup gain of 2x-3x ,even 
-  10x on specialized processors, compared to float Implementations\cite{krishnamoorthiQuantizingDeepConvolutional2018}.
 
-  On the other hand, quantization algorithms are not lossless since they map a continuous floating point representation into a discrete
-  range. A degradation in final accuracy is always expected in quantized outputs. That's why quantization pipelines require careful fine-tuning to balance
-  quality and performance.  
-  \subsection{Quantization Types and Schemes}
-  Quantization schemes have been categorized into many section. In this work, we are going to outline schemes that are only relevant to TinyML research.
-  
-  \subsubsection{Data Types}
-  By default, popular frameworks like PyTorch, Tensorflow and JAX utilize single-precision floating point numbers (float32s).
-  Quantization schemes can then be categorized into the output data types that these float32s are converted to. 
-  \\\\
-  \textbf{Float16} quantization uses half the space used by float32s while maintaining the floating point interface as float32s.
-  However, float16 adoption in MCU architectures still remain rare. Most MCUs don't have dedicated kernels for handling float16s and just
-  use float32 interfaces rendering float16 optimizations completely useless. Others are unable to handle float16 data and immediately throw exceptions.
-  \\\\
-  \textbf{Int8, Int16, Int32} quantization are by far the most used. Most MCU architectures are optimized for handling integer operations which 
-  makes int quantization adoption easier and more natural. Low-Level kernels usually use a mix of various integer sizes in their internal Implementation,
-  usually inputs, outputs and weights are int8 while biases use larger formats like int32s. 
-
-  \subsubsection{Asymmetric vs symmetric quantization}
-  \textbf{symmetric} quantization restricts the zero-point to 0. It only computes the scale of the floating-point values 
-  as the ration between the absolute maximum value in the floating point range and the maximum value in the quantization
-  range. Commonly used for quantizing weights and biases as\cite{krishnamoorthiQuantizingDeepConvolutional2018}. The
-  reason why it is preferred for weights is because using asymmetric quantization (with an additional zero-point value
-  for weights) adds an additional term to each \textbf{W . x} calculation which costs additional compute time during inference
-  \cite{nagelWhitePaperNeural2021}.
-
-  \begin{equation}
-  \begin{aligned}
-      x_{int} &= \operatorname{round}\!\left(\frac{x}{\Delta}\right) \\
-      x_{Q} &= \operatorname{clamp}\!\left(-N_{levels}/2,\; N_{levels}/2 - 1,\; x_{int}\right) && \text{if signed} \\
-      x_{Q} &= \operatorname{clamp}\!\left(0,\; N_{levels} - 1,\; x_{int}\right) && \text{if un-signed} \\
-      x_{out} &= x_{Q}\,\Delta && \text{(de-quantization)}
-  \end{aligned}
-  \end{equation}
-
-  \textbf{Asymmetric} quantization calculates an optimal new zero-point value to map the floating point zero to it. Preferred for activations.
-  \subsubsection{Quantization Aware Training (QAT) vs Post Training Quantization (PTQ)}
-  
-  \begin{equation}
-  \begin{aligned}
-      x_{int} &= \operatorname{round}\!\left(\frac{x}{\Delta}\right) + z \\
-      x_{Q} &= \operatorname{clamp}\!\left(0,\; N_{levels} - 1,\; x_{int}\right) \\
-      x_{float} &= (x_{Q} - z)\,\Delta && \text{(de-quantization)}
-  \end{aligned}
-  \end{equation}
-
-  \textbf{Post Training Quantization (PTQ)} works on quantization pre-trained DL models, trained using default floating-point numbers.
-  The quantizing algorithm takes pre-trained weights and biases and calculates the appropriate scaling and shifting parameters. For activations,
-  it uses a representative dataset (representing a sample of input values in floating space) and propagates it through the model to get a closer 
-  statistical model of how values fluctuate in the actual model in order to map it to the quantized range. PTQs are widely adopted in pipelines 
-  that aim at deploying normal, pre-trained models, usually not co-designed for TinyML use, on Edge device without having to re-train the model
-  \cite{krishnamoorthiQuantizingDeepConvolutional2018,nagelWhitePaperNeural2021}.
-  \\\\
-  \textbf{Quantization Aware Training (QAT)} involves having quantization in mind
-  during the training of the actual model, with simulated quantization applied at every
-  step of gradient descent so that the model learns to compensate for quantization noise.
-  The weights are maintained in floating point and updated using floating-point gradients,
-  while a simulated quantization operation (fake quantization) emulates the effect of
-  integer inference during the forward and backward passes. While this method can provide
-  higher accuracies than PTQ \cite{krishnamoorthiQuantizingDeepConvolutional2018,nagelWhitePaperNeural2021}, it
-  necessitates active co-design of the DL model and is not viable for quantizing all
-  available models, since it requires retraining in the presence of simulated quantization,
-  which demands additional training resources and time-consuming retraining.
-
-  \begin{equation}
-  \begin{aligned}
-      w_{float} &= w_{float} - \eta\,\frac{\partial L}{\partial w_{out}}\cdot I_{w_{out}\in(w_{min},\,w_{max})} \\
-      w_{out} &= \operatorname{SimQuant}(w_{float})
-  \end{aligned}
-  \end{equation}
-  
-  \subsubsection{Hybrid vs Full quantization}
-  \textbf{Hybrid} quantization is defined as quantizing the inputs, weights and biases only while leaving intermediate activations
-  as floating point. While this can improve final accuracy since a full quantization is not adopted and activations remain in their full floating point
-  resolution, many MCU platforms and frameworks do not fully support mixed precision computation. In addition, Hybrid models produced the overhead of having
-  to requantize activations after each neural layer which can detrimentally impact the final inference time and the needed allocation space for larger float32 intermediate
-  values.
-  \\\\
-  \textbf{Full} quantization involves the quantization of the entire Pipeline eliminating the need for intermittent requantization steps and produces more faster
-  and more lightweight models since there are not intermediate floats. However, for full quantization, more overhead is needed for calculating additional quantization
-  parameters for activation layers and , depending on the quantization scheme used, may require a set of representative data to calculate those quantization parameters.s
-  
-  \subsubsection{Quantization granularity}
-  Quantization can be done with varying degrees of resolution at the cost of producing an increasing amount of quantization parameters and settings.
-
-  \textbf{Per Tensor} quantization involves calculating scaling and shifting params for each tensor involved in the pipeline. 
-  This scheme is preferred for activations \cite{krishnamoorthiQuantizingDeepConvolutional2018}.
-  \\\\
-  \textbf{Per Channel} quantization involves having a set of quantization params per each channel in a tensor. This presents
-  a more granular quantization scheme as it accounts for distribution differences between individual channels in the data at hand.
-  This is the recommended method for stored weights \cite{krishnamoorthiQuantizingDeepConvolutional2018,nagelWhitePaperNeural2021}.
-
-  \subsection{Quantization Scheme Used}
+  \section{Quantization Scheme Used}
   In this work, we opted for a PTQ quantization scheme. In order to comply with ESP-NN backend functions, we use full int8 quantization across the 
   entire model with int32 accumulators and int32 for biases as presented here \cite{jacobQuantizationTrainingNeural2017}. Since ESP-NN uses the same quantization schemes as TFlite runtime, 
   we are using per tensor asymmetric quantization for inputs and activations while using symmetric per channels quantization
@@ -1245,11 +1269,30 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   the fidelity loss introduced by the deployment pipeline itself, in isolation from any error
   intrinsic to the model.
 
+  \subsection{Evaluation Metrics}
+  The performance of the LiteRT models on the ESP32-S3 was assessed along three
+  dimensions: latency, fidelity, and memory footprint. Latency was measured in
+  microseconds. The inference times of the network stages were obtained using the
+  MicroProfiler tool provided by TensorFlow Lite Micro, with the device
+  configured such that one tick corresponds to one microsecond. The manually
+  implemented ELU stages lie outside the TensorFlow Lite Micro interpreter and
+  were therefore timed separately using the \texttt{esp\_timer} high-resolution
+  timer, which likewise reports in microseconds.
+
+  Model fidelity was quantified using the normalised mean squared error (NMSE),
+  defined as the squared error norm normalised by the variance of the reference
+  signal. This measure is dimensionless and therefore comparable across
+  configurations. For the ML-operation benchmarks, the unnormalised mean squared
+  error (MSE) was used instead, as the inputs were initialised with random
+  weights drawn from a standard normal distribution (zero mean, unit variance),
+  for which normalisation is unnecessary. All memory measurements are reported in
+  kilobytes.
+
   \chapter{Results}
   \section{Comparison of ML Ops Performance on the ESP32-S3 using Random Weights under different Quantization Schemes}
-  In order to evaluate general Model perfromance on the esp32s3, we had to create our own small benchmark to evaluate
+  In order to evaluate general Model performance on the esp32s3, we had to create our own small benchmark to evaluate
   the behavior of different data layers and how they react to different parameter changes and to int8 quantization used.
-
+  Randomly chosen weights and inputs follow the standardized normal distribution.
     \begin{figure}[H]
       \centering % Centers the image horizontally
       \includegraphics[width=0.7\textwidth]{Graphs/Dense-Layer-Inference.png} % Omit the file extension
@@ -1365,7 +1408,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     \begin{figure}[H]
       \centering % Centers the image horizontally
       \includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{Graphs/LSTM-Graph-25.png} % Omit the file extension
-      \caption{Figure shows the LSTM qunatized graph}
+      \caption{Figure shows the LSTM quanatized graph}
       \label{fig:lstm_graph_25}
     \end{figure}
 
@@ -1501,7 +1544,21 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
       \label{fig:per_stge_latency_window_linear}
     \end{figure}
 
-    
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.7\textwidth]{Graphs/train_trial_quantization_nmse.png}
+      \caption{Average NMSE for the selected training-set trials under full-dataset
+      calibration.}
+      \label{fig:train_quantization_nmse}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.7\textwidth]{Graphs/test_trials_qunatization_nmse.png}
+      \caption{Average NMSE for the selected test-set trials under full-dataset
+      calibration.}
+      \label{fig:test_quantization_nmse}
+  \end{figure}
     % \begin{table}[htbp]
     %   \centering
     %   \caption{Model B (float32) performance on the ESP32-S3.}
@@ -1538,11 +1595,8 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   \subsection{Numerical Fidelity Under Quantization}
 
   As expected, quantization introduces a measurable degradation in numerical fidelity.
-  Fidelity is quantified using a normalised mean squared error (NMSE), defined as the
-  squared error norm normalised by the variance of the reference signal; this is
-  dimensionless and comparable across configurations. The floating-point model attains a
-  consistent NMSE of approximately $1.09\times10^{-10}$, a value attributable to
-  floating-point rounding noise rather than algorithmic error.
+  The floating-point model attains a consistent NMSE of approximately $1.09\times10^{-10}$,
+  a value attributable to floating-point rounding noise rather than algorithmic error.
 
   We first assess quantization fidelity under trial-specific calibration, in which the
   quantization parameters are calibrated on the same trial used for evaluation. This
@@ -1558,7 +1612,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   absolute terms.
 
   Calibrating instead on the entire training set and evaluating across multiple trials,
-  unifromly picked from the set,
+  uniformly picked from the set,
   yields a more demanding and realistic assessment, as a single set of quantization
   parameters must now generalise across recordings rather than being fitted to the trial
   under test. Figure~\ref{fig:train_quantization_nmse} reports the resulting average NMSE
@@ -1568,25 +1622,9 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
 
   Crucially, no evidence of systematic degradation is found across the held-out test
   trials. Figure~\ref{fig:test_quantization_nmse} reports the average NMSE on the
-  test-set trials, unifromly picked from the set. More than half attain an average NMSE 
+  test-set trials, uniformly picked from the set. More than half attain an average NMSE 
   at or below $0.2$, and about $85\%$ remain below $0.4$, with the four largest values 
   reaching only approximately $0.56$ to $0.73$; with one test trial exceeding $1.0$.
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.7\textwidth]{Graphs/train_trial_quantization_nmse.png}
-      \caption{Average NMSE for the selected training-set trials under full-dataset
-      calibration.}
-      \label{fig:train_quantization_nmse}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.7\textwidth]{Graphs/test_trials_qunatization_nmse.png}
-      \caption{Average NMSE for the selected test-set trials under full-dataset
-      calibration.}
-      \label{fig:test_quantization_nmse}
-  \end{figure}
 
   A closer inspection of the per-window errors reveals that even these higher trial-level
   averages are not representative of the typical window, but are instead dominated by a
@@ -1690,7 +1728,88 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   recommending quantization-aware training methods, which lie beyond the scope of
   this work.
 
+  \section{Limitations}
+  Several limitations of this work merit discussion.
+
+  First, the pipeline did not achieve the real-time inference latency defined in the
+  literature. Our most optimised configuration required approximately $1{,}500$~ms per
+  window at a window length of $500$ samples, and approximately $150$~ms at a window
+  length of $50$ samples. The latter figure is, in fact, within the $100$--$300$~ms
+  upper bound that the literature identifies as the maximum tolerable end-to-end latency
+  for closed-loop myoelectric control, though it lies at the upper edge of the
+  $50$--$150$~ms range associated with fluid and intuitive interaction; the former,
+  by contrast, exceeds both bounds by an order of magnitude. During the experiments we attempted
+  a platform-specific implementation of the two-layer LSTM, but it produced numerically inaccurate
+  outputs and was therefore discontinued within the scope of this thesis. Notably, even this
+  implementation, setting its accuracy aside, reduced the per-step LSTM latency from
+  $5.2$~ms to $3$~ms and the total window latency to $942$~ms. This indicates that even
+  had the optimised LSTM been numerically reliable, sub-$100-300$~ms latency would still have
+  been unattainable at the standard window length, locating the latency bottleneck in the
+  model architecture itself rather than in the quantisation or implementation strategy.
+
+  Second, the scope of this thesis was confined to the implementation of the
+  provided model architecture, which was adopted without modification. This is a
+  relevant consideration, as it has been argued that purely convolutional (TCN)
+  architectures can be more reliable than recurrent (RNN) architectures for
+  capturing temporal dependencies in sEMG data \cite{zanghieriRobustRealTimeEmbedded2020};
+  a systematic comparison between the two paradigms on the target hardware therefore
+  remains outside the scope of the present work.
+
+  Third, we deliberately adopted a cross-platform approach, seeking to avoid
+  tying the pipeline to any single hardware target. Although all experiments were
+  conducted on ESP32 chips, the pipeline is readily generalisable, as it relies on
+  the industry-standard LiteRT framework. While LiteRT and TensorFlow Lite Micro
+  map operations to native kernel backends, the final performance could nonetheless
+  benefit substantially from platform-specific optimisations that this work did not pursue.
+
+  Fourth, although several LSTM quantisation schemes were investigated, none yielded
+  reliable results. This outcome is attributable to a number of factors that warrant
+  further investigation before faster and more dependable quantisation of recurrent
+  layers can be achieved.
+
+  Finally, because the model was supplied pre-trained, quantisation-aware training (QAT)
+  was not explored in depth. Several studies nonetheless report considerable benefits of
+  QAT over simpler post-training quantisation (PTQ) schemes, suggesting a promising
+  direction for improvement. Additionally, alternative quantisation schemes such as hybrid
+  and int16 quantisation were not examined, owing to their incompatibility with the
+  Espressif platforms targeted in this work.
+
 \chapter{Conclusion}
+
+  \section{Future Work}
+    The limitations identified above suggest several promising directions for future research.
+
+    First, because the latency bottleneck is architectural, achieving real-time inference will
+    require modifications to the model itself. Promising candidates include increasing the
+    downsampling factor, reducing the LSTM to a single layer, replacing the LSTM with the more
+    lightweight GRU, or removing the recurrent module altogether. Such changes would reduce the
+    end-to-end latency and may bring it within the real-time budget.
+
+    Second, the deployment pipeline could be evaluated across a broader range of model
+    architectures. In particular, a systematic comparison between the recurrent (LSTM-based)
+    model studied here and a purely convolutional (TCN) counterpart, conducted directly on the
+    target hardware, would clarify the trade-offs between accuracy, memory footprint, and
+    inference latency for each paradigm under realistic embedded constraints.
+
+    Third, while the cross-platform design of the pipeline favours portability, future work
+    could quantify the performance gains attainable through platform-specific optimisation.
+    Deploying the pipeline on hardware with dedicated neural-network acceleration, or
+    substituting hand-optimised kernels for the default backend, would establish how much
+    additional efficiency can be recovered without sacrificing the framework's generality.
+
+    Fourth, the difficulties encountered in quantising the recurrent layers motivate a dedicated
+    investigation into reliable quantisation of LSTM and other RNN-based components. Identifying
+    the sources of instability, and developing or adopting quantisation strategies tailored to
+    recurrent computation, would directly address one of the central implementation challenges
+    of this work.
+
+    Finally, the quantisation methodology itself could be extended. Incorporating
+    quantisation-aware training (QAT), provided the training pipeline is made available, may
+    yield accuracy improvements over the post-training quantisation employed here. Likewise,
+    evaluating alternative schemes such as hybrid and int16 quantisation on hardware platforms
+    that support them would help characterise the full design space of accuracy-versus-efficiency
+    trade-offs for embedded sEMG regression.
+
   \section{Conclusion}
     This thesis investigated the feasibility of deploying a convolutional--recurrent sEMG
     gesture-regression model on commodity, resource-constrained microcontroller hardware
@@ -1702,7 +1821,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     Our central contribution is the modular deployment pipeline. By partitioning the network
     into four independently exportable stages and exporting the LSTM as a windowed block
     invoked repeatedly within an on-device loop rather than unrolled across the full sequence,
-    we reduced the model footprint from over $1.5$~MB to approximately $260$~KB and enabled
+    we reduced the model footprint from over $2.8$~MB to approximately $260$~KB and enabled
     mixed-precision deployment. Two graph-level transformations, folding batch normalization
     into preceding convolutions and reformulating Conv1D as Conv2D, were necessary to obtain
     correct and efficient quantized stages.
@@ -1723,63 +1842,6 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     cheap, widely available hardware without hardware-model co-design, while exposing the
     recurrent layer as the principal remaining obstacle, one rooted in current framework and
     kernel support rather than in any fundamental barrier.
-  \section{Limitations}
-  Several limitations of this work merit discussion.
-
-  First, the scope of this thesis was confined to the implementation of the
-  provided model architecture, which was adopted without modification. This is a
-  relevant consideration, as it has been argued that purely convolutional (TCN)
-  architectures can be more reliable than recurrent (RNN) architectures for
-  capturing temporal dependencies in sEMG data \cite{zanghieriRobustRealTimeEmbedded2020};
-  a systematic comparison between the two paradigms on the target hardware therefore
-  remains outside the scope of the present work.
-
-  Second, we deliberately adopted a cross-platform approach, seeking to avoid
-  tying the pipeline to any single hardware target. Although all experiments were
-  conducted on ESP32 chips, the pipeline is readily generalisable, as it relies on
-  the industry-standard LiteRT framework. While LiteRT and TensorFlow Lite Micro
-  map operations to native kernel backends, the final performance could nonetheless
-  benefit substantially from platform-specific optimisations that this work did not pursue.
-
-  Third, although several LSTM quantisation schemes were investigated, none yielded
-  reliable results. This outcome is attributable to a number of factors that warrant
-  further investigation before faster and more dependable quantisation of recurrent
-  layers can be achieved.
-
-  Finally, because the model was supplied pre-trained, quantisation-aware training (QAT)
-  was not explored in depth. Several studies nonetheless report considerable benefits of
-  QAT over simpler post-training quantisation (PTQ) schemes, suggesting a promising
-  direction for improvement. Additionally, alternative quantisation schemes such as hybrid
-  and int16 quantisation were not examined, owing to their incompatibility with the
-  Espressif platforms targeted in this work.
-
-\section{Future Work}
-  The limitations identified above suggest several promising directions for future research.
-
-  First, the deployment pipeline could be evaluated across a broader range of model
-  architectures. In particular, a systematic comparison between the recurrent (LSTM-based)
-  model studied here and a purely convolutional (TCN) counterpart, conducted directly on the
-  target hardware, would clarify the trade-offs between accuracy, memory footprint, and
-  inference latency for each paradigm under realistic embedded constraints.
-
-  Second, while the cross-platform design of the pipeline favours portability, future work
-  could quantify the performance gains attainable through platform-specific optimisation.
-  Deploying the pipeline on hardware with dedicated neural-network acceleration, or
-  substituting hand-optimised kernels for the default backend, would establish how much
-  additional efficiency can be recovered without sacrificing the framework's generality.
-
-  Third, the difficulties encountered in quantising the recurrent layers motivate a dedicated
-  investigation into reliable quantisation of LSTM and other RNN-based components. Identifying
-  the sources of instability, and developing or adopting quantisation strategies tailored to
-  recurrent computation, would directly address one of the central implementation challenges
-  of this work.
-
-  Finally, the quantisation methodology itself could be extended. Incorporating
-  quantisation-aware training (QAT), provided the training pipeline is made available, may
-  yield accuracy improvements over the post-training quantisation employed here. Likewise,
-  evaluating alternative schemes such as hybrid and int16 quantisation on hardware platforms
-  that support them would help characterise the full design space of accuracy-versus-efficiency
-  trade-offs for embedded sEMG regression.
 
 % \appendix
 % \chapter{Additionally}
