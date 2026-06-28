@@ -11,52 +11,52 @@ Database file #1: refs.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in linTinyMachineLearning2024
 Warning--empty journal in jonasPrePrint
 Warning--empty year in jonasPrePrint
 Warning--missing publisher in mohapatraHandGestureClassification2024
-Warning--empty journal in linTinyMachineLearning2024
 Warning--empty journal in faraoneConvolutionalRecurrentNeuralNetworks2020
 
 Done.
-You've used 29 entries,
+You've used 30 entries,
             4186 wiz_defined-function locations,
-            1012 strings with 15604 characters,
-and the built_in function-call counts, 19888 in all, are:
-= -- 1523
-> -- 649
-< -- 118
-+ -- 329
-- -- 136
-* -- 964
-:= -- 2935
-add.period$ -- 58
-call.type$ -- 29
-change.case$ -- 28
-chr.to.int$ -- 234
-cite$ -- 34
-duplicate$ -- 1527
-empty$ -- 1565
-format.name$ -- 162
-if$ -- 4524
+            1019 strings with 15989 characters,
+and the built_in function-call counts, 21086 in all, are:
+= -- 1617
+> -- 692
+< -- 131
++ -- 353
+- -- 144
+* -- 1025
+:= -- 3095
+add.period$ -- 60
+call.type$ -- 30
+change.case$ -- 29
+chr.to.int$ -- 264
+cite$ -- 35
+duplicate$ -- 1606
+empty$ -- 1645
+format.name$ -- 171
+if$ -- 4803
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 313
-newline$ -- 110
-num.names$ -- 28
-pop$ -- 776
+int.to.str$ -- 30
+missing$ -- 328
+newline$ -- 113
+num.names$ -- 29
+pop$ -- 808
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1499
+skip$ -- 1589
 stack$ -- 0
-substring$ -- 620
-swap$ -- 1228
-text.length$ -- 40
+substring$ -- 691
+swap$ -- 1307
+text.length$ -- 43
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 29
+type$ -- 30
 warning$ -- 5
-while$ -- 78
-width$ -- 31
-write$ -- 279
+while$ -- 83
+width$ -- 32
+write$ -- 290
 (There were 5 warnings)

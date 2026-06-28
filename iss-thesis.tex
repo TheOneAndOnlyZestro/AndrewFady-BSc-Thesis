@@ -338,6 +338,86 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
 % *****************************************************************
 % -------------------> start writing here <------------------------
 
+\chapter{Introduction}
+    Human--machine interaction (HMI) aims towards interfaces that feel natural rather
+    than mechanical, in which a system responds to a person's intended movement as
+    fluidly as a limb responds to its owner \cite{zhengSurfaceElectromyographyNatural2022,valchevaSurfaceEMGDriven2026}.
+    Hand gestures are central to this goal: beyond enabling more natural and accessible communication
+    for users of diverse abilities, they underpin prosthetic and rehabilitation devices that allow
+    individuals with limb differences or impairments to interact with technology
+    seamlessly, and the ability to interpret and reproduce natural hand movement is
+    likewise essential to tools that support the recovery of motor skills after injury
+    or illness \cite{niSurveyHandGesture2024}. Among the available control modalities,
+    the decoding of hand and wrist gestures from surface electromyography (sEMG) is
+    especially compelling, because it reads the electrical intent of muscle activation
+    directly and so offers a more immediate channel of communication than buttons or
+    touchscreens. It also holds a practical advantage over camera-based approaches:
+    vision systems depend on controlled illumination and an unobstructed line of sight
+    for reliable performance, and typically rely on more complex machine-learning
+    pipelines, whereas a body-worn sEMG sensor is unaffected by lighting or occlusion
+    and captures muscle intent at its source \cite{niSurveyHandGesture2024}.
+    
+    Two applications make this capability particularly consequential. The first is immersive
+    interaction: gesture decoding enables natural, hands-free control within
+    augmented- and virtual-reality environments and other wearable systems, where
+    continuous estimation of movement is more expressive than the recognition of a
+    fixed set of discrete poses. The second, and more socially significant, is
+    assistive technology: for individuals living with amputation or limb difference, an
+    sEMG interface that continuously and proportionally estimates intended movement is
+    the foundation of a myoelectric prosthesis that can be controlled smoothly and
+    intuitively, restoring a measure of natural function and independence.
+
+    Despite these applications, such systems remain far from widely available. Accurate
+    gesture decoding has historically depended either on costly, specialized
+    hardware or on offloading computation to remote servers, an arrangement that
+    raises several barriers for everyday users \cite{salmingerCurrentRatesProsthetic2022}. Hardware that is powerful enough to
+    run modern deep-learning models is expensive, placing capable prosthetic
+    and HMI devices beyond the reach of many who would benefit most from them. The
+    alternative, cloud-based inference, lowers the on-device hardware requirement but
+    ties the user to continuous network connectivity, introduces communication
+    latency that is incompatible with real-time control, and transmits sensitive
+    physiological data off the device, raising privacy and reliability concerns that
+    are detrimental to medical and assistive applications \cite{linTinyMachineLearning2024,yelchuriReviewTinyML2022}.
+    In both cases the result is the same: a technology of considerable human value that is, in
+    practice, inaccessible, costly, or dependent on a system that cannot be
+    guaranteed.
+    
+    This motivates doing gesture-decoding inference onto
+    low-cost, self-contained microcontroller hardware. A microcontroller-based
+    implementation removes the dependence on remote servers and the connectivity it
+    requires and keeps physiological data local to the device without the need
+    expensive accelerators, thereby addressing all of the concerns above. However, deployment
+    of deep learning pipelines on resource constrained systems is not
+    straightforward, and it is precisely this deployment challenge that the
+    present thesis addresses through the field of TinyML.
+
+    This thesis investigates the deployment of a convolutional--recurrent sEMG
+    gesture-regression model on a commodity and a widely available resource-constrained microcontroller, 
+    the ESP32-S3, using a portable, non-destructive methodology. A pre-trained PyTorch
+    network is adapted for embedded inference through the industry-standard LiteRT
+    framework without retraining or altering its architecture. To this end, a modular
+    pipeline partitions the network into independently exportable stages, exports the
+    LSTM as a windowed block invoked repeatedly on the device, and applies a series of
+    graph-level transformations to obtain efficient quantized stages, enabling a
+    mixed-precision deployment in which integer and floating-point stages operate
+    alongside one another.
+
+    The work is organized as follows. Chapter~2 establishes the
+    necessary background, covering bioelectric signals and sEMG, the classical and
+    deep-learning approaches to gesture decoding, the constraints of microcontroller
+    platforms, the TinyML paradigm, and the principles of model quantization.
+    Chapter~3 surveys the state of the art in embedded biosignal processing, drawing
+    on both ECG and sEMG work, and identifies the specific gaps in the literature
+    that motivate this work. Chapter~4 describes the materials and methods: the
+    NinaPro DB2 dataset and its preprocessing, the deep-learning architecture, the
+    ESP32-S3 hardware platform, the quantization scheme, the software tools, and the
+    modular deployment pipeline together with the graph-level transformations it
+    required. Chapter~5 presents the experimental results, encompassing an
+    operation-level benchmark of model primitives, a computational-complexity
+    analysis, and a comparison of complete model configurations. Chapter~6 discusses
+    these results in depth, and Chapter~7 concludes the thesis and outlines
+    directions for future work.
+
 \chapter{Basics and Foundations}
   \section{EMG and Deep Learning Pipelines for Bioelectric Signal Processing}
     \subsection{Bioelectric Signals and Human Machine Interaction (HMI)}
@@ -364,6 +444,13 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     as their waveforms, firing rates, and the frequency of abrupt discharges, to derive
     diagnostic information for identifying abnormalities and various neural and muscular
     diseases.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.7\textwidth]{Graphs/EMG-Origin.png}
+      \caption{The diagram shows the origin of the EMG signal \cite{zhengSurfaceElectromyographyNatural2022}.}
+      \label{fig:emg-origin}
+    \end{figure}
 
     The recording of EMG signals is broadly divided into two categories. The first is
     intramuscular electromyography (iEMG), an invasive technique in which concentric needle
@@ -431,6 +518,13 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     learn task-relevant representations directly from the raw or minimally processed signal. This section
     surveys both, establishing the context for the resource-constrained deployment that this
     thesis addresses.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.7\textwidth]{Graphs/ML-Vs-DL.png}
+      \caption{The process of ML based pipelines vs DL based pipelines from \cite{niSurveyHandGesture2024}.}
+      \label{fig:ml-vs-dl}
+    \end{figure}
 
     \subsubsection{Classical Machine Learning Approaches}
 
@@ -546,7 +640,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     in this work \cite{yelchuriReviewTinyML2022}.
 
     First, the round-trip transmission of data and commands to and from remote
-    servers introduces latency that is incompatible with the sub-50\,ms response
+    servers introduces latency that is incompatible with the sub-200\,ms response
     times required for natural, real-time prosthetic and human--machine
     interaction. Second, cloud inference presupposes reliable network connectivity,
     an assumption that fails for wearable and assistive devices intended to operate
@@ -676,6 +770,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
     \textbf{Per Channel} quantization involves having a set of quantization params per each channel in a tensor. This presents
     a more granular quantization scheme as it accounts for distribution differences between individual channels in the data at hand.
     This is the recommended method for stored weights \cite{krishnamoorthiQuantizingDeepConvolutional2018,nagelWhitePaperNeural2021}.
+  
     \chapter{State of The Art (SoTA)}
       It is generally difficult to assemble a clear SoTA metric given the literature sparsity on Time-Series
       processing on Resource-Constrained Microcontrollers especially on specific types like EMG. So in order to 
@@ -811,7 +906,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
       with a segmented, mixed-precision model pipeline, trading a degree of raw efficiency for portability and
       reproducibility on commodity hardware.
 
-    \chapter{Motivation}
+      \section{Important Gaps}
 
       Our review of the literature on TinyML-based processing of sEMG signals revealed a
       notable gap: few existing implementations employ general-purpose inference frameworks
@@ -952,7 +1047,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   uses a dropout rate of $0.5$ throughout, a downsampling stride of $2$, and a
   two-layer LSTM with a hidden size of $56$. The input block employs an undilated
   temporal convolution with a wide kernel: a kernel size of $51$, $48$ output
-  channels, and a dilation of $1$, with the regression head comprising three layers.
+  channels, and a dilation of $1$, with the regression head comprising two layers.
   The configuration is summarized in Table~\ref{tab:model_configs}.
 
   \begin{table}[htbp]
@@ -986,7 +1081,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
       \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{Model.pdf}
-        \caption{Deep Learning Architecture used for EMG regression by Koellner and Yang}
+        \caption{Deep Learning Architecture used for EMG regression by Koellner and Yang.}
         \label{fig:model_arch}
       \end{figure}
 
@@ -1225,6 +1320,7 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   deployment, allowing accurate floating-point recurrent stages to operate alongside
   optimized \texttt{int8} convolutional stages.
 
+
   \subsection{Graph-Level Transformations for Quantization}
   \label{sec:graph_mod}
   Three non-destructive transformations of the model graph were required to obtain correct
@@ -1287,6 +1383,17 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
   weights drawn from a standard normal distribution (zero mean, unit variance),
   for which normalisation is unnecessary. All memory measurements are reported in
   kilobytes.
+
+  Moreover, window sizes are reported in the results section in terms of samples.
+  The corresponding temporal span is obtained by dividing the sample count by the
+  sampling rate:
+  \begin{equation}
+    T_{\text{win}} = \frac{N}{f_s},
+  \end{equation}
+  where $T_{\text{win}}$ is the window span in seconds, $N$ the window size in
+  samples, and $f_s$ the sampling rate in hertz. For the NinaPro DB2 recordings
+  used here, sampled at $f_s = 2$~kHz, a window of $N = 500$~samples therefore
+  corresponds to a span of $250$~ms.
 
   \chapter{Results}
   \section{Comparison of ML Ops Performance on the ESP32-S3 using Random Weights under different Quantization Schemes}
@@ -1696,13 +1803,35 @@ Pro-gramm-aus-schnitt Mi-kro-fon-sig-nal}
 
   \subsection{Window Length}
 
-  Window length plays a decisive role in overall pipeline latency and is arguably
-  the single most influential contributor to the end-to-end timing. Our results
-  demonstrate a near-linear relationship between window length and the time required
-  to produce an inference over a complete window: in the floating-point configuration,
-  the mean per-window latency increases from approximately $298{,}232$~\textmu s at a
-  window length of $50$ to $3{,}244{,}354$~\textmu s at a window length of $500$,
-  corresponding to an essentially constant per-sample cost of roughly $6{,}000$~\textmu s.
+  Our results show a near-linear relationship between the window length and the
+  per-window inference latency: in the floating-point configuration, the mean
+  per-window latency rises from approximately $156{,}982$~\textmu s at a window
+  length of $50$ to $1{,}579{,}754$~\textmu s at $500$ Table~\ref{tab:int8_model_A}, an essentially constant
+  per-sample cost of roughly $3{,}000$~\textmu s.
+
+  This growth does not, however, translate into a proportional change in the time
+  required to process a complete trial. Because each trial has a fixed length and
+  the windows are non-overlapping, a longer window is offset by proportionally
+  fewer windows per trial, so the two effects cancel and the total work per trial
+  is approximately invariant to the window length. At the level of trial
+  throughput the choice of window length is therefore largely neutral, and the
+  per-window figures above should not be read as an end-to-end cost that grows
+  with window size.
+
+  The window length nonetheless matters for deployment by way of the sampling
+  frequency. The number of samples in a window is set jointly by the temporal
+  span it covers and the rate at which the signal is sampled. For a fixed
+  real-time span, for instance the $250$~ms commonly adopted for myoelectric
+  control, the sample count, and hence the per-window cost, scales directly with
+  the sampling rate. The NinaPro DB2 recordings used here are sampled at
+  $2$~kHz, so a $250$~ms window comprises $500$~samples, the largest configuration
+  evaluated. Sampling the same span at $1$~kHz would halve the count to $250$
+  and, by the near-linear relationship above, roughly halve the per-window
+  latency, as borne out by the measured drop from $1{,}579{,}754$~\textmu s at
+  $500$~samples to $788{,}276$~\textmu s at $250$. Subject to the
+  signal-fidelity constraints of the application, the sampling frequency is thus a
+  direct means of improving latency budget without altering the window
+  span or the model architecture.
 
   \subsection{Quantization of the Recurrent and Regression Stages}
 

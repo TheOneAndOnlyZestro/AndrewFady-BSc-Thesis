@@ -20,14 +20,26 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{martinekAdvancedBioelectricalSignal2021}
-R.~Martinek, M.~Ladrova, M.~Sidikova, R.~Jaros, K.~Behbehani, R.~Kahankova and A.~{Kawala-Sterniuk}, ``Advanced {{Bioelectrical Signal Processing Methods}}: {{Past}}, {{Present}} and {{Future Approach}}---{{Part I}}: {{Cardiac Signals}},'' \emph{Sensors}, vol.~21, no.~15, p. 5186, Jul. 2021.
-
 \bibitem{zhengSurfaceElectromyographyNatural2022}
 M.~Zheng, M.~Crouch and M.~Eggleston, ``Surface {{Electromyography}} as a {{Natural Human-Machine Interface}}: {{A Review}},'' \emph{IEEE Sensors Journal}, vol.~22, pp. 1--1, May 2022.
 
 \bibitem{valchevaSurfaceEMGDriven2026}
 I.~V. Valcheva, V.~Gandhi and E.~Chinellato, ``Surface {{EMG}} driven gesture recognition using machine learning for robotic applications,'' \emph{Discover Robotics}, vol.~2, no.~1, p.~4, Feb. 2026.
+
+\bibitem{niSurveyHandGesture2024}
+S.~Ni, M.~A.~A. {Al-qaness}, A.~Hawbani, D.~{Al-Alimi}, M.~Abd~Elaziz and A.~A. Ewees, ``A survey on hand gesture recognition based on surface electromyography: {{Fundamentals}}, methods, applications, challenges and future trends,'' \emph{Applied Soft Computing}, vol. 166, p. 112235, Nov. 2024.
+
+\bibitem{salmingerCurrentRatesProsthetic2022}
+S.~Salminger, H.~Stino, L.~H. Pichler, C.~Gstoettner, A.~Sturma, J.~A. Mayer, M.~Szivak and O.~C. Aszmann, ``Current rates of prosthetic usage in upper-limb amputees - have innovations had an impact on device acceptance?'' \emph{Disability and Rehabilitation}, vol.~44, no.~14, pp. 3708--3713, Jul. 2022.
+
+\bibitem{linTinyMachineLearning2024}
+J.~Lin, L.~Zhu, W.-M. Chen, W.-C. Wang and S.~Han, ``Tiny {{Machine Learning}}: {{Progress}} and {{Futures}},'' 2024.
+
+\bibitem{yelchuriReviewTinyML2022}
+H.~Yelchuri and R.~R, ``A review of {{TinyML}},'' 2022.
+
+\bibitem{martinekAdvancedBioelectricalSignal2021}
+R.~Martinek, M.~Ladrova, M.~Sidikova, R.~Jaros, K.~Behbehani, R.~Kahankova and A.~{Kawala-Sterniuk}, ``Advanced {{Bioelectrical Signal Processing Methods}}: {{Past}}, {{Present}} and {{Future Approach}}---{{Part I}}: {{Cardiac Signals}},'' \emph{Sensors}, vol.~21, no.~15, p. 5186, Jul. 2021.
 
 \bibitem{jonasPrePrint}
 {Jonas Koellner} and {Bin Yang}, ``Towards natural wrist-hand motion: A lightweight neural network for proportional {{EMG-driven}} prosthetic control.''
@@ -53,9 +65,6 @@ A.~Phinyomark, P.~Phukpattaranont and C.~Limsakul, ``Feature {{Reduction}} and {
 \bibitem{cote-allardInterpretingDeepLearning2020}
 U.~{C{\^o}t{\'e}-Allard}, E.~Campbell, A.~Phinyomark, F.~Laviolette, B.~Gosselin and E.~Scheme, ``Interpreting {{Deep Learning Features}} for {{Myoelectric Control}}: {{A Comparison}} with {{Handcrafted Features}},'' \emph{Frontiers in Bioengineering and Biotechnology}, vol.~8, p. 158, Mar. 2020.
 
-\bibitem{niSurveyHandGesture2024}
-S.~Ni, M.~A.~A. {Al-qaness}, A.~Hawbani, D.~{Al-Alimi}, M.~Abd~Elaziz and A.~A. Ewees, ``A survey on hand gesture recognition based on surface electromyography: {{Fundamentals}}, methods, applications, challenges and future trends,'' \emph{Applied Soft Computing}, vol. 166, p. 112235, Nov. 2024.
-
 \bibitem{t.HandGestureClassification2024}
 P.~T., V.~K. Elumalai and B.~E., ``Hand gesture classification framework leveraging the entropy features from {{sEMG}} signals and {{VMD}} augmented multi-class {{SVM}},'' \emph{Expert Systems with Applications}, vol. 238, p. 121972, Mar. 2024.
 
@@ -68,14 +77,8 @@ M.~Zanghieri, S.~Benatti, A.~Burrello, V.~Kartsch, F.~Conti and L.~Benini, ``Rob
 \bibitem{zhongDeepFeatureLearning2026}
 W.~Zhong, X.~Jiang, K.~Szymaniak, M.~Jabbari, C.~Ma and K.~Nazarpour, ``Deep {{Feature Learning From Electromyographic Signals}} for {{Gesture Recognition Systems}},'' \emph{IEEE Transactions on Neural Systems and Rehabilitation Engineering}, vol.~34, pp. 20--35, 2026.
 
-\bibitem{yelchuriReviewTinyML2022}
-H.~Yelchuri and R.~R, ``A review of {{TinyML}},'' 2022.
-
 \bibitem{linMCUNetTinyDeep2020}
 J.~Lin, W.-M. Chen, Y.~Lin, J.~Cohn, C.~Gan and S.~Han, ``{{MCUNet}}: {{Tiny Deep Learning}} on {{IoT Devices}},'' 2020.
-
-\bibitem{linTinyMachineLearning2024}
-J.~Lin, L.~Zhu, W.-M. Chen, W.-C. Wang and S.~Han, ``Tiny {{Machine Learning}}: {{Progress}} and {{Futures}},'' 2024.
 
 \bibitem{davidTensorFlowLiteMicro2021}
 R.~David, J.~Duke, A.~Jain, V.~J. Reddi, N.~Jeffries, J.~Li, N.~Kreeger, I.~Nappier, M.~Natraj, S.~Regev, R.~Rhodes, T.~Wang and P.~Warden, ``{{TensorFlow Lite Micro}}: {{Embedded Machine Learning}} on {{TinyML Systems}},'' Mar. 2021.

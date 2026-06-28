@@ -1,19 +1,19 @@
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces Comparison of commercially available MCUs for edge ML applications.}}{5}{table.caption.4}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Comparison of commercially available MCUs for edge ML applications.}}{7}{table.caption.6}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Hyperparameter configuration of the evaluated model.}}{21}{table.caption.22}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Hyperparameter configuration of the evaluated model.}}{19}{table.caption.20}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Conv2D layers performance on the ESP32-S3.}}{28}{table.caption.25}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Conv2D layers performance on the ESP32-S3.}}{28}{table.caption.26}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces LSTM layers performance on the ESP32-S3.}}{31}{table.caption.29}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces LSTM layers performance on the ESP32-S3.}}{32}{table.caption.30}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Multiply--accumulate operations per model stage across input window sizes.}}{35}{table.caption.32}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces Model A (float32) performance on the ESP32-S3.}}{36}{table.caption.33}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces Model A (float32) memory footprint on the ESP32-S3.}}{36}{table.caption.34}%
-\contentsline {table}{\numberline {5.8}{\ignorespaces Model A (int8 A,B, ELU stages) performance on the ESP32-S3.}}{37}{table.caption.35}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces Model A (int8 A,B, ELU stages) footprint on the ESP32-S3.}}{37}{table.caption.36}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Conv2D layers performance on the ESP32-S3.}}{30}{table.caption.27}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Conv2D layers performance on the ESP32-S3.}}{30}{table.caption.28}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces LSTM layers performance on the ESP32-S3.}}{33}{table.caption.31}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces LSTM layers performance on the ESP32-S3.}}{34}{table.caption.32}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Multiply--accumulate operations per model stage across input window sizes.}}{37}{table.caption.34}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces Model A (float32) performance on the ESP32-S3.}}{38}{table.caption.35}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Model A (float32) memory footprint on the ESP32-S3.}}{38}{table.caption.36}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces Model A (int8 A,B, ELU stages) performance on the ESP32-S3.}}{39}{table.caption.37}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces Model A (int8 A,B, ELU stages) footprint on the ESP32-S3.}}{39}{table.caption.38}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

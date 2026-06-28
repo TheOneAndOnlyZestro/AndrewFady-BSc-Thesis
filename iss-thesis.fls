@@ -335,6 +335,11 @@ INPUT ./iss-thesis.toc
 INPUT ./iss-thesis.toc
 INPUT iss-thesis.toc
 OUTPUT iss-thesis.toc
+INPUT ./Graphs/EMG-Origin.png
+INPUT ./Graphs/EMG-Origin.png
+INPUT ./Graphs/EMG-Origin.png
+INPUT ./Graphs/EMG-Origin.png
+INPUT ./Graphs/EMG-Origin.png
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/vf/public/txfonts/t1xb.vf
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/txfonts/rtxptmb.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/txfonts/rtxb.tfm
@@ -343,6 +348,11 @@ INPUT /usr/local/texlive/2026/texmf-dist/fonts/vf/public/txfonts/txr.vf
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/vf/public/txfonts/t1xi.vf
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/txfonts/rtxptmri.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/txfonts/rtxi.tfm
+INPUT ./Graphs/ML-Vs-DL.png
+INPUT ./Graphs/ML-Vs-DL.png
+INPUT ./Graphs/ML-Vs-DL.png
+INPUT ./Graphs/ML-Vs-DL.png
+INPUT ./Graphs/ML-Vs-DL.png
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/vf/public/txfonts/txmi.vf
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/txfonts/rtxmi.tfm
 INPUT ./tables/mcu_specs.tex
@@ -408,6 +418,7 @@ INPUT ./Model.pdf
 INPUT ./Model.pdf
 INPUT ./Model.pdf
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/txfonts/t1xtt.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/vf/public/txfonts/t1xr.vf
 INPUT ./Graphs/Dense-Layer-Inference.png
 INPUT ./Graphs/Dense-Layer-Inference.png
 INPUT ./Graphs/Dense-Layer-Inference.png
